@@ -277,6 +277,15 @@ figcaption{
 /* about */
 .about-grid{display:grid;gap:3rem;max-width:var(--prose)}
 
+/* bio */
+.bio{display:flex;flex-direction:column;gap:1.15rem}
+.bio p{color:var(--ink-2)}
+.bio-lead{
+  font-family:var(--f-display);font-weight:300;
+  font-size:clamp(1.2rem,2.2vw,1.5rem);line-height:1.5;
+  color:var(--ink);
+}
+
 /* trayectoria */
 .tl{list-style:none;margin:0;padding:0;display:flex;flex-direction:column}
 .tl li{
@@ -1018,10 +1027,15 @@ footer.site{border-top:1px solid var(--rule);padding:1.5rem 0 2.5rem}
     <div class="case-body" style="grid-template-columns:1fr">
       <div class="about-grid">
         <div>
-          <p class="label" style="margin-bottom:.75rem">Bio</p>
-          <div class="reservado">
-            <p class="label">Contenido pendiente</p>
-            <p>Bio narrativa breve: cómo llegaste al diseño de producto y qué tipo de problemas te atraen. Uno o dos párrafos. Todavía no se ha redactado — no se rellenó con texto genérico.</p>
+          <p class="label" style="margin-bottom:1.25rem">Bio</p>
+          <div class="bio">
+            <p class="bio-lead">Siempre he sido de las personas que preguntan por qué. Me atraen los misterios, las contradicciones y esas situaciones en las que primero hay que ordenar las piezas para comprender qué está ocurriendo. Durante un tiempo pensé que ese interés podía llevarme hacia la sociología o la antropología, porque quería entender mejor a las personas y los sistemas de los que formamos parte.</p>
+            <p>Años después conocí UX/UI en una charla de Laboratoria y sentí que había encontrado algo que reunía muchas de las cosas que estaba buscando. Cuando empecé a trabajar en Belcorp lo confirmé. Me interesaba diseñar experiencias, pero todavía más comprender a las personas, sus decisiones y lo que había detrás de un problema.</p>
+            <p>Con el tiempo, mi trabajo evolucionó hacia el diseño de producto. Descubrí que disfrutaba conectar las necesidades de usuarios, negocio y tecnología, participar en decisiones estratégicas y acompañar las soluciones hasta su implementación. Trabajar como consultora en sectores como banca, seguros, salud y consumo masivo también me enseñó a entrar en contextos diferentes, aprender rápidamente sus reglas y reconocer que cada problema necesita una manera distinta de abordarse.</p>
+            <p>Cuando recibo un reto confuso, mi primer impulso no es diseñar una solución. Primero intento reconstruir cómo llegamos hasta allí, qué sabemos realmente y qué estamos asumiendo. Pregunto mucho, busco patrones y exploro alternativas, pero también entiendo que no siempre existe tiempo para investigar todo. Parte de mi trabajo consiste en encontrar el nivel de profundidad que el proyecto necesita para poder avanzar con criterio.</p>
+            <p>Mi forma de trabajar combina curiosidad, pensamiento sistémico y ejecución. Me gusta ordenar la complejidad, conectar perspectivas y convertir las conversaciones en decisiones y acciones concretas. Soy directa con lo que necesito y valoro trabajar con personas que también puedan comunicar con claridad lo que esperan de mí.</p>
+            <p>Me interesa seguir acercándome a productos relacionados con salud, impacto social y políticas públicas. Son espacios en los que el diseño puede ayudar a mejorar sistemas que afectan directamente la vida de las personas.</p>
+            <p>Fuera del trabajo, comparto mi vida con dos gatos, disfruto cocinar, viajar y hacer caminatas para alejarme un poco de las pantallas. Estoy retomando la lectura, especialmente las novelas distópicas, y puedo pasar horas escuchando historias sobre misterios sin resolver. Incluso en mi tiempo libre, parece que sigo buscando respuestas.</p>
           </div>
         </div>
 
@@ -1069,14 +1083,6 @@ footer.site{border-top:1px solid var(--rule);padding:1.5rem 0 2.5rem}
             <li><strong>Español</strong> nativo · <strong>Inglés</strong> C1 avanzado — user testing y presentaciones bilingües en proyectos internacionales</li>
             <li><strong>Mentora</strong> — Más Mujeres UX Latam, 2022 y 2023</li>
           </ul>
-        </div>
-
-        <div>
-          <p class="label" style="margin-bottom:.75rem">Cómo trabajo</p>
-          <div class="reservado">
-            <p class="label">Contenido pendiente</p>
-            <p>Qué aportas y cómo trabajas, anclado en lo que los cuatro casos ya evidencian. Pendiente de redactar.</p>
-          </div>
         </div>
 
         <div>
