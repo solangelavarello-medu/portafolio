@@ -160,6 +160,7 @@ img,svg{max-width:100%}
   font-size:1.0625rem;line-height:1.45;color:var(--accent);max-width:30ch;
 }
 .record-blurb{font-size:1rem;line-height:1.65;color:var(--ink-2);max-width:58ch}
+.record-nota{margin-top:.85rem;font-size:.875rem;line-height:1.55;color:var(--muted);max-width:58ch}
 .record-tags{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:1.1rem}
 .record-go{
   margin-top:1.1rem;display:inline-flex;align-items:center;gap:.45rem;
@@ -191,9 +192,12 @@ img,svg{max-width:100%}
 }
 .reservado .label{color:var(--signal)}
 .reservado p:last-child{color:var(--muted);font-size:.9375rem;line-height:1.55;max-width:60ch}
-/* Las galerías quedan ocultas hasta que haya material visual real que poner.
-   El marcado sigue en cada caso: borrar esta regla las vuelve a mostrar. */
-.reservado--galeria{display:none}
+/* Bloques internos de construcción (espacios reservados, galerías sin material,
+   testimonios sin aprobar, resumen de competencias sin formato definido).
+   No se borran del marcado para poder retomarlos: quedan fuera de la interfaz
+   pública. Borrar estas dos reglas los devuelve a la vista. */
+.reservado{display:none}
+.bloque-interno{display:none}
 
 /* ---------- case page ---------- */
 .case-head{padding:clamp(3rem,7vw,5.5rem) 0 clamp(1.75rem,4vw,3rem)}
@@ -363,71 +367,72 @@ footer.site{border-top:1px solid var(--rule);padding:1.5rem 0 2.5rem}
 
       <a class="record" href="#/belcorp">
         <div>
-          <span class="label">Consumo / belleza</span>
-          <div class="record-name">Belcorp — Catálogo Virtual</div>
-          <p class="record-diff">Impacto cuantificado por una fuente externa y verificable.</p>
+          <span class="label">Consumo y belleza</span>
+          <div class="record-name">Belcorp, Catálogo Virtual</div>
+          <p class="record-diff">Diseñar a partir de cómo las consultoras ya vendían.</p>
           <div class="record-tags">
             <span class="tag tag--accent">Ownership end-to-end</span>
             <span class="tag">Research de campo</span>
           </div>
         </div>
         <div>
-          <p class="record-blurb">Diseñé la evolución del Catálogo Digital de Belcorp —heredado de mi mentora— hacia el Catálogo Virtual: una plataforma de venta con tienda individual por consultora y pre-pedido. Fundamenté decisiones clave, como el alcance de digitalización y la personalización de la experiencia, en research de campo con consultoras. Cuando la pandemia cerró su canal físico, esa base escaló a cinco países, con más de US$1MM en ventas adicionales en seis meses.</p>
-          <span class="record-go">Ver el caso →</span>
+          <p class="record-blurb">Cuando me hice cargo del Catálogo Digital, el producto ya tenía una primera versión. Mi reto fue hacerlo crecer sin perder de vista cómo vendían realmente las consultoras, qué dispositivos utilizaban y cuánto podían adoptar. Lo que observamos en campo orientó la personalización de la experiencia y ayudó a definir un alcance de digitalización más realista. Esa base evolucionó después hacia el Catálogo Virtual y se expandió a cinco países.</p>
+          <p class="record-nota">Según el caso publicado por Altimea, el Catálogo Virtual generó más de US$1 millón en ventas adicionales durante sus primeros seis meses.</p>
+          <span class="record-go">Ver el caso <span aria-hidden="true">→</span></span>
         </div>
       </a>
 
       <a class="record" href="#/bid">
         <div>
-          <span class="label">Desarrollo internacional / banca multilateral</span>
-          <div class="record-name">BID — Unidad Fiduciaria, 26 países</div>
-          <p class="record-diff">Complejidad institucional: el reto no era técnico, era de alineamiento.</p>
+          <span class="label">Desarrollo internacional y banca multilateral</span>
+          <div class="record-name">BID, Unidad Fiduciaria</div>
+          <p class="record-diff">Una plataforma común para procesos que no eran iguales.</p>
           <div class="record-tags">
-            <span class="tag tag--conf">Contenido ilustrativo</span>
-            <span class="tag">Facilitación</span>
+            <span class="tag tag--accent">Facilitación</span>
+            <span class="tag">Diseño de flujos complejos</span>
           </div>
         </div>
         <div>
-          <p class="record-blurb">Diseñé la plataforma de gestión de préstamos de la Unidad Fiduciaria del BID, usada por los 26 países miembros. En un equipo de dos personas, facilité workshops y entrevistas con distintas áreas del BID y varios países para decidir qué flujos priorizar y dónde mantener configuraciones específicas. El reto principal fue de alineamiento, no técnico: cada área tenía intereses y herramientas propias. Durante el proyecto pasé de diseñadora semi-senior a senior.</p>
-          <span class="record-go">Ver el caso →</span>
+          <p class="record-blurb">Durante aproximadamente un año y medio trabajé en el diseño de una plataforma para gestionar distintas etapas del ciclo de préstamos del BID. El reto fue comprender procesos, herramientas e intereses diferentes entre áreas internas y países miembros. A través de entrevistas y workshops, identificamos qué partes podían compartir una misma solución, cuáles necesitaban configuraciones específicas y qué flujos todavía debían ordenarse antes de ser digitalizados.</p>
+          <span class="record-go">Ver el caso <span aria-hidden="true">→</span></span>
         </div>
       </a>
 
       <a class="record" href="#/isapre">
         <div>
-          <span class="label">Salud / seguros privados · Chile</span>
+          <span class="label">Salud y seguros privados</span>
           <div class="record-name">Isapre Esencial</div>
-          <p class="record-diff">El único caso donde lideré tecnología además de diseño.</p>
+          <p class="record-diff">Qué priorizar cuando la fecha de lanzamiento no podía moverse.</p>
           <div class="record-tags">
             <span class="tag tag--accent">Liderazgo cross-funcional</span>
-            <span class="tag">Plazo legal</span>
+            <span class="tag">Priorización de MVP</span>
           </div>
         </div>
         <div>
-          <p class="record-blurb">Me incorporé a mitad del proyecto de Isapre Esencial, en reemplazo de la líder de producto saliente, para liderar diseño y tecnología con un plazo legal fijo de seis meses. Sin poder validar con usuarios reales por confidencialidad, prioricé un MVP basado en requisitos legales mínimos y benchmarking de otras isapres chilenas, coordinando además con una consultora externa que manejaba el core tecnológico heredado. Lanzamos dentro del plazo previsto.</p>
-          <span class="record-go">Ver el caso →</span>
+          <p class="record-blurb">Me incorporé a mitad del proyecto para liderar diseño y tecnología durante el lanzamiento de una nueva isapre en Chile. Teníamos un plazo legal fijo, dependencias con una consultora externa y no podíamos investigar con usuarios reales por la confidencialidad del proyecto. La prioridad fue separar lo obligatorio de lo deseable, construir un MVP viable y coordinar a los equipos para llegar al lanzamiento dentro del plazo previsto.</p>
+          <span class="record-go">Ver el caso <span aria-hidden="true">→</span></span>
         </div>
       </a>
 
       <a class="record" href="#/sigo">
         <div>
-          <span class="label">Salud pública · Ministerio de Salud de Chile</span>
-          <div class="record-name">SIGO — Seguimiento oncológico</div>
-          <p class="record-diff">Estandarizar solo lo crítico frente a una desigualdad estructural real.</p>
+          <span class="label">Salud pública</span>
+          <div class="record-name">SIGO, Seguimiento oncológico</div>
+          <p class="record-diff">Qué estandarizar cuando cada centro de salud trabaja de manera distinta.</p>
           <div class="record-tags">
             <span class="tag tag--accent">Discovery de campo</span>
             <span class="tag">Co-liderazgo</span>
           </div>
         </div>
         <div>
-          <p class="record-blurb">Co-lideré el diseño de una plataforma de seguimiento de pacientes oncológicos para el Ministerio de Salud de Chile, en el marco de una ley orientada a reducir la mortalidad por cáncer. El mapeo de campo con gestoras oncológicas mostró una desigualdad real entre centros de salud —financiamiento, personal, digitalización—, así que decidimos estandarizar solo los flujos más críticos, dejando el resto con la flexibilidad que cada centro necesitaba.</p>
-          <span class="record-go">Ver el caso →</span>
+          <p class="record-blurb">Co-lideré el diseño de una plataforma para el seguimiento de pacientes oncológicos en Chile. Durante el mapeo descubrimos que los centros de salud tenían diferencias importantes de personal, financiamiento, especialización y digitalización. En lugar de forzar un mismo proceso para todos, priorizamos los flujos que el Ministerio necesitaba hacer trazables y mantuvimos flexibilidad en aquellos que dependían de la realidad de cada centro.</p>
+          <span class="record-go">Ver el caso <span aria-hidden="true">→</span></span>
         </div>
       </a>
 
     </div>
 
-    <div class="band">
+    <div class="band bloque-interno">
       <div class="band-head"><h2>Competencias</h2></div>
       <div class="reservado">
         <p class="label">Espacio reservado</p>
@@ -453,11 +458,10 @@ footer.site{border-top:1px solid var(--rule);padding:1.5rem 0 2.5rem}
   <div class="wrap">
     <div class="case-head">
       <div class="eyebrow">
-        <span class="tag">Consumo / belleza</span>
-        <span class="tag">Etapa 3 entregada</span>
+        <span class="tag">Consumo y belleza</span>
       </div>
-      <h1>El catálogo digital que sostuvo a las consultoras cuando la pandemia cerró la puerta a puerta</h1>
-      <p class="case-sub">Cómo el research de campo con consultoras fundamentó decisiones que, al llegar la pandemia, escalaron a una plataforma de venta digital en cinco países.</p>
+      <h1>Diseñar a partir de cómo las consultoras ya vendían</h1>
+      <p class="case-sub">Cómo el research de campo orientó la evolución del Catálogo Digital de Belcorp y ayudó a definir una experiencia que las consultoras pudieran adoptar.</p>
     </div>
 
     <div class="case-body">
@@ -598,11 +602,10 @@ footer.site{border-top:1px solid var(--rule);padding:1.5rem 0 2.5rem}
   <div class="wrap">
     <div class="case-head">
       <div class="eyebrow">
-        <span class="tag">Desarrollo internacional / banca multilateral</span>
-        <span class="tag tag--conf">Contenido ilustrativo</span>
+        <span class="tag">Desarrollo internacional y banca multilateral</span>
       </div>
-      <h1>Diseño de la plataforma de gestión de préstamos del BID para 26 países miembros</h1>
-      <p class="case-sub">Cómo facilité consenso entre áreas internas del BID con flujos e intereses distintos, para digitalizar la gestión de préstamos en 26 países miembros.</p>
+      <h1>Una plataforma común para procesos que no eran iguales</h1>
+      <p class="case-sub">Cómo usamos entrevistas, workshops y diseño de flujos para encontrar puntos en común entre áreas y países con procesos distintos.</p>
     </div>
 
     <div class="case-body">
@@ -619,7 +622,7 @@ footer.site{border-top:1px solid var(--rule);padding:1.5rem 0 2.5rem}
       <div class="prose">
         <div class="aviso">
           <p class="label">Aviso de confidencialidad</p>
-          <p>Este caso no muestra contenido real de la plataforma —capturas, flujos ni datos— por política de privacidad del BID. Los diagramas son ilustrativos y fueron elaborados para explicar las decisiones, no reproducen la interfaz.</p>
+          <p>Por razones de confidencialidad, este caso no muestra pantallas, flujos ni información interna de la plataforma. Los diagramas fueron creados únicamente para explicar las decisiones del proyecto.</p>
         </div>
 
         <div class="reservado">
@@ -750,11 +753,10 @@ footer.site{border-top:1px solid var(--rule);padding:1.5rem 0 2.5rem}
   <div class="wrap">
     <div class="case-head">
       <div class="eyebrow">
-        <span class="tag">Salud / seguros privados · Chile</span>
-        <span class="tag">Etapa 3 entregada</span>
+        <span class="tag">Salud y seguros privados</span>
       </div>
-      <h1>Liderar diseño y tecnología para lanzar Isapre Esencial en un plazo legal de seis meses</h1>
-      <p class="case-sub">Cómo lideré diseño y tecnología para lanzar, en seis meses, la plataforma de una isapre nueva en Chile sin poder validar con usuarios reales.</p>
+      <h1>Qué priorizar cuando la fecha de lanzamiento no podía moverse</h1>
+      <p class="case-sub">Cómo lideré diseño y tecnología para construir el MVP de una nueva isapre bajo un plazo legal, confidencialidad y dependencias externas.</p>
     </div>
 
     <div class="case-body">
@@ -883,11 +885,10 @@ footer.site{border-top:1px solid var(--rule);padding:1.5rem 0 2.5rem}
   <div class="wrap">
     <div class="case-head">
       <div class="eyebrow">
-        <span class="tag">Salud pública · Ministerio de Salud de Chile</span>
-        <span class="tag">Etapa 3 entregada</span>
+        <span class="tag">Salud pública</span>
       </div>
-      <h1>Estandarizar el seguimiento de pacientes oncológicos entre centros de salud desiguales en Chile</h1>
-      <p class="case-sub">Cómo el mapeo de campo con gestoras oncológicas guió qué flujos estandarizar entre centros de salud con recursos desiguales en Chile.</p>
+      <h1>Qué estandarizar cuando cada centro de salud trabaja de manera distinta</h1>
+      <p class="case-sub">Cómo el mapeo del proceso con gestoras oncológicas nos ayudó a decidir qué flujos necesitaban una solución común y cuáles requerían flexibilidad.</p>
     </div>
 
     <div class="case-body">
@@ -1088,7 +1089,7 @@ footer.site{border-top:1px solid var(--rule);padding:1.5rem 0 2.5rem}
           </ul>
         </div>
 
-        <div>
+        <div class="bloque-interno">
           <p class="label" style="margin-bottom:.75rem">Testimonios</p>
           <div class="reservado">
             <p class="label">Espacio reservado</p>
@@ -1112,8 +1113,7 @@ footer.site{border-top:1px solid var(--rule);padding:1.5rem 0 2.5rem}
 
 <footer class="site">
   <div class="wrap foot-in">
-    <span class="label">Solange Lavarello · Diseñadora de producto senior</span>
-    <span class="label">Portafolio en construcción</span>
+    <span class="label">Solange Lavarello · Product Designer</span>
   </div>
 </footer>
 
