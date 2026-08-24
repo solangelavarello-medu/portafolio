@@ -428,7 +428,7 @@ footer.site{border-top:1px solid var(--rule);padding:1.5rem 0 2.5rem}
     <div class="contact">
       <h2>Conversemos</h2>
       <ul class="contact-links">
-        <li><span class="label">Correo</span><a href="mailto:lavarellosolange@gmail.com">lavarellosolange@gmail.com</a></li>
+        <li><span class="label">Correo</span><a class="js-mail" data-u="lavarellosolange" data-d="gmail.com" href="#/">escríbeme</a></li>
         <li><span class="label">LinkedIn</span><a href="https://linkedin.com/in/solangelavarello" target="_blank" rel="noopener noreferrer">linkedin.com/in/solangelavarello</a></li>
         <li><span class="label">Base</span><span class="contact-plain">Lima, Perú</span></li>
       </ul>
@@ -1133,5 +1133,12 @@ footer.site{border-top:1px solid var(--rule);padding:1.5rem 0 2.5rem}
 
   window.addEventListener('hashchange', function () { render(true); });
   render(false);
+
+  // El correo se arma acá para que no viaje en el HTML y no lo levanten los scrapers.
+  document.querySelectorAll('.js-mail').forEach(function (a) {
+    var addr = a.getAttribute('data-u') + String.fromCharCode(64) + a.getAttribute('data-d');
+    a.textContent = addr;
+    a.setAttribute('href', 'mailto:' + addr);
+  });
 })();
 </script>
