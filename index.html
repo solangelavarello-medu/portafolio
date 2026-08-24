@@ -191,6 +191,9 @@ img,svg{max-width:100%}
 }
 .reservado .label{color:var(--signal)}
 .reservado p:last-child{color:var(--muted);font-size:.9375rem;line-height:1.55;max-width:60ch}
+/* Las galerías quedan ocultas hasta que haya material visual real que poner.
+   El marcado sigue en cada caso: borrar esta regla las vuelve a mostrar. */
+.reservado--galeria{display:none}
 
 /* ---------- case page ---------- */
 .case-head{padding:clamp(3rem,7vw,5.5rem) 0 clamp(1.75rem,4vw,3rem)}
@@ -569,7 +572,7 @@ footer.site{border-top:1px solid var(--rule);padding:1.5rem 0 2.5rem}
         <h2>Aprendizajes</h2>
         <p>De este proyecto me llevo, sobre todo, la importancia de sostener las decisiones de diseño con evidencia — no solo para mí misma, sino para que se tomaran en serio en una empresa que todavía estaba construyendo confianza en lo que el diseño podía aportar. Esa disciplina de research fue lo que permitió negociar el alcance de digitalización cuando la presión venía de arriba, y lo que después sostuvo el producto cuando tuvo que escalar rápido.</p>
 
-        <div class="reservado" style="margin-top:2.5rem">
+        <div class="reservado reservado--galeria" style="margin-top:2.5rem">
           <p class="label">Espacio reservado — galería</p>
           <p>Capturas de época de la app, flujos de Figma de la función de personalización y muestra del sistema de diseño, pendientes de confirmar disponibilidad.</p>
         </div>
@@ -854,7 +857,7 @@ footer.site{border-top:1px solid var(--rule);padding:1.5rem 0 2.5rem}
         <h2>Aprendizajes</h2>
         <p>Este proyecto me mostró cómo sostener un plazo no negociable cuando gran parte del riesgo no depende del propio equipo, sino de terceros —en este caso, un core tecnológico ajeno y otra consultora. Aprendí a priorizar con un criterio distinto al habitual: no qué es mejor para el usuario en abstracto, sino qué es obligatorio, qué es valioso, y qué puede esperar.</p>
 
-        <div class="reservado" style="margin-top:2.5rem">
+        <div class="reservado reservado--galeria" style="margin-top:2.5rem">
           <p class="label">Espacio reservado — galería</p>
           <p>Capturas de las dos plataformas (cliente y ejecutivo) y ejemplos concretos de requisito legal mínimo frente a nice-to-have, pendientes de recuperar.</p>
         </div>
@@ -995,7 +998,7 @@ footer.site{border-top:1px solid var(--rule);padding:1.5rem 0 2.5rem}
         <h2>Aprendizajes</h2>
         <p>Este proyecto me mostró que estandarizar no siempre significa homogeneizar todo: a veces la decisión correcta es identificar qué partes del proceso son lo suficientemente críticas para forzar una misma solución, y dejar el resto con la flexibilidad que la realidad de cada lugar requiere. También aprendí a trabajar con los límites de un proyecto de consultoría: nuestro alcance terminaba en el handoff, sin visibilidad de lo que pasaba después.</p>
 
-        <div class="reservado" style="margin-top:2.5rem">
+        <div class="reservado reservado--galeria" style="margin-top:2.5rem">
           <p class="label">Espacio reservado — galería</p>
           <p>Diagrama AS-IS frente a la versión estandarizada de un flujo crítico y ejemplo concreto de flujo estandarizado, pendientes de que se compartan los flujos generales.</p>
         </div>
