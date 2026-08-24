@@ -239,6 +239,9 @@ img,svg{max-width:100%}
 .prose .lead{font-size:1.1875rem;line-height:1.6;color:var(--ink)}
 .prose a{color:var(--accent);text-underline-offset:3px}
 .prose .fuente{font-size:.875rem;color:var(--muted)}
+.prose ol.pasos{margin:1.15rem 0 0;padding-left:1.5rem;display:flex;flex-direction:column;gap:.6rem}
+.prose ol.pasos li{color:var(--ink-2);padding-left:.35rem}
+.prose ol.pasos li::marker{font-family:var(--f-mono);font-size:.8125rem;color:var(--accent)}
 
 /* decision pull-outs — the spine of a senior case */
 .decision{
@@ -460,60 +463,53 @@ footer.site{border-top:1px solid var(--rule);padding:1.5rem 0 2.5rem}
       <div class="eyebrow">
         <span class="tag">Consumo y belleza</span>
       </div>
-      <h1>Diseñar a partir de cómo las consultoras ya vendían</h1>
-      <p class="case-sub">Cómo el research de campo orientó la evolución del Catálogo Digital de Belcorp y ayudó a definir una experiencia que las consultoras pudieran adoptar.</p>
+      <h1>Belcorp, Catálogo Virtual</h1>
+      <p class="case-sub">Evolucionar el catálogo digital sin perder de vista cómo vendían realmente las consultoras.</p>
     </div>
 
     <div class="case-body">
       <aside class="rail">
         <dl>
-          <div><dt class="label">Rol</dt><dd>Diseñadora end-to-end del producto, vía Altimea, destacada in-house en Belcorp</dd></div>
-          <div><dt class="label">Equipo</dt><dd>Product Owner, Tech Lead, desarrollo y QA, Scrum Master. Apoyo puntual del equipo de Data Analysts</dd></div>
-          <div><dt class="label">Industria</dt><dd>Consumo / belleza — venta directa</dd></div>
-          <div><dt class="label">Alcance</dt><dd>Catálogo base, tienda online individual por consultora y flujo de pre-pedido</dd></div>
+          <div><dt class="label">Rol</dt><dd>Diseñadora responsable del producto, como parte de Altimea trabajando dentro de Belcorp.</dd></div>
+          <div><dt class="label">Equipo</dt><dd>Product Owner, Tech Lead, desarrollo, QA, Scrum Master y Data Analysts.</dd></div>
+          <div><dt class="label">Duración</dt><dd>Diciembre de 2018 a diciembre de 2020.</dd></div>
+          <div><dt class="label">Mi contribución</dt><dd>Research de campo, definición de flujos, diseño de la experiencia, priorización y acompañamiento de la implementación.</dd></div>
+          <div><dt class="label">Alcance</dt><dd>Catálogo digital, tienda individual por consultora y flujo de prepedido.</dd></div>
         </dl>
       </aside>
 
       <div class="prose">
-        <div class="reservado">
-          <p class="label">Espacio reservado</p>
-          <p>Resumen escaneable de competencias — formato pendiente de definir.</p>
-        </div>
+        <h2>El punto de partida</h2>
+        <p>El Catálogo Digital ya tenía una primera versión cuando me incorporé. Había sido diseñado por la UX que fue mi mentora y, aunque inicialmente trabajaríamos juntas durante más tiempo, cuando consideró que estaba preparada me dejó el producto a cargo.</p>
+        <p>Yo formaba parte de Altimea, el proveedor tecnológico de Belcorp, pero trabajaba dentro de la empresa junto al equipo del producto. Era la única diseñadora dedicada al catálogo y colaboraba diariamente con Producto y Tecnología.</p>
+        <p>En ese momento, el catálogo era principalmente una versión digital de la herramienta física que las consultoras utilizaban para vender. La empresa quería transformarlo en una experiencia más completa, con una tienda individual para cada consultora y un flujo de prepedido.</p>
+        <p>Antes de decidir qué agregar, necesitábamos entender cómo utilizaban realmente el catálogo y cuánto de esa transformación podían adoptar.</p>
 
-        <p class="kicker label">Resumen ejecutivo</p>
-        <h2>De un producto heredado a la infraestructura de venta digital</h2>
-        <p class="lead">Entré al Catálogo Digital de Belcorp cuando ya tenía una primera versión, heredado de la UX que fue mi mentora. Como diseñadora del producto —parte del equipo de Altimea, destacada in-house en Belcorp— lideré su evolución hacia el Catálogo Virtual: una plataforma con tienda individual por consultora y motor de pre-pedido. Dos decisiones marcaron el camino: negociar con stakeholders senior un alcance de digitalización realista frente al contexto de las consultoras, y personalizar la experiencia a partir de cómo ellas ya usaban el catálogo físico. Cuando la pandemia cortó el canal de venta puerta a puerta, esa base escaló a cinco países: el caso público de Altimea reporta más de US$1MM en ventas adicionales en seis meses y 2MM de usuarios activos.</p>
+        <h2>Ver el catálogo en uso</h2>
+        <p>Combinamos entrevistas, shadowing y revisión de métricas. Observar a las consultoras en su contexto fue especialmente importante porque reveló comportamientos que no aparecían en los requerimientos ni en los datos de uso.</p>
+        <p>Las consultoras conocían muy bien a sus clientas. Recordaban sus gustos, la composición de sus familias y los productos que compraban habitualmente. Antes de una visita o de dejarles el catálogo, marcaban determinadas páginas según lo que creían que podía interesarle a cada persona.</p>
+        <p>No utilizaban el catálogo físico como una publicación igual para todas. Lo adaptaban para cada conversación de venta.</p>
+        <p>También encontramos una distancia entre la experiencia digital que parte de la empresa imaginaba y las condiciones reales de uso. Algunas consultoras tenían conectividad limitada o celulares con poca capacidad. Agregar complejidad podía hacer que el producto pareciera más avanzado, pero también más difícil de utilizar.</p>
 
-        <h2>Contexto y problema</h2>
-        <p>El Catálogo Digital de Belcorp ya existía cuando entré al proyecto — lo había construido la UX designer que fue mi mentora al inicio. El plan era que ella me acompañara más tiempo, pero cuando vio que estaba lista, me dejó el producto a cargo. Yo formaba parte del equipo de Altimea, el proveedor tecnológico de Belcorp, trabajando in-house dentro de la empresa.</p>
-        <p>El producto servía a las consultoras de venta directa —más de 200.000 en Perú y Chile, con potencial de expansión a otros mercados— como versión digital de su herramienta de venta tradicional: el catálogo físico. Justo antes de que llegara la pandemia, la empresa empezó a empujar una digitalización más ambiciosa, con flujos más complejos, sin considerar del todo el contexto real de las consultoras y sus clientas: su nivel de conectividad, el tipo de celular con el que accedían al catálogo, cómo lo usaban en la práctica.</p>
+        <h2>Lo que decidimos conservar</h2>
+        <p>En lugar de crear una forma completamente nueva de personalizar el catálogo, diseñé una función que permitía seleccionar y compartir páginas según cada clienta.</p>
+        <p>La intención no era replicar literalmente el catálogo físico. Queríamos conservar la lógica que ya funcionaba en la venta presencial y trasladarla a una experiencia digital.</p>
+        <p>De esta manera, la consultora podía preparar una selección más relevante para cada clienta sin tener que aprender una forma distinta de vender.</p>
 
-        <h2>Mi rol y alcance</h2>
-        <p>Fui la única diseñadora del Catálogo Digital / Catálogo Virtual durante toda su evolución, con responsabilidad end-to-end: research, levantamiento de datos y diseño de flujos, dentro de un equipo multifuncional clásico (Product Owner, Tech Lead, equipo de desarrollo y QA, Scrum Master). Contaba con el apoyo de un equipo general de Data Analysts de la empresa para consultas puntuales. En paralelo, otros UX designers de Belcorp llevaban otros productos — no trabajaba aislada, aunque sí era la única responsable de diseño de este producto en particular.</p>
-        <p>Mi alcance cubrió el catálogo base, la tienda online individual por consultora y el flujo de pre-pedido: las tres piezas que terminaron conformando el Catálogo Virtual.</p>
+        <h2>Hasta dónde digitalizar</h2>
+        <p>El research también nos ayudó a conversar con stakeholders sobre el nivel de digitalización adecuado para ese momento.</p>
+        <p>Había interés en avanzar con rapidez y construir una experiencia más sofisticada. Mi responsabilidad fue mostrar qué partes de esa visión estaban alineadas con el contexto de las consultoras y cuáles podían convertirse en barreras de adopción.</p>
+        <p>Presenté los hallazgos a personas con mayor nivel de decisión dentro de la empresa y los utilicé para argumentar un alcance más realista.</p>
+        <p>No se trataba de detener la digitalización. Se trataba de encontrar un punto desde el cual el producto pudiera crecer sin dejar atrás a las personas que debían utilizarlo.</p>
 
-        <h2>Discovery y research</h2>
-        <p>El research combinó shadowing y entrevistas de campo con consultoras, además de la revisión de métricas y flujos de uso ya existentes del producto. El shadowing fue clave para entender una dinámica que no estaba documentada en ningún lado: cómo usaban el catálogo físico en su día a día de venta.</p>
-
-        <h2>Hallazgos principales</h2>
-        <p>Las consultoras ya conocían a fondo a sus clientas —sus gustos, la composición de su familia, lo que solían pedir— y usaban esa información dentro del catálogo físico: señalizaban o marcaban páginas específicas según la clienta a la que iban a visitar o a quien le dejarían el catálogo. Esa personalización era parte real de su flujo de venta, no un detalle accesorio.</p>
-        <p>El research también mostró que una versión de catálogo más «moderna» y compleja, tal como la imaginaba parte de la empresa, no iba a ser adoptada por las consultoras dado su contexto real de conectividad y dispositivos: el riesgo era construir algo tecnológicamente más avanzado, pero que las consultoras no pudieran usar en la práctica.</p>
-
-        <h2>Decisiones de producto y diseño</h2>
-        <div class="decision">
-          <h3>Personalizar la experiencia según cómo ya vendían.</h3>
-          <p>En lugar de proponer una función nueva sin anclaje, diseñé una forma de marcar y compartir páginas del catálogo digital por clienta, replicando digitalmente la señalización que las consultoras ya hacían en papel. La decisión fue no imponer un patrón de uso distinto al que ya tenían, sino digitalizar el que funcionaba.</p>
-        </div>
-        <div class="decision">
-          <h3>Negociar un alcance de digitalización realista.</h3>
-          <p>Cuando la presión por digitalizar más rápido y con mayor sofisticación venía de niveles de la empresa por encima de mi equipo directo, usé la evidencia del discovery para argumentar un punto medio: suficiente digitalización para avanzar, sin exceder lo que el contexto real de las consultoras podía adoptar. Presenté y negocié esa posición directamente con esos niveles senior, no solo con mi equipo, que ya estaba alineado conmigo.</p>
-        </div>
-
-        <h2>Restricciones y trade-offs</h2>
-        <p>El trade-off central fue negocio vs. adopción real: la empresa quería avanzar más rápido de lo que el contexto de las consultoras permitía. Resolver eso implicó sostener una posición con evidencia frente a stakeholders con más jerarquía que mi equipo directo, en un momento donde la confianza de la empresa en lo que el diseño podía aportar todavía se estaba construyendo.</p>
-
-        <h2>Solución</h2>
-        <p>El Catálogo Virtual quedó compuesto por tres piezas: un catálogo central con contenido y promociones gestionado desde un CMS, una tienda online individual por consultora (con URL propia) que incluía la personalización por clienta, y un motor de pre-pedido conectado a los sistemas logísticos de Belcorp. El sistema de diseño que ayudé a impulsar —cross a otros productos digitales de Belcorp, no exclusivo de este— sostuvo la consistencia de componentes y flujos a medida que el producto creció.</p>
+        <h2>Cómo evolucionó el producto</h2>
+        <p>El producto fue creciendo hasta integrar tres partes:</p>
+        <ol class="pasos">
+          <li>Un catálogo central desde el que se administraban contenidos y promociones.</li>
+          <li>Una tienda individual con una dirección propia para cada consultora.</li>
+          <li>Un flujo de prepedido conectado con los sistemas logísticos de Belcorp.</li>
+        </ol>
+        <p>La personalización por clienta vivía dentro de la tienda individual. Esto permitía mantener una única fuente de contenido y, al mismo tiempo, dar a cada consultora un espacio que pudiera adaptar y compartir.</p>
 
         <figure>
           <div class="fig-frame">
@@ -563,23 +559,28 @@ footer.site{border-top:1px solid var(--rule);padding:1.5rem 0 2.5rem}
               </g>
             </svg>
           </div>
-          <figcaption>Las tres piezas del Catálogo Virtual. La personalización por clienta vive en la tienda individual —no en el catálogo central— porque replica algo que la consultora ya hacía en papel: marcar páginas según a quién iba a visitar. Diagrama ilustrativo elaborado para este caso.</figcaption>
+          <figcaption>Las tres piezas del Catálogo Virtual. La personalización por clienta vive dentro de la tienda individual y no en el catálogo central, porque replica lo que la consultora ya hacía en papel: marcar páginas según a quién iba a visitar. Diagrama ilustrativo elaborado para este caso.</figcaption>
         </figure>
 
-        <h2>Colaboración e implementación</h2>
-        <p>El mismo equipo que trabajaba en la versión original del catálogo (PO, Tech Lead, desarrollo, QA, Scrum Master y yo como diseñadora) sostuvo la evolución del producto hacia el Catálogo Virtual, incluida la fase de expansión a cinco países durante la pandemia — no hubo crecimiento del equipo de diseño pese al salto de escala. El sistema de diseño se adoptó de forma escalonada, producto por producto, respetando el backlog de cada equipo.</p>
+        <p>También participé en el impulso de un sistema de diseño utilizado en distintos productos digitales de Belcorp. Su adopción fue progresiva y se realizó de acuerdo con el backlog y las necesidades de cada equipo.</p>
 
-        <h2>Resultados</h2>
-        <p>Belcorp y Altimea documentaron públicamente el impacto del Catálogo Virtual: más de US$1MM en ventas adicionales en los primeros seis meses, 2MM de usuarios activos entre consultoras y clientas finales, y 127.000 pre-pedidos procesados en el primer trimestre — diez veces la proyección inicial. Son cifras de un esfuerzo de equipo del que fui la diseñadora responsable, no un resultado que mida individualmente; las cito porque están publicadas y son verificables, no porque las recuerde de memoria.</p>
-        <p class="fuente">Fuente: <a href="https://www.altimea.com/casos-de-exito/belcorp-catalogo-virtual/" target="_blank" rel="noopener noreferrer">Caso de éxito Belcorp — Catálogo Virtual, Altimea</a></p>
+        <h2>Diseñar junto con tecnología</h2>
+        <p>Trabajé con el Product Owner y el Tech Lead en la priorización del backlog, y con el equipo Scrum en el refinamiento de historias. También acompañé a desarrollo durante la implementación y participé en decisiones técnicas que afectaban directamente la experiencia.</p>
+        <p>Una de ellas fue la carga progresiva de información e imágenes. Esta solución ayudaba a reducir el consumo de datos y espacio en los dispositivos de las consultoras, algo relevante por las condiciones que habíamos observado durante el research.</p>
+        <p>El mismo equipo acompañó la evolución desde la primera versión del catálogo hasta su expansión a otros países. A medida que aumentaba el alcance, tuvimos que priorizar y mantener la consistencia sin que creciera el equipo de diseño.</p>
 
-        <h2>Aprendizajes</h2>
-        <p>De este proyecto me llevo, sobre todo, la importancia de sostener las decisiones de diseño con evidencia — no solo para mí misma, sino para que se tomaran en serio en una empresa que todavía estaba construyendo confianza en lo que el diseño podía aportar. Esa disciplina de research fue lo que permitió negociar el alcance de digitalización cuando la presión venía de arriba, y lo que después sostuvo el producto cuando tuvo que escalar rápido.</p>
+        <h2>Cuando cambió el contexto</h2>
+        <p>Cuando la pandemia interrumpió la venta presencial, el Catálogo Virtual pasó a ocupar un lugar mucho más importante dentro de la operación de las consultoras.</p>
+        <p>La base que habíamos construido evolucionó y se expandió a cinco países. Según el caso publicado por Altimea, durante sus primeros seis meses el producto generó más de US$1 millón en ventas adicionales y alcanzó 2 millones de usuarios activos entre consultoras y clientas.</p>
+        <p>El mismo caso reporta 127.000 prepedidos durante el primer trimestre, una cifra diez veces mayor que la proyección inicial.</p>
+        <p>Estos resultados corresponden al trabajo conjunto de Belcorp, Altimea y los diferentes equipos involucrados. Mi contribución estuvo en el research, la definición de la experiencia y el diseño del producto de principio a fin.</p>
+        <p class="fuente">Fuente: <a href="https://www.altimea.com/casos-de-exito/belcorp-catalogo-virtual/" target="_blank" rel="noopener noreferrer">Caso de éxito del Catálogo Virtual, Altimea</a></p>
 
-        <div class="reservado reservado--galeria" style="margin-top:2.5rem">
-          <p class="label">Espacio reservado — galería</p>
-          <p>Capturas de época de la app, flujos de Figma de la función de personalización y muestra del sistema de diseño, pendientes de confirmar disponibilidad.</p>
-        </div>
+        <h2>Lo que cambió en mi manera de trabajar</h2>
+        <p>Este fue el primer producto que tuve completamente a cargo y uno de los proyectos que más influyó en mi manera de diseñar.</p>
+        <p>Aprendí que el research no sirve solamente para validar una interfaz. También puede ayudar a cuestionar el alcance de una iniciativa y sostener conversaciones difíciles con evidencia.</p>
+        <p>Observar cómo las consultoras ya resolvían sus ventas nos permitió diseñar desde un comportamiento real, en lugar de pedirles que adoptaran una lógica completamente nueva.</p>
+        <p>Esa experiencia sigue siendo una referencia para mí cuando entro a un producto. Antes de proponer una solución, intento entender qué están haciendo hoy las personas, por qué lo hacen de esa manera y qué no deberíamos perder al cambiarlo.</p>
       </div>
     </div>
   </div>
@@ -589,7 +590,7 @@ footer.site{border-top:1px solid var(--rule);padding:1.5rem 0 2.5rem}
       <div class="case-next-grid">
         <a class="next-link" href="#/bid">
           <span class="label">Caso siguiente</span>
-          <div class="record-name">BID — Unidad Fiduciaria, 26 países</div>
+          <div class="record-name">BID, Unidad Fiduciaria</div>
         </a>
         <a class="next-link" href="#/"><span class="label">↑ Todos los casos</span></a>
       </div>
@@ -604,18 +605,18 @@ footer.site{border-top:1px solid var(--rule);padding:1.5rem 0 2.5rem}
       <div class="eyebrow">
         <span class="tag">Desarrollo internacional y banca multilateral</span>
       </div>
-      <h1>Una plataforma común para procesos que no eran iguales</h1>
-      <p class="case-sub">Cómo usamos entrevistas, workshops y diseño de flujos para encontrar puntos en común entre áreas y países con procesos distintos.</p>
+      <h1>BID, Unidad Fiduciaria</h1>
+      <p class="case-sub">Encontrar una lógica común entre áreas y países que trabajaban con procesos diferentes.</p>
     </div>
 
     <div class="case-body">
       <aside class="rail">
         <dl>
-          <div><dt class="label">Rol</dt><dd>Diseñadora en un equipo de dos personas, Continuum. Promovida de semi-senior a senior durante el proyecto</dd></div>
-          <div><dt class="label">Colaboración</dt><dd>Product Managers y Tech Leads del BID; representantes de áreas internas y de países miembros</dd></div>
-          <div><dt class="label">Industria</dt><dd>Desarrollo internacional / banca multilateral</dd></div>
-          <div><dt class="label">Duración</dt><dd>Aproximadamente un año y medio, en varias fases</dd></div>
-          <div><dt class="label">Idiomas</dt><dd>Inglés y español</dd></div>
+          <div><dt class="label">Rol</dt><dd>Diseñadora en un equipo de dos personas de Continuum. Durante el proyecto pasé de un rol semisénior a senior.</dd></div>
+          <div><dt class="label">Colaboración</dt><dd>Product Managers, Tech Leads, representantes de áreas internas del BID y participantes de distintos países miembros.</dd></div>
+          <div><dt class="label">Duración</dt><dd>Aproximadamente un año y medio, dividido en varias fases.</dd></div>
+          <div><dt class="label">Mi contribución</dt><dd>Research, facilitación de workshops, levantamiento de procesos, definición de flujos y diseño de la experiencia.</dd></div>
+          <div><dt class="label">Idiomas</dt><dd>Español e inglés.</dd></div>
         </dl>
       </aside>
 
@@ -625,39 +626,26 @@ footer.site{border-top:1px solid var(--rule);padding:1.5rem 0 2.5rem}
           <p>Por razones de confidencialidad, este caso no muestra pantallas, flujos ni información interna de la plataforma. Los diagramas fueron creados únicamente para explicar las decisiones del proyecto.</p>
         </div>
 
-        <div class="reservado">
-          <p class="label">Espacio reservado</p>
-          <p>Resumen escaneable de competencias — formato pendiente de definir.</p>
-        </div>
+        <h2>Una plataforma para procesos que no eran iguales</h2>
+        <p>La Unidad Fiduciaria del BID participa en distintas etapas de la gestión de préstamos con sus 26 países miembros. El proceso incluye adquisición, revisión de proyectos, aprobación fiduciaria, pagos, facturación y auditorías.</p>
+        <p>Cada etapa involucraba áreas diferentes, con sus propias herramientas, procesos y prioridades. Algunos países también contaban con sistemas internos que cubrían parte de esos flujos.</p>
+        <p>El proyecto buscaba centralizar el proceso en una plataforma compartida. El reto era encontrar qué podía funcionar de la misma manera para todos y qué necesitaba conservar diferencias específicas.</p>
 
-        <p class="kicker label">Resumen ejecutivo</p>
-        <h2>El reto no fue técnico, fue de alineamiento</h2>
-        <p class="lead">Diseñé la plataforma de gestión de préstamos de la Unidad Fiduciaria del BID, usada por los 26 países miembros, con configuraciones específicas para unos cuatro o cinco países. Trabajé en un equipo de diseño de dos personas durante un año y medio, cubriendo el ciclo completo: adquisición, revisión de proyectos, aprobación fiduciaria, pagos, facturación y auditorías. El reto principal no fue técnico sino de alineamiento: cada área del BID tenía flujos y herramientas propias, con intereses distintos sobre qué debía cubrir la plataforma. Facilité workshops y entrevistas con representantes de varios países para identificar puntos en común y decidir qué flujos necesitaban mayor complejidad y cuáles podían quedar en MVP. Durante este proyecto pasé de diseñadora semi-senior a senior.</p>
+        <h2>Construir una visión con información incompleta</h2>
+        <p>No era posible involucrar directamente a los 26 países en el levantamiento. Trabajamos con representantes de varios de ellos, entre los que estuvieron El Salvador, Haití, Brasil, Argentina, Chile, Uruguay, Panamá, Ecuador, Perú y Colombia.</p>
+        <p>Combinamos entrevistas y workshops en español e inglés. También utilizamos herramientas como Maze y Hotjar para complementar las validaciones y revisar cómo se comprendían determinados flujos.</p>
+        <p>La intención no era asumir que los países participantes representaban exactamente a todos. Buscábamos identificar patrones, diferencias y preguntas que necesitaban seguir abiertas.</p>
 
-        <h2>Contexto y problema</h2>
-        <p>La Unidad Fiduciaria del BID gestiona el proceso de préstamos con los 26 países miembros del banco: desde la adquisición y revisión de proyectos hasta la aprobación fiduciaria, pagos, facturación y auditorías. Cada una de estas etapas involucraba áreas internas distintas, cada una con su propio flujo de trabajo y sus propias herramientas.</p>
-        <p>El proyecto consistió en digitalizar y centralizar ese proceso en una plataforma compartida por los 26 países, manteniendo configuraciones específicas para unos cuatro o cinco de ellos que lo requerían. No todos los países podían participar directamente en el levantamiento de información, así que parte del trabajo fue construir una visión común a partir de los que sí lo hacían.</p>
+        <h2>La diferencia no estaba solo entre países</h2>
+        <p>Al comenzar, parecía que la mayor complejidad estaría en las diferencias entre los 26 países. Durante el levantamiento encontramos que una parte importante de la tensión también estaba dentro del BID.</p>
+        <p>Cada área interna gestionaba una etapa distinta del préstamo y tenía su propia forma de trabajar. Algunas contaban con procesos maduros y herramientas consolidadas. Otras todavía necesitaban ordenar su operación antes de trasladarla a una plataforma compartida.</p>
+        <p>Esto cambió la conversación. No podíamos diseñar todas las etapas con el mismo nivel de profundidad si las áreas todavía no estaban en el mismo punto.</p>
 
-        <h2>Mi rol y alcance</h2>
-        <p>Trabajé en un equipo de diseño de dos personas, con responsabilidad de research, levantamiento y diseño de flujos end-to-end, colaborando con Product Managers y Tech Leads para definir soluciones alineadas al sistema de diseño ya existente del BID (trabajábamos con sus componentes base, construyendo los que faltaban cuando era necesario).</p>
-        <p>El proyecto se desarrolló en varias fases a lo largo de aproximadamente un año y medio. Durante ese tiempo pasé de diseñadora semi-senior a senior, por la complejidad tanto del producto como del cliente.</p>
-
-        <h2>Discovery y research</h2>
-        <p>El research combinó workshops y entrevistas con representantes de distintas áreas del BID y de varios de los países miembros —entre ellos El Salvador, Haití, Brasil, Argentina, Chile, Uruguay, Panamá, Ecuador, Perú y Colombia—, en inglés y español. Usé Maze y Hotjar durante estas sesiones para verificar que el levantamiento de información estuviera completo y para sustentar con datos las decisiones sobre qué flujos priorizar.</p>
-
-        <h2>Hallazgos principales</h2>
-        <p>No todos los países podían participar en el levantamiento, así que el trabajo fue identificar los puntos en común entre los que sí participaban y los puntos donde los procesos divergían.</p>
-        <p>La tensión más fuerte no estaba entre países, sino entre las áreas internas del BID: cada una (adquisición, revisión de proyectos, aprobación fiduciaria, pagos, auditoría) tenía su propio flujo y herramientas, y había desacuerdo sobre qué alcance debía tener cada una dentro de la plataforma. Algunas áreas necesitaban primero centralizar su propio proceso internamente antes de poder digitalizarlo.</p>
-
-        <h2>Decisiones de producto y diseño</h2>
-        <div class="decision">
-          <h3>Decidir qué flujos iban como MVP y cuáles necesitaban mayor profundidad.</h3>
-          <p>Con base en lo que mostraba el research, prioricé llevar a un MVP los flujos de áreas que aún no tenían un proceso centralizado internamente, y dar mayor complejidad a los flujos de áreas que ya tenían procesos más maduros y datos más claros sobre lo que necesitaban.</p>
-        </div>
-        <div class="decision">
-          <h3>Mantener una plataforma compartida con configuraciones específicas solo donde el discovery mostraba que hacía falta.</h3>
-          <p>En vez de construir una versión distinta por país, o forzar una plataforma completamente homogénea, definimos configuraciones adicionales únicamente para los países cuyo contexto —herramientas internas ya existentes, necesidades particulares— lo justificaba.</p>
-        </div>
+        <h2>No digitalizar el desorden</h2>
+        <p>Para definir el alcance, consideramos la madurez de cada proceso.</p>
+        <p>Cuando un área todavía no tenía un flujo centralizado, priorizamos una versión inicial que cubriera lo necesario para empezar a ordenar y registrar su trabajo.</p>
+        <p>Cuando el proceso ya estaba definido y existían datos más claros sobre sus necesidades, podíamos diseñar una experiencia con mayor profundidad.</p>
+        <p>El criterio no fue decidir qué etapa era más importante. Fue reconocer cuánto podía sostener cada área en ese momento. Diseñar una solución demasiado completa para un proceso que aún no estaba claro habría trasladado el desorden existente a la nueva plataforma.</p>
 
         <figure>
           <div class="fig-frame">
@@ -668,7 +656,7 @@ footer.site{border-top:1px solid var(--rule);padding:1.5rem 0 2.5rem}
                 </marker>
               </defs>
               <g font-family="IBM Plex Mono, monospace" font-size="10" fill="currentColor">
-                <text x="8" y="22" font-size="11" opacity=".6">CICLO DEL PRÉSTAMO — una etapa, un área interna</text>
+                <text x="8" y="22" font-size="11" opacity=".6">CICLO DEL PRÉSTAMO: una etapa, un área interna</text>
 
                 <!-- 6 stages -->
                 <g>
@@ -700,7 +688,7 @@ footer.site{border-top:1px solid var(--rule);padding:1.5rem 0 2.5rem}
 
                 <!-- the decision rule -->
                 <line x1="8" y1="126" x2="752" y2="126" stroke="currentColor" stroke-width="1" opacity=".3"/>
-                <text x="8" y="150" font-size="11" opacity=".6">REGLA DE DECISIÓN — la profundidad la fijó la madurez del área, no la etapa</text>
+                <text x="8" y="150" font-size="11" opacity=".6">REGLA DE DECISIÓN: la profundidad la fijó la madurez del área, no la etapa</text>
 
                 <rect x="8" y="166" width="360" height="76" fill="none" stroke="currentColor" stroke-width="1" opacity=".45" stroke-dasharray="4 3"/>
                 <text x="26" y="192">Área sin proceso centralizado</text>
@@ -714,23 +702,30 @@ footer.site{border-top:1px solid var(--rule);padding:1.5rem 0 2.5rem}
               </g>
             </svg>
           </div>
-          <figcaption>Una sola plataforma para las seis etapas, pero no todas al mismo nivel de detalle. El criterio de priorización no fue la importancia de la etapa sino la madurez del área que la opera: pedirle un flujo profundo a un área que todavía no había centralizado su proceso habría digitalizado el desorden. Diagrama ilustrativo — no reproduce la interfaz del BID.</figcaption>
+          <figcaption>Una sola plataforma para las seis etapas, pero no todas al mismo nivel de detalle. El criterio de priorización no fue la importancia de la etapa sino la madurez del área que la opera: pedirle un flujo profundo a un área que todavía no había centralizado su proceso habría digitalizado el desorden. Diagrama ilustrativo, no reproduce la interfaz del BID.</figcaption>
         </figure>
 
-        <h2>Restricciones y trade-offs</h2>
-        <p>El trade-off central fue negociar entre lo que cada país o área necesitaba y lo que el negocio necesitaba para operar de forma más simple: auditorías más sencillas y trazabilidad de datos y tiempos de proyecto de inicio a fin. Algunos países ya tenían plataformas internas que cubrían parte de estos flujos, lo que también entraba en la negociación de alcance.</p>
+        <h2>Compartir la base sin forzar la uniformidad</h2>
+        <p>También necesitábamos decidir cuánto debía adaptarse la plataforma a cada país.</p>
+        <p>Construir una versión diferente para cada uno habría aumentado considerablemente la complejidad. Al mismo tiempo, una experiencia completamente uniforme podía ignorar sistemas y necesidades que ya existían localmente.</p>
+        <p>Definimos una base compartida para el ciclo del préstamo y mantuvimos configuraciones adicionales únicamente cuando el levantamiento mostraba una necesidad concreta.</p>
+        <p>De esta manera, la plataforma podía conservar una lógica común sin asumir que todos los países trabajaban exactamente igual.</p>
 
-        <h2>Solución</h2>
-        <p>La plataforma quedó organizada como un flujo compartido que cubre todo el ciclo del préstamo —adquisición, revisión de proyectos, aprobación fiduciaria, pagos, facturación y auditorías—, con configuraciones adicionales para los países que las necesitaban, y con distintos niveles de profundidad por área según el research: MVP donde hacía falta centralizar primero, mayor complejidad donde ya había procesos maduros.</p>
+        <h2>Facilitar para poder decidir</h2>
+        <p>Una parte importante de mi trabajo ocurrió en las conversaciones entre áreas.</p>
+        <p>Los workshops no se utilizaban solamente para recopilar información. También permitían hacer visibles las diferencias, revisar dependencias y decidir qué debía resolverse dentro del producto y qué necesitaba trabajarse primero a nivel organizacional.</p>
+        <p>Trabajé junto a Product Managers y Tech Leads para convertir esas conversaciones en decisiones sobre alcance, flujos y prioridades. En algunos momentos, avanzar significaba diseñar. En otros, significaba ayudar a que las personas involucradas llegaran a un entendimiento común.</p>
 
-        <h2>Colaboración e implementación</h2>
-        <p>Trabajé junto a Product Managers y Tech Leads del BID, y facilité los workshops con representantes de las distintas áreas y países involucrados. Las presentaciones y entrevistas fueron en inglés y español.</p>
+        <h2>Lo que pudimos construir</h2>
+        <p>Diseñamos una plataforma que articulaba las distintas etapas del ciclo del préstamo, desde la adquisición y revisión de proyectos hasta los pagos, la facturación y las auditorías.</p>
+        <p>La experiencia compartía una estructura central, pero no obligaba a que todas las áreas tuvieran el mismo nivel de detalle. Los procesos más maduros podían avanzar con mayor profundidad, mientras que otros comenzaban con una versión más acotada.</p>
+        <p>No puedo compartir métricas, pantallas ni resultados posteriores por tratarse de información interna del BID. Mi participación abarcó el levantamiento y el diseño de los flujos durante las distintas fases del proyecto.</p>
 
-        <h2>Resultados</h2>
-        <p>No cuento con cifras de este proyecto — es información interna del BID que no puedo compartir. El indicador más concreto de impacto que puedo dar es sobre mi propio desarrollo: pasé de diseñadora semi-senior a senior durante este proyecto, por la complejidad asumida.</p>
-
-        <h2>Aprendizajes</h2>
-        <p>De este proyecto me llevo la importancia de traducir intereses distintos —y a veces opuestos— entre áreas de una misma institución en decisiones de producto concretas, sin intentar complacer a todos por igual.</p>
+        <h2>Lo que cambió en mi manera de trabajar</h2>
+        <p>Este proyecto me enseñó que algunos problemas de producto no se resuelven únicamente dentro de una interfaz.</p>
+        <p>Cuando varias áreas participan en un mismo proceso, sus herramientas, responsabilidades e intereses también forman parte de la experiencia que estamos diseñando. Antes de decidir cómo debía funcionar la plataforma, tuvimos que ayudar a hacer visibles esas diferencias.</p>
+        <p>Comencé el proyecto como diseñadora semisénior y pasé a un rol senior a medida que asumí conversaciones, facilitaciones y decisiones más complejas.</p>
+        <p>Desde entonces, cuando entro a un producto con múltiples stakeholders, intento entender no solo qué necesita cada persona, sino también qué decisiones puede sostener realmente la organización.</p>
       </div>
     </div>
   </div>
@@ -755,52 +750,45 @@ footer.site{border-top:1px solid var(--rule);padding:1.5rem 0 2.5rem}
       <div class="eyebrow">
         <span class="tag">Salud y seguros privados</span>
       </div>
-      <h1>Qué priorizar cuando la fecha de lanzamiento no podía moverse</h1>
-      <p class="case-sub">Cómo lideré diseño y tecnología para construir el MVP de una nueva isapre bajo un plazo legal, confidencialidad y dependencias externas.</p>
+      <h1>Isapre Esencial</h1>
+      <p class="case-sub">Priorizar y coordinar el lanzamiento de una nueva plataforma cuando la fecha no podía moverse.</p>
     </div>
 
     <div class="case-body">
       <aside class="rail">
         <dl>
-          <div><dt class="label">Rol</dt><dd>Líder de diseño y tecnología, Continuum. Entré a mitad del proyecto en reemplazo de la líder de producto saliente</dd></div>
-          <div><dt class="label">Equipo a cargo</dt><dd>Una diseñadora, un líder técnico y cuatro desarrolladores (senior, mid y junior)</dd></div>
-          <div><dt class="label">Industria</dt><dd>Salud / seguros privados — isapre nueva de Clínica Alemana</dd></div>
-          <div><dt class="label">Plazo</dt><dd>Seis meses máximo para el MVP, fijado por requisito legal</dd></div>
+          <div><dt class="label">Rol</dt><dd>Responsable de diseño y tecnología desde Continuum, en reemplazo de la líder de producto saliente.</dd></div>
+          <div><dt class="label">Equipo</dt><dd>Una diseñadora, un líder técnico y cuatro desarrolladores con distintos niveles de experiencia.</dd></div>
+          <div><dt class="label">Duración</dt><dd>Seis meses como plazo máximo para el MVP.</dd></div>
+          <div><dt class="label">Mi contribución</dt><dd>Priorización del MVP, coordinación de diseño y tecnología, gestión del backlog, definición de la experiencia y seguimiento de la implementación.</dd></div>
+          <div><dt class="label">Industria</dt><dd>Salud y seguros privados.</dd></div>
         </dl>
       </aside>
 
       <div class="prose">
-        <div class="reservado">
-          <p class="label">Espacio reservado</p>
-          <p>Resumen escaneable de competencias — formato pendiente de definir.</p>
-        </div>
+        <h2>Entrar a un proyecto que ya estaba en marcha</h2>
+        <p>Me incorporé a mitad del proyecto de Isapre Esencial para reemplazar temporalmente a la líder de producto, que iniciaba su licencia de maternidad.</p>
+        <p>La nueva isapre necesitaba una plataforma para clientes y ejecutivos. Esta debía cubrir requisitos legales, acompañar la operación de la marca y sostener su posicionamiento como una isapre principalmente digital.</p>
+        <p>El lanzamiento tenía una fecha fija. Contábamos con un máximo de seis meses para construir el MVP y no existía la posibilidad de extender el plazo.</p>
+        <p>Además de liderar el diseño, asumí la coordinación del equipo tecnológico: una diseñadora, un líder técnico y cuatro desarrolladores.</p>
 
-        <p class="kicker label">Resumen ejecutivo</p>
-        <h2>Un plazo que no se movía y ningún usuario con quien validar</h2>
-        <p class="lead">Me incorporé a mitad del proyecto de Isapre Esencial, una isapre nueva de Clínica Alemana, en reemplazo de la líder de producto saliente, con un plazo legal fijo de seis meses para el lanzamiento del MVP. Lideré diseño y tecnología: una diseñadora, un líder técnico y cuatro desarrolladores. La confidencialidad del lanzamiento impidió validar con usuarios reales, así que basamos el diseño en un levantamiento comparativo de otras isapres chilenas y en los requisitos legales mínimos que debía cubrir la plataforma. Prioricé un MVP que cumpliera esos mínimos, dejando las funcionalidades nice-to-have para después, mientras coordinaba con una consultora externa que manejaba el core tecnológico heredado de la clínica. Lanzamos dentro de los seis meses previstos.</p>
+        <h2>Diseñar sin conversar con usuarios reales</h2>
+        <p>El lanzamiento se manejaba bajo estricta confidencialidad. Fuera del equipo, se conocía muy poco sobre la nueva isapre y no era posible realizar entrevistas o pruebas con futuros usuarios.</p>
+        <p>Esta restricción cambió nuestra forma de investigar.</p>
+        <p>Revisamos las plataformas de otras isapres chilenas para entender qué funcionalidades eran comunes, cómo organizaban la información y qué patrones ya podían resultar familiares para los usuarios.</p>
+        <p>También trabajamos con el listado de requisitos legales que la plataforma debía cumplir. Esa información nos permitió construir una base, aunque éramos conscientes de que no reemplazaba la validación directa con personas.</p>
 
-        <h2>Contexto y problema</h2>
-        <p>Isapre Esencial es una isapre nueva, creada como otra marca de Clínica Alemana. La plataforma se necesitaba tanto por requisitos legales como por temas de gestión de esta nueva marca —todo se construía desde cero. Aunque iba a acompañar a las agencias físicas, uno de los ejes de posicionamiento de la marca era presentarse como una isapre 100% digital, así que la plataforma de clientes era clave para sostener esa promesa.</p>
-        <p>El plazo era fijo: la plataforma tenía que estar lista para el lanzamiento de la marca, con un máximo de seis meses para el MVP. Me incorporé a mitad de ese proyecto, en reemplazo de la líder de producto que salía por licencia de maternidad.</p>
+        <h2>Separar lo obligatorio de lo deseable</h2>
+        <p>Con una fecha fija, necesitábamos una manera clara de priorizar.</p>
+        <p>Primero identificamos las funcionalidades obligatorias para cumplir con la regulación y permitir el lanzamiento. Después distinguimos aquellas que aportaban valor, pero podían incorporarse en versiones posteriores.</p>
+        <p>Lo obligatorio entró en el MVP. Lo demás quedó visible y priorizado en el backlog para que el cliente pudiera decidir qué retomar después del lanzamiento.</p>
+        <p>En este proyecto, priorizar no significaba elegir la experiencia ideal. Significaba construir una primera versión que pudiera operar, cumplir con la regulación y estar lista a tiempo.</p>
 
-        <h2>Mi rol y alcance</h2>
-        <p>Lideré tanto diseño como tecnología: una diseñadora a mi cargo, un líder técnico y cuatro desarrolladores (senior, mid y junior). No era solo responsable del diseño de la plataforma, sino de coordinar la entrega completa dentro del plazo legal fijado.</p>
-
-        <h2>Discovery y research</h2>
-        <p>La confidencialidad del lanzamiento era muy estricta —fuera del equipo, nadie sabía qué ofrecería la nueva isapre, solo que se lanzaría una—, así que no fue posible validar el diseño con usuarios reales. En su lugar, hicimos un levantamiento comparativo de plataformas de otras isapres chilenas, buscando puntos en común y buenas prácticas, y lo combinamos con el listado de requisitos legales que la plataforma debía cubrir.</p>
-
-        <h2>Hallazgos principales</h2>
-        <p>El levantamiento mostró qué funcionalidades eran estándar entre las isapres existentes y cuáles eran obligatorias por ley. Con eso, pudimos separar lo indispensable para el MVP de lo que era mejora o diferenciación, sin depender de validación directa con usuarios.</p>
-
-        <h2>Decisiones de producto y diseño</h2>
-        <div class="decision">
-          <h3>Priorizar el MVP por cumplimiento legal, no por deseabilidad de negocio.</h3>
-          <p>Definí qué funcionalidades eran obligatorias por ley y debían estar en el primer lanzamiento, y cuáles eran nice-to-have que el cliente podía decidir postergar. Los nice-to-have quedaron en el backlog para versiones posteriores.</p>
-        </div>
-        <div class="decision">
-          <h3>Construir una experiencia espejo para clientes y ejecutivos.</h3>
-          <p>Diseñamos la plataforma con la misma estructura de secciones para ambos perfiles, pero cada una respondía a lo que necesitaba su usuario: el cliente gestionaba sus acciones, y el ejecutivo veía y respondía a esas mismas acciones desde su versión de la plataforma.</p>
-        </div>
+        <h2>Dos experiencias conectadas</h2>
+        <p>La plataforma debía ser utilizada tanto por clientes como por ejecutivos.</p>
+        <p>En lugar de tratarlas como dos soluciones completamente independientes, diseñamos una organización de secciones compartida. Cada perfil encontraba una estructura similar, pero realizaba tareas diferentes dentro de ella.</p>
+        <p>El cliente podía iniciar o gestionar una solicitud. El ejecutivo podía ver esa misma acción, darle seguimiento y responder desde su propia experiencia.</p>
+        <p>Esta estructura nos ayudaba a mantener coherencia entre los dos lados del proceso y reducía la necesidad de construir dos modelos completamente distintos en un plazo limitado.</p>
 
         <figure>
           <div class="fig-frame">
@@ -844,25 +832,27 @@ footer.site{border-top:1px solid var(--rule);padding:1.5rem 0 2.5rem}
           <figcaption>La estructura espejo: en vez de dos productos, una misma organización de secciones que cada perfil recorre con un propósito distinto. Con seis meses y sin validación con usuarios, compartir la estructura reducía tanto el trabajo de diseño como el riesgo de inventar dos modelos mentales. Diagrama ilustrativo elaborado para este caso.</figcaption>
         </figure>
 
-        <h2>Restricciones y trade-offs</h2>
-        <p>El mayor trade-off no fue de diseño sino de dependencia técnica: el core tecnológico de Clínica Alemana era antiguo, y una consultora externa distinta a la mía se encargaba de los servicios sobre ese core, mientras mi equipo manejaba las conexiones. Hubo fricción entre los tiempos de entrega de esa consultora y nuestro método de trabajo, lo que exigió coordinar activamente entre el cliente, la otra consultora y mi equipo para no comprometer el plazo.</p>
+        <h2>Una dependencia que no controlábamos</h2>
+        <p>Una parte importante del riesgo estaba fuera de nuestro equipo.</p>
+        <p>El core tecnológico de Clínica Alemana era un sistema heredado y una consultora externa se encargaba de construir los servicios que necesitábamos para conectarnos con él. Nuestro equipo manejaba la experiencia y las integraciones, pero dependíamos de entregas realizadas por un tercero.</p>
+        <p>Los ritmos y métodos de trabajo de ambos equipos no siempre coincidían. Esto generaba bloqueos que podían afectar una fecha que no era negociable.</p>
+        <p>Parte de mi trabajo consistió en mantener alineados al cliente, la consultora externa y nuestro equipo. Necesitábamos detectar las dependencias con anticipación, ajustar prioridades y decidir qué podía avanzar mientras esperábamos una entrega externa.</p>
 
-        <h2>Solución</h2>
-        <p>La plataforma quedó estructurada en dos experiencias espejo —cliente y ejecutivo— con las funcionalidades legales mínimas cubiertas para el lanzamiento, y el resto del backlog planificado para versiones posteriores.</p>
+        <h2>Coordinar también era parte del diseño</h2>
+        <p>Mi responsabilidad no terminaba en definir pantallas o revisar flujos.</p>
+        <p>Trabajaba con la diseñadora en la experiencia, con el líder técnico y los desarrolladores en la viabilidad, y con el cliente en las prioridades del MVP. Al mismo tiempo, coordinaba con la consultora encargada del core para resolver dependencias.</p>
+        <p>En un proyecto con poco tiempo, muchas decisiones de experiencia también eran decisiones de implementación. Necesitábamos saber qué podía construirse, qué dependía de terceros y qué debía simplificarse sin incumplir los requisitos legales.</p>
 
-        <h2>Colaboración e implementación</h2>
-        <p>Coordiné directamente al líder técnico y los cuatro desarrolladores de mi equipo, además de la diseñadora a mi cargo, y sostuve la comunicación entre el cliente y la consultora externa responsable del core tecnológico para resolver la fricción de tiempos entre ambos equipos.</p>
+        <h2>Llegar al lanzamiento</h2>
+        <p>La plataforma se lanzó dentro del plazo de seis meses.</p>
+        <p>La primera versión cubría las funcionalidades legales necesarias y ofrecía experiencias conectadas para clientes y ejecutivos. Las funcionalidades que no eran indispensables quedaron organizadas en el backlog para etapas posteriores.</p>
+        <p>No tuve acceso a cifras de adopción o uso después del lanzamiento, por lo que el resultado que puedo afirmar es el cumplimiento de la fecha y del alcance definido para el MVP.</p>
 
-        <h2>Resultados</h2>
-        <p>Lanzamos la plataforma dentro de los seis meses previstos, pese a la dependencia de un core heredado y a la coordinación con una consultora externa adicional. No tengo cifras de adopción o uso posteriores al lanzamiento.</p>
-
-        <h2>Aprendizajes</h2>
-        <p>Este proyecto me mostró cómo sostener un plazo no negociable cuando gran parte del riesgo no depende del propio equipo, sino de terceros —en este caso, un core tecnológico ajeno y otra consultora. Aprendí a priorizar con un criterio distinto al habitual: no qué es mejor para el usuario en abstracto, sino qué es obligatorio, qué es valioso, y qué puede esperar.</p>
-
-        <div class="reservado reservado--galeria" style="margin-top:2.5rem">
-          <p class="label">Espacio reservado — galería</p>
-          <p>Capturas de las dos plataformas (cliente y ejecutivo) y ejemplos concretos de requisito legal mínimo frente a nice-to-have, pendientes de recuperar.</p>
-        </div>
+        <h2>Lo que cambió en mi manera de trabajar</h2>
+        <p>Este proyecto me enseñó a liderar cuando el riesgo no depende únicamente del equipo propio.</p>
+        <p>No podíamos mover la fecha, acceder a usuarios reales ni controlar directamente todas las entregas técnicas. La respuesta no podía ser intentar hacer todo más rápido. Necesitábamos hacer visibles las dependencias, priorizar con claridad y mantener conversaciones constantes entre las personas involucradas.</p>
+        <p>También aprendí que, en algunos contextos, diseñar responsablemente significa reconocer qué todavía no sabemos. El benchmarking y los requisitos legales nos permitieron avanzar, pero no los presentamos como un reemplazo perfecto del research con usuarios.</p>
+        <p>La primera versión debía ser viable y cumplir con la regulación. La oportunidad de aprender de su uso real tendría que comenzar después del lanzamiento.</p>
       </div>
     </div>
   </div>
@@ -872,7 +862,7 @@ footer.site{border-top:1px solid var(--rule);padding:1.5rem 0 2.5rem}
       <div class="case-next-grid">
         <a class="next-link" href="#/sigo">
           <span class="label">Caso siguiente</span>
-          <div class="record-name">SIGO — Seguimiento oncológico</div>
+          <div class="record-name">SIGO, Seguimiento oncológico</div>
         </a>
         <a class="next-link" href="#/"><span class="label">↑ Todos los casos</span></a>
       </div>
@@ -887,60 +877,56 @@ footer.site{border-top:1px solid var(--rule);padding:1.5rem 0 2.5rem}
       <div class="eyebrow">
         <span class="tag">Salud pública</span>
       </div>
-      <h1>Qué estandarizar cuando cada centro de salud trabaja de manera distinta</h1>
-      <p class="case-sub">Cómo el mapeo del proceso con gestoras oncológicas nos ayudó a decidir qué flujos necesitaban una solución común y cuáles requerían flexibilidad.</p>
+      <h1>SIGO, Seguimiento oncológico</h1>
+      <p class="case-sub">Diseñar un proceso compartido para centros de salud que trabajaban con recursos y realidades diferentes.</p>
     </div>
 
     <div class="case-body">
       <aside class="rail">
         <dl>
-          <div><dt class="label">Rol</dt><dd>Co-lead de diseño junto a otra diseñadora, Continuum</dd></div>
-          <div><dt class="label">Colaboración</dt><dd>Product Manager y equipo del Ministerio de Salud, que asesoraban en el dominio. De nuestro lado: diseño, gestión y desarrollo</dd></div>
-          <div><dt class="label">Industria</dt><dd>Salud pública</dd></div>
-          <div><dt class="label">Financiamiento</dt><dd>CAF — sin restricciones de presupuesto público</dd></div>
-          <div><dt class="label">Marco</dt><dd>Ley chilena vigente desde 2018 sobre seguimiento oncológico</dd></div>
+          <div><dt class="label">Rol</dt><dd>Colíder de diseño junto a otra diseñadora de Continuum.</dd></div>
+          <div><dt class="label">Colaboración</dt><dd>Product Manager y equipo del Ministerio de Salud de Chile. Por parte de Continuum, diseño, gestión y desarrollo.</dd></div>
+          <div><dt class="label">Mi contribución</dt><dd>Mapeo del proceso, entrevistas, definición de flujos, prototipado, validación y participación en el plan de adopción.</dd></div>
+          <div><dt class="label">Industria</dt><dd>Salud pública.</dd></div>
+          <div><dt class="label">Contexto</dt><dd>Plataforma para el seguimiento de pacientes oncológicos en Chile.</dd></div>
         </dl>
       </aside>
 
       <div class="prose">
-        <div class="reservado">
-          <p class="label">Espacio reservado</p>
-          <p>Resumen escaneable de competencias — formato pendiente de definir.</p>
-        </div>
+        <h2>Una ley común, procesos diferentes</h2>
+        <p>Chile cuenta con una ley que establece el seguimiento de pacientes oncológicos y define plazos para distintas etapas de su atención.</p>
+        <p>Para cumplir con ese seguimiento, se creó el rol de gestora oncológica. Estas profesionales acompañan a los pacientes desde que ingresan al sistema como un posible caso de cáncer y ayudan a coordinar su atención entre diferentes establecimientos.</p>
+        <p>El Ministerio de Salud necesitaba una plataforma que permitiera dar seguimiento al proceso, identificar demoras y revisar si los tiempos establecidos se estaban cumpliendo.</p>
+        <p>Aunque la regulación era común, la forma de gestionar a los pacientes variaba considerablemente entre centros de salud.</p>
 
-        <p class="kicker label">Resumen ejecutivo</p>
-        <h2>Estandarizar no siempre significa homogeneizar</h2>
-        <p class="lead">Co-lideré, junto con otra diseñadora, el diseño de una plataforma para el Ministerio de Salud de Chile que hace seguimiento a pacientes oncológicos entre centros de salud, en el marco de una ley vigente desde 2018 orientada a reducir la mortalidad por cáncer. Trabajamos directamente con un PM y un equipo del Ministerio, y mapeamos el proceso real junto a las gestoras oncológicas, el cargo creado para hacer este seguimiento. El hallazgo central: la gestión variaba mucho entre centros según su financiamiento, personal y nivel de digitalización, y algunos pacientes debían ser trasladados por falta de especialistas locales. Con eso, decidimos estandarizar solo los flujos más críticos para llevarlos a una versión digital manejada por el Ministerio.</p>
+        <h2>Entender el proceso antes de digitalizarlo</h2>
+        <p>Comenzamos mapeando el proceso existente junto con el equipo del Ministerio. Después conversamos con gestoras oncológicas para comprender cómo funcionaba realmente el seguimiento en los establecimientos.</p>
+        <p>El proceso incluía tareas manuales, documentos duplicados y coordinación entre distintas personas y centros. En algunos establecimientos existían herramientas digitales propias. En otros, gran parte del seguimiento se realizaba en papel.</p>
+        <p>También encontramos situaciones en las que un paciente debía trasladarse a otro centro por falta de especialistas y luego regresar a su establecimiento de origen para continuar con el seguimiento.</p>
+        <p>El proceso dibujado en una reunión no era suficiente. Necesitábamos comprender cómo cambiaba cuando se encontraba con la realidad de cada centro.</p>
 
-        <h2>Contexto y problema</h2>
-        <p>Chile tiene una ley vigente desde 2018 que exige seguimiento a los pacientes oncológicos, con plazos y especificaciones definidas, y cuya presión de cumplimiento ha ido en aumento. El objetivo de fondo es reducir la tasa de mortalidad por cáncer en el país mediante un diagnóstico y atención más oportunos.</p>
-        <p>El Ministerio de Salud quería una plataforma que permitiera auditar el proceso —identificar en qué momentos se generaban más demoras— y apoyar a las gestoras oncológicas, el cargo creado específicamente para hacer seguimiento a estos pacientes desde que ingresan como sospecha. El proyecto fue financiado por la CAF, lo que evitó restricciones de presupuesto público, y tuvo un alcance acotado en el tiempo, aunque se cumplió el plazo trabajando de la mano del Ministerio.</p>
+        <h2>No todos comenzaban desde el mismo lugar</h2>
+        <p>Las diferencias no eran solamente tecnológicas.</p>
+        <p>Los centros tenían distintos niveles de financiamiento, personal y acceso a especialistas. Algunos contaban con equipos más grandes y procesos digitalizados. Otros dependían de pocas personas que realizaban el seguimiento con herramientas manuales.</p>
+        <p>Diseñar una solución que asumiera las mismas condiciones para todos habría funcionado mejor para los centros con más recursos y creado nuevas dificultades para los que ya trabajaban con mayores limitaciones.</p>
+        <p>Esto nos llevó a cuestionar cuánto del proceso debía ser igual para todos.</p>
 
-        <h2>Mi rol y alcance</h2>
-        <p>Co-lideré el proyecto junto con otra diseñadora —ambas como design leads—, trabajando directamente con un Product Manager del Ministerio y su equipo, que nos asesoraba en el conocimiento del dominio. De nuestro lado, el equipo cubría diseño, gestión y desarrollo.</p>
-
-        <h2>Discovery y research</h2>
-        <p>Hicimos el mapeo AS-IS junto con el equipo del Ministerio, y lo complementamos con entrevistas a las gestoras oncológicas, quienes llevan el seguimiento de los pacientes en la práctica.</p>
-
-        <h2>Hallazgos principales</h2>
-        <p>Buena parte del proceso se manejaba de forma manual. Encontramos una diferencia importante en las capacidades de los distintos centros de salud según su zona y municipio: algunos tenían más financiamiento y personal, o incluso sus propias plataformas digitales; otros manejaban todo en papel. Esto hacía que los tiempos y la forma de gestionar a cada paciente variaran mucho de un centro a otro. Además, algunos centros no contaban con especialistas, así que ciertos pacientes eran trasladados para parte de la atención y luego regresaban solo para el seguimiento posterior al diagnóstico.</p>
-
-        <h2>Decisiones de producto y diseño</h2>
-        <div class="decision">
-          <h3>Estandarizar solo los flujos más críticos, no todo el proceso.</h3>
-          <p>Dada la desigualdad de recursos entre centros, no tenía sentido forzar una digitalización uniforme de todo el proceso. Priorizamos estandarizar y digitalizar los flujos con mayor impacto en los tiempos de seguimiento —los que el Ministerio necesitaba auditar para ver si sus indicadores mejoraban—, dejando el resto del proceso con mayor flexibilidad según la realidad de cada centro.</p>
-        </div>
+        <h2>Decidir qué necesitaba ser común</h2>
+        <p>El Ministerio necesitaba trazabilidad para identificar en qué momentos se producían las demoras y evaluar los tiempos de seguimiento.</p>
+        <p>Priorizamos los flujos más importantes para esa trazabilidad. Esos eran los que necesitaban una definición compartida y una versión digital que pudiera ser utilizada entre los distintos establecimientos.</p>
+        <p>El resto del proceso conservó mayor flexibilidad.</p>
+        <p>No intentamos digitalizar cada paso ni reemplazar todas las herramientas existentes. Buscamos construir una base común en los puntos donde la falta de información afectaba el seguimiento y la capacidad del Ministerio para comprender lo que estaba ocurriendo.</p>
 
         <figure>
           <div class="fig-frame">
-            <svg viewBox="0 0 740 300" role="img" aria-label="Centros de salud con capacidades muy distintas —desde papel hasta plataformas propias— convergen en una franja de flujos críticos estandarizada y digital, que alimenta la trazabilidad del Ministerio. El resto del proceso queda flexible según la realidad de cada centro.">
+            <svg viewBox="0 0 740 300" role="img" aria-label="Centros de salud con capacidades muy distintas, desde papel hasta plataformas propias, convergen en una franja de flujos críticos estandarizada y digital, que alimenta la trazabilidad del Ministerio. El resto del proceso queda flexible según la realidad de cada centro.">
               <defs>
                 <marker id="ar-sig" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
                   <path d="M0,0 L10,5 L0,10 z" fill="currentColor"/>
                 </marker>
               </defs>
               <g font-family="IBM Plex Mono, monospace" font-size="10" fill="currentColor">
-                <text x="8" y="20" font-size="11" opacity=".6">CENTROS DE SALUD — capacidad desigual, real</text>
+                <text x="8" y="20" font-size="11" opacity=".6">CENTROS DE SALUD: capacidad desigual, real</text>
 
                 <rect x="8" y="34" width="216" height="58" fill="none" stroke="currentColor" stroke-width="1" opacity=".5"/>
                 <text x="26" y="56">Todo en papel</text>
@@ -960,7 +946,7 @@ footer.site{border-top:1px solid var(--rule);padding:1.5rem 0 2.5rem}
 
                 <!-- standardized band -->
                 <rect x="128" y="148" width="456" height="60" fill="none" stroke-width="1.8" class="acc-s"/>
-                <text x="356" y="174" text-anchor="middle" font-size="12">Flujos críticos — estandarizados y digitales</text>
+                <text x="356" y="174" text-anchor="middle" font-size="12">Flujos críticos, estandarizados y digitales</text>
                 <text x="356" y="192" text-anchor="middle" opacity=".65">los que más pesan en los tiempos de seguimiento</text>
 
                 <line x1="356" y1="212" x2="356" y2="242" stroke="currentColor" stroke-width="1.2" marker-end="url(#ar-sig)"/>
@@ -977,32 +963,29 @@ footer.site{border-top:1px solid var(--rule);padding:1.5rem 0 2.5rem}
               </g>
             </svg>
           </div>
-          <figcaption>Solo el tramo que el Ministerio necesitaba auditar se estandarizó. Forzar una digitalización uniforme habría excluido a los centros que trabajan en papel — que son justamente los que más lejos están de cumplir los plazos de la ley. Diagrama ilustrativo elaborado para este caso.</figcaption>
+          <figcaption>Solo el tramo que el Ministerio necesitaba auditar se estandarizó. Forzar una digitalización uniforme habría excluido a los centros que trabajan en papel, que son justamente los que más lejos están de cumplir los plazos de la ley. Diagrama ilustrativo elaborado para este caso.</figcaption>
         </figure>
 
-        <h2>Restricciones y trade-offs</h2>
-        <p>Trabajamos bajo mayor regulación por la sensibilidad de los datos de salud. El trade-off principal no fue de presupuesto (el financiamiento de la CAF evitó esa restricción) sino de tiempo y de desigualdad estructural entre centros: no podíamos diseñar una solución que asumiera el mismo nivel de digitalización o personal en todos los lugares, así que el alcance se ajustó a lo que la mayoría de centros podía realmente adoptar.</p>
+        <h2>Estandarizar sin asumir que todos eran iguales</h2>
+        <p>La solución digitalizaba los flujos críticos del seguimiento oncológico y centralizaba la información necesaria para revisar tiempos y movimientos del paciente.</p>
+        <p>Esto permitía que el Ministerio tuviera mayor trazabilidad sin exigir que cada centro adoptara exactamente la misma forma de trabajar en todo el proceso.</p>
+        <p>La decisión no fue elegir entre estandarizar o ser flexibles. Fue identificar dónde la estandarización era necesaria y dónde la flexibilidad permitía que la solución se adaptara mejor a las capacidades reales de cada establecimiento.</p>
 
-        <h2>Solución</h2>
-        <p>Una versión digital de los flujos críticos de seguimiento oncológico, estandarizada para uso del Ministerio entre sus centros de salud, priorizando trazabilidad y auditoría de tiempos por encima de digitalizar cada detalle del proceso.</p>
+        <h2>Diseñar con conocimiento del dominio</h2>
+        <p>Colideré el proyecto junto a otra diseñadora. Trabajamos directamente con el Product Manager y el equipo del Ministerio, quienes nos ayudaban a comprender la regulación, los roles y las particularidades del sistema de salud.</p>
+        <p>Las gestoras oncológicas aportaban la perspectiva de quienes realizaban el seguimiento diariamente.</p>
+        <p>Durante el diseño creamos y validamos prototipos en Figma. También participamos en la definición de reglas para estandarizar los flujos seleccionados y en un plan de adopción que ayudara a incorporar la plataforma en los establecimientos.</p>
 
-        <h2>Colaboración e implementación</h2>
-        <p>Trabajamos en conjunto con el PM y el equipo del Ministerio durante todo el mapeo y diseño. El Ministerio priorizaba tener trazabilidad para ver si sus estadísticas mejoraban con el tiempo, más que revisar el detalle de cada pantalla.</p>
+        <h2>El límite de nuestra participación</h2>
+        <p>Durante el proyecto se estimó que el rediseño podía reducir los tiempos de seguimiento. Sin embargo, esa cifra fue una proyección realizada durante el diseño y no un resultado medido.</p>
+        <p>Nuestra participación terminó con la entrega al Ministerio. Después del handoff no tuve visibilidad suficiente para comprobar la implementación ni realizar seguimiento de los resultados.</p>
+        <p>Por esa razón, no presento la reducción proyectada como impacto del producto. El resultado que puedo mostrar es la definición y validación de una solución orientada a mejorar la trazabilidad de los flujos críticos.</p>
 
-        <h2>Resultados</h2>
-        <p>En su momento se proyectó una reducción de tiempos de seguimiento a partir del rediseño, pero no fue una cifra medida — fue una estimación hecha durante el diseño. Después del handoff del proyecto al Ministerio no tuve visibilidad para hacer seguimiento a esos resultados.</p>
-        <div class="aviso">
-          <p class="label">Estimación, no medición</p>
-          <p>La reducción de tiempos proyectada fue una estimación de diseño. No se midió, y no hubo visibilidad posterior al handoff para verificarla.</p>
-        </div>
-
-        <h2>Aprendizajes</h2>
-        <p>Este proyecto me mostró que estandarizar no siempre significa homogeneizar todo: a veces la decisión correcta es identificar qué partes del proceso son lo suficientemente críticas para forzar una misma solución, y dejar el resto con la flexibilidad que la realidad de cada lugar requiere. También aprendí a trabajar con los límites de un proyecto de consultoría: nuestro alcance terminaba en el handoff, sin visibilidad de lo que pasaba después.</p>
-
-        <div class="reservado reservado--galeria" style="margin-top:2.5rem">
-          <p class="label">Espacio reservado — galería</p>
-          <p>Diagrama AS-IS frente a la versión estandarizada de un flujo crítico y ejemplo concreto de flujo estandarizado, pendientes de que se compartan los flujos generales.</p>
-        </div>
+        <h2>Lo que cambió en mi manera de trabajar</h2>
+        <p>Este proyecto me ayudó a entender que estandarizar no significa hacer que todos trabajen exactamente igual.</p>
+        <p>Una solución común puede ser necesaria para generar trazabilidad, pero también puede excluir si parte de condiciones que no existen en todos los lugares.</p>
+        <p>Antes de definir el flujo ideal, necesitábamos reconocer qué podía sostener cada centro y qué información era realmente necesaria para el Ministerio.</p>
+        <p>También fue una experiencia importante para comprender los límites del trabajo de consultoría. Participamos en el diagnóstico, diseño y validación, pero no acompañamos el producto durante el tiempo suficiente para medir su efecto. Ser clara sobre ese límite también forma parte de contar el proyecto con honestidad.</p>
       </div>
     </div>
   </div>
@@ -1012,7 +995,7 @@ footer.site{border-top:1px solid var(--rule);padding:1.5rem 0 2.5rem}
       <div class="case-next-grid">
         <a class="next-link" href="#/belcorp">
           <span class="label">Volver al primer caso</span>
-          <div class="record-name">Belcorp — Catálogo Virtual</div>
+          <div class="record-name">Belcorp, Catálogo Virtual</div>
         </a>
         <a class="next-link" href="#/"><span class="label">↑ Todos los casos</span></a>
       </div>
