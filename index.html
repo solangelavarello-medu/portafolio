@@ -1,3 +1,11 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Solange Lavarello</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -338,31 +346,77 @@ footer.site{border-top:1px solid var(--rule);padding:1.5rem 0 2.5rem}
 @media (prefers-reduced-motion: reduce){
   *,*::after,*::before{transition:none!important;animation:none!important;scroll-behavior:auto!important}
 }
+
+/* ---------- idioma ---------- */
+[hidden]{display:none!important}
+.langswitch{display:flex;align-items:baseline;gap:.35rem}
+.langswitch button{
+  font-family:var(--f-mono);font-size:.6875rem;letter-spacing:.1em;text-transform:uppercase;
+  background:none;border:0;padding:.35rem 0;cursor:pointer;color:var(--muted);
+  border-bottom:1px solid transparent;
+}
+.langswitch button:hover{color:var(--ink)}
+.langswitch button.on{color:var(--ink);border-bottom-color:var(--accent)}
+.langswitch .sep{font-family:var(--f-mono);font-size:.6875rem;color:var(--rule)}
+
+/* Los items de grid traen min-width:auto, así que un bloque ancho (el marco de
+   un diagrama) estira la columna en vez de desplazarse dentro de sí mismo. */
+.case-body > *,.prose,.record > div,.about-grid > *,.tl li > *{min-width:0}
+
+/* ---------- móvil ---------- */
+@media (max-width:760px){
+  /* el diagrama se desplaza dentro de su marco en vez de encoger el texto */
+  figure svg{min-width:600px}
+  .fig-frame{padding:1rem .75rem}
+  figcaption{font-size:.8125rem}
+}
+@media (max-width:600px){
+  .topbar-in{flex-wrap:wrap;gap:.25rem 1.25rem;padding-top:.6rem;padding-bottom:.6rem}
+  .brand{font-size:1rem;flex:1 0 100%}
+  .topnav{gap:1.25rem;flex:1}
+  .topnav a,.langswitch button{padding-top:.45rem;padding-bottom:.45rem}
+  .tag{white-space:normal}
+  .hero{padding-top:3rem;padding-bottom:2rem}
+  .hero-lead{max-width:none}
+  .hero-meta{margin-top:2rem;gap:.4rem 1.25rem}
+  .record{padding:1.5rem 0}
+  .record-name{margin-top:.4rem}
+  .case-head{padding-top:2.5rem}
+  .case-body{padding-top:1.75rem}
+  .rail dl{gap:1rem}
+  .contact-links{gap:1.25rem}
+  .contact-links li{flex:1 0 100%}
+  .prose h2{margin-top:2.5rem;padding-top:1.25rem}
+  .decision{padding-left:1.15rem}
+  .tl li{padding:1.25rem 0}
+}
 </style>
 
 <div class="topbar">
   <div class="topbar-in">
     <a class="brand" href="#/">Solange Lavarello</a>
-    <nav class="topnav" aria-label="Principal">
-      <a href="#/" data-nav="home">Casos</a>
-      <a href="#/about" data-nav="about">Sobre mí</a>
+    <nav class="topnav" aria-label="Principal / Main">
+      <a href="#/" data-nav="home"><span data-lang="es">Casos</span><span data-lang="en" hidden>Work</span></a>
+      <a href="#/about" data-nav="about"><span data-lang="es">Sobre mí</span><span data-lang="en" hidden>About</span></a>
     </nav>
+    <div class="langswitch" role="group" aria-label="Idioma / Language">
+      <button type="button" data-setlang="es" aria-pressed="true" class="on">ES</button>
+      <span class="sep" aria-hidden="true">/</span>
+      <button type="button" data-setlang="en" aria-pressed="false">EN</button>
+    </div>
   </div>
 </div>
 
 <main id="app">
 
-<!-- ============================= HOME ============================= -->
 <section class="page" id="page-home">
   <div class="wrap">
     <div class="hero">
       <h1>Solange&nbsp;Lavarello</h1>
-      <p class="hero-lead">Soy Product Designer y <em>una preguntadora de “porqués”</em>. Me gusta reconstruir cómo llegamos a un problema, encontrar patrones y explorar diferentes caminos para resolverlo. Mi forma de trabajar combina curiosidad, pensamiento sistémico y ejecución para transformar contextos complejos en soluciones claras y posibles de implementar.</p>
+      <p class="hero-lead" data-lang="es">Soy Product Designer y <em>una preguntadora de &ldquo;porqu&eacute;s&rdquo;</em>. Me gusta reconstruir cómo llegamos a un problema, encontrar patrones y explorar diferentes caminos para resolverlo. Mi forma de trabajar combina curiosidad, pensamiento sistémico y ejecución para transformar contextos complejos en soluciones claras y posibles de implementar.</p>
+      <p class="hero-lead" data-lang="en" hidden>I am a Product Designer and <em>a compulsive asker of &ldquo;why&rdquo;</em>. I like reconstructing how a problem came to be, finding the patterns in it and exploring different ways through. The way I work combines curiosity, systems thinking and execution, turning complex contexts into clear solutions that can actually be built.</p>
       <div class="hero-meta">
-        <span class="label">Banca multilateral</span>
-        <span class="label">Salud pública</span>
-        <span class="label">Seguros de salud</span>
-        <span class="label">Venta directa</span>
+        <span class="label"><span data-lang="es">Banca multilateral</span><span data-lang="en" hidden>Multilateral banking</span></span> <span class="label"><span data-lang="es">Salud pública</span><span data-lang="en" hidden>Public health</span></span> <span class="label"><span data-lang="es">Seguros de salud</span><span data-lang="en" hidden>Health insurance</span></span> <span class="label"><span data-lang="es">Venta directa</span><span data-lang="en" hidden>Direct sales</span></span>
       </div>
     </div>
 
@@ -370,87 +424,93 @@ footer.site{border-top:1px solid var(--rule);padding:1.5rem 0 2.5rem}
 
       <a class="record" href="#/belcorp">
         <div>
-          <span class="label">Consumo y belleza</span>
-          <div class="record-name">Belcorp, Catálogo Virtual</div>
-          <p class="record-diff">Diseñar a partir de cómo las consultoras ya vendían.</p>
+          <span class="label"><span data-lang="es">Consumo y belleza</span><span data-lang="en" hidden>Consumer and beauty</span></span>
+          <div class="record-name" data-lang="es">Belcorp, Catálogo Virtual</div>
+          <div class="record-name" data-lang="en" hidden>Belcorp, Catálogo Virtual</div>
+          <p class="record-diff" data-lang="es">Diseñar a partir de cómo las consultoras ya vendían.</p>
+          <p class="record-diff" data-lang="en" hidden>Designing from how the consultants were already selling.</p>
           <div class="record-tags">
-            <span class="tag tag--accent">Ownership end-to-end</span>
-            <span class="tag">Research de campo</span>
+            <span class="tag tag--accent"><span data-lang="es">Ownership end-to-end</span><span data-lang="en" hidden>End-to-end ownership</span></span>
+            <span class="tag"><span data-lang="es">Research de campo</span><span data-lang="en" hidden>Field research</span></span>
           </div>
         </div>
         <div>
-          <p class="record-blurb">Cuando me hice cargo del Catálogo Digital, el producto ya tenía una primera versión. Mi reto fue hacerlo crecer sin perder de vista cómo vendían realmente las consultoras, qué dispositivos utilizaban y cuánto podían adoptar. Lo que observamos en campo orientó la personalización de la experiencia y ayudó a definir un alcance de digitalización más realista. Esa base evolucionó después hacia el Catálogo Virtual y se expandió a cinco países.</p>
-          <p class="record-nota">Según el caso publicado por Altimea, el Catálogo Virtual generó más de US$1 millón en ventas adicionales durante sus primeros seis meses.</p>
-          <span class="record-go">Ver el caso <span aria-hidden="true">→</span></span>
+          <p class="record-blurb" data-lang="es">Cuando me hice cargo del Catálogo Digital, el producto ya tenía una primera versión. Mi reto fue hacerlo crecer sin perder de vista cómo vendían realmente las consultoras, qué dispositivos utilizaban y cuánto podían adoptar. Lo que observamos en campo orientó la personalización de la experiencia y ayudó a definir un alcance de digitalización más realista. Esa base evolucionó después hacia el Catálogo Virtual y se expandió a cinco países.</p>
+          <p class="record-blurb" data-lang="en" hidden>When I took over the Digital Catalog, the product already had a first version. My challenge was to grow it without losing sight of how the consultants actually sold, what devices they used and how much they could take on. What we saw in the field shaped how we personalized the experience and helped define a more realistic scope for digitization. That foundation later became the Catálogo Virtual and expanded to five countries.</p>
+          <p class="record-nota" data-lang="es">Según el caso publicado por Altimea, el Catálogo Virtual generó más de US$1 millón en ventas adicionales durante sus primeros seis meses.</p>
+          <p class="record-nota" data-lang="en" hidden>According to the case study published by Altimea, the Catálogo Virtual generated over US$1 million in additional sales during its first six months.</p>
+          <span class="record-go"><span data-lang="es">Ver el caso</span><span data-lang="en" hidden>View case</span> <span aria-hidden="true">&rarr;</span></span>
         </div>
       </a>
 
       <a class="record" href="#/bid">
         <div>
-          <span class="label">Desarrollo internacional y banca multilateral</span>
-          <div class="record-name">BID, Unidad Fiduciaria</div>
-          <p class="record-diff">Una plataforma común para procesos que no eran iguales.</p>
+          <span class="label"><span data-lang="es">Desarrollo internacional y banca multilateral</span><span data-lang="en" hidden>International development and multilateral banking</span></span>
+          <div class="record-name" data-lang="es">BID, Unidad Fiduciaria</div>
+          <div class="record-name" data-lang="en" hidden>IDB, Fiduciary Unit</div>
+          <p class="record-diff" data-lang="es">Una plataforma común para procesos que no eran iguales.</p>
+          <p class="record-diff" data-lang="en" hidden>One shared platform for processes that were not the same.</p>
           <div class="record-tags">
-            <span class="tag tag--accent">Facilitación</span>
-            <span class="tag">Diseño de flujos complejos</span>
+            <span class="tag tag--accent"><span data-lang="es">Facilitación</span><span data-lang="en" hidden>Facilitation</span></span>
+            <span class="tag"><span data-lang="es">Diseño de flujos complejos</span><span data-lang="en" hidden>Complex flow design</span></span>
           </div>
         </div>
         <div>
-          <p class="record-blurb">Durante aproximadamente un año y medio trabajé en el diseño de una plataforma para gestionar distintas etapas del ciclo de préstamos del BID. El reto fue comprender procesos, herramientas e intereses diferentes entre áreas internas y países miembros. A través de entrevistas y workshops, identificamos qué partes podían compartir una misma solución, cuáles necesitaban configuraciones específicas y qué flujos todavía debían ordenarse antes de ser digitalizados.</p>
-          <span class="record-go">Ver el caso <span aria-hidden="true">→</span></span>
+          <p class="record-blurb" data-lang="es">Durante aproximadamente un año y medio trabajé en el diseño de una plataforma para gestionar distintas etapas del ciclo de préstamos del BID. El reto fue comprender procesos, herramientas e intereses diferentes entre áreas internas y países miembros. A través de entrevistas y workshops, identificamos qué partes podían compartir una misma solución, cuáles necesitaban configuraciones específicas y qué flujos todavía debían ordenarse antes de ser digitalizados.</p>
+          <p class="record-blurb" data-lang="en" hidden>For about a year and a half I worked on the design of a platform to manage different stages of the IDB loan cycle. The challenge was understanding processes, tools and interests that differed across internal areas and member countries. Through interviews and workshops, we identified which parts could share a single solution, which needed specific configurations, and which flows still had to be sorted out before they could be digitized.</p>
+          <span class="record-go"><span data-lang="es">Ver el caso</span><span data-lang="en" hidden>View case</span> <span aria-hidden="true">&rarr;</span></span>
         </div>
       </a>
 
       <a class="record" href="#/isapre">
         <div>
-          <span class="label">Salud y seguros privados</span>
-          <div class="record-name">Isapre Esencial</div>
-          <p class="record-diff">Qué priorizar cuando la fecha de lanzamiento no podía moverse.</p>
+          <span class="label"><span data-lang="es">Salud y seguros privados</span><span data-lang="en" hidden>Health and private insurance</span></span>
+          <div class="record-name" data-lang="es">Isapre Esencial</div>
+          <div class="record-name" data-lang="en" hidden>Isapre Esencial</div>
+          <p class="record-diff" data-lang="es">Qué priorizar cuando la fecha de lanzamiento no podía moverse.</p>
+          <p class="record-diff" data-lang="en" hidden>What to prioritize when the launch date cannot move.</p>
           <div class="record-tags">
-            <span class="tag tag--accent">Liderazgo cross-funcional</span>
-            <span class="tag">Priorización de MVP</span>
+            <span class="tag tag--accent"><span data-lang="es">Liderazgo cross-funcional</span><span data-lang="en" hidden>Cross-functional leadership</span></span>
+            <span class="tag"><span data-lang="es">Priorización de MVP</span><span data-lang="en" hidden>MVP prioritization</span></span>
           </div>
         </div>
         <div>
-          <p class="record-blurb">Me incorporé a mitad del proyecto para liderar diseño y tecnología durante el lanzamiento de una nueva isapre en Chile. Teníamos un plazo legal fijo, dependencias con una consultora externa y no podíamos investigar con usuarios reales por la confidencialidad del proyecto. La prioridad fue separar lo obligatorio de lo deseable, construir un MVP viable y coordinar a los equipos para llegar al lanzamiento dentro del plazo previsto.</p>
-          <span class="record-go">Ver el caso <span aria-hidden="true">→</span></span>
+          <p class="record-blurb" data-lang="es">Me incorporé a mitad del proyecto para liderar diseño y tecnología durante el lanzamiento de una nueva isapre en Chile. Teníamos un plazo legal fijo, dependencias con una consultora externa y no podíamos investigar con usuarios reales por la confidencialidad del proyecto. La prioridad fue separar lo obligatorio de lo deseable, construir un MVP viable y coordinar a los equipos para llegar al lanzamiento dentro del plazo previsto.</p>
+          <p class="record-blurb" data-lang="en" hidden>I joined the project halfway through to lead design and technology for the launch of a new private health insurer in Chile. We had a fixed legal deadline, dependencies on an external consultancy, and no way to research with real users because of the confidentiality of the project. The priority was separating the mandatory from the desirable, building a viable MVP and coordinating the teams to reach launch on time.</p>
+          <span class="record-go"><span data-lang="es">Ver el caso</span><span data-lang="en" hidden>View case</span> <span aria-hidden="true">&rarr;</span></span>
         </div>
       </a>
 
       <a class="record" href="#/sigo">
         <div>
-          <span class="label">Salud pública</span>
-          <div class="record-name">SIGO, Seguimiento oncológico</div>
-          <p class="record-diff">Qué estandarizar cuando cada centro de salud trabaja de manera distinta.</p>
+          <span class="label"><span data-lang="es">Salud pública</span><span data-lang="en" hidden>Public health</span></span>
+          <div class="record-name" data-lang="es">SIGO, Seguimiento oncológico</div>
+          <div class="record-name" data-lang="en" hidden>SIGO, Oncology patient tracking</div>
+          <p class="record-diff" data-lang="es">Qué estandarizar cuando cada centro de salud trabaja de manera distinta.</p>
+          <p class="record-diff" data-lang="en" hidden>What to standardize when every health center works differently.</p>
           <div class="record-tags">
-            <span class="tag tag--accent">Discovery de campo</span>
-            <span class="tag">Co-liderazgo</span>
+            <span class="tag tag--accent"><span data-lang="es">Discovery de campo</span><span data-lang="en" hidden>Field discovery</span></span>
+            <span class="tag"><span data-lang="es">Co-liderazgo</span><span data-lang="en" hidden>Co-leadership</span></span>
           </div>
         </div>
         <div>
-          <p class="record-blurb">Co-lideré el diseño de una plataforma para el seguimiento de pacientes oncológicos en Chile. Durante el mapeo descubrimos que los centros de salud tenían diferencias importantes de personal, financiamiento, especialización y digitalización. En lugar de forzar un mismo proceso para todos, priorizamos los flujos que el Ministerio necesitaba hacer trazables y mantuvimos flexibilidad en aquellos que dependían de la realidad de cada centro.</p>
-          <span class="record-go">Ver el caso <span aria-hidden="true">→</span></span>
+          <p class="record-blurb" data-lang="es">Co-lideré el diseño de una plataforma para el seguimiento de pacientes oncológicos en Chile. Durante el mapeo descubrimos que los centros de salud tenían diferencias importantes de personal, financiamiento, especialización y digitalización. En lugar de forzar un mismo proceso para todos, priorizamos los flujos que el Ministerio necesitaba hacer trazables y mantuvimos flexibilidad en aquellos que dependían de la realidad de cada centro.</p>
+          <p class="record-blurb" data-lang="en" hidden>I co-led the design of a platform for tracking oncology patients in Chile. During the mapping we found that health centers differed significantly in staffing, funding, specialization and digitization. Rather than forcing a single process on everyone, we prioritized the flows the Ministry needed to make traceable and kept flexibility in those that depended on the reality of each center.</p>
+          <span class="record-go"><span data-lang="es">Ver el caso</span><span data-lang="en" hidden>View case</span> <span aria-hidden="true">&rarr;</span></span>
         </div>
       </a>
 
-    </div>
-
-    <div class="band bloque-interno">
-      <div class="band-head"><h2>Competencias</h2></div>
-      <div class="reservado">
-        <p class="label">Espacio reservado</p>
-        <p>Resumen escaneable de competencias senior. El formato exacto está pendiente de definir — este bloque queda vacío a propósito hasta entonces.</p>
-      </div>
     </div>
   </div>
 
   <div class="wrap">
     <div class="contact">
-      <h2>Conversemos</h2>
+            <h2 data-lang="es">Conversemos</h2>
+      <h2 data-lang="en" hidden>Let's talk</h2>
       <ul class="contact-links">
-        <li><span class="label">Correo</span><a class="js-mail" data-u="lavarellosolange" data-d="gmail.com" href="#/">escríbeme</a></li>
+        <li><span class="label"><span data-lang="es">Correo</span><span data-lang="en" hidden>Email</span></span><a class="js-mail" data-u="lavarellosolange" data-d="gmail.com" href="#/"><span data-lang="es">escríbeme</span><span data-lang="en" hidden>write to me</span></a></li>
         <li><span class="label">LinkedIn</span><a href="https://linkedin.com/in/solangelavarello" target="_blank" rel="noopener noreferrer">linkedin.com/in/solangelavarello</a></li>
-        <li><span class="label">Base</span><span class="contact-plain">Lima, Perú</span></li>
+        <li><span class="label"><span data-lang="es">Base</span><span data-lang="en" hidden>Based in</span></span><span class="contact-plain"><span data-lang="es">Lima, Perú</span><span data-lang="en" hidden>Lima, Peru</span></span></li>
       </ul>
     </div>
   </div>
@@ -461,57 +521,112 @@ footer.site{border-top:1px solid var(--rule);padding:1.5rem 0 2.5rem}
   <div class="wrap">
     <div class="case-head">
       <div class="eyebrow">
-        <span class="tag">Consumo y belleza</span>
+        <span class="tag"><span data-lang="es">Consumo y belleza</span><span data-lang="en" hidden>Consumer and beauty</span></span>
       </div>
-      <h1>Belcorp, Catálogo Virtual</h1>
-      <p class="case-sub">Evolucionar el catálogo digital sin perder de vista cómo vendían realmente las consultoras.</p>
+            <h1 data-lang="es">Belcorp, Catálogo Virtual</h1>
+      <h1 data-lang="en" hidden>Belcorp, Catálogo Virtual</h1>
+            <p class="case-sub" data-lang="es">Evolucionar el catálogo digital sin perder de vista cómo vendían realmente las consultoras.</p>
+      <p class="case-sub" data-lang="en" hidden>Growing the digital catalog without losing sight of how the consultants were actually selling.</p>
     </div>
 
     <div class="case-body">
       <aside class="rail">
-        <dl>
+        <dl data-lang="es">
           <div><dt class="label">Rol</dt><dd>Diseñadora responsable del producto, como parte de Altimea trabajando dentro de Belcorp.</dd></div>
           <div><dt class="label">Equipo</dt><dd>Product Owner, Tech Lead, desarrollo, QA, Scrum Master y Data Analysts.</dd></div>
           <div><dt class="label">Duración</dt><dd>Diciembre de 2018 a diciembre de 2020.</dd></div>
           <div><dt class="label">Mi contribución</dt><dd>Research de campo, definición de flujos, diseño de la experiencia, priorización y acompañamiento de la implementación.</dd></div>
           <div><dt class="label">Alcance</dt><dd>Catálogo digital, tienda individual por consultora y flujo de prepedido.</dd></div>
         </dl>
+        <dl data-lang="en" hidden>
+          <div><dt class="label">Role</dt><dd>Designer responsible for the product, as part of Altimea working inside Belcorp.</dd></div>
+          <div><dt class="label">Team</dt><dd>Product Owner, Tech Lead, development, QA, Scrum Master and Data Analysts.</dd></div>
+          <div><dt class="label">Duration</dt><dd>December 2018 to December 2020.</dd></div>
+          <div><dt class="label">My contribution</dt><dd>Field research, flow definition, experience design, prioritization and support through implementation.</dd></div>
+          <div><dt class="label">Scope</dt><dd>Digital catalog, individual store per consultant and pre-order flow.</dd></div>
+        </dl>
       </aside>
 
       <div class="prose">
-        <h2>El punto de partida</h2>
-        <p>El Catálogo Digital ya tenía una primera versión cuando me incorporé. Había sido diseñado por la UX que fue mi mentora y, aunque inicialmente trabajaríamos juntas durante más tiempo, cuando consideró que estaba preparada me dejó el producto a cargo.</p>
-        <p>Yo formaba parte de Altimea, el proveedor tecnológico de Belcorp, pero trabajaba dentro de la empresa junto al equipo del producto. Era la única diseñadora dedicada al catálogo y colaboraba diariamente con Producto y Tecnología.</p>
-        <p>En ese momento, el catálogo era principalmente una versión digital de la herramienta física que las consultoras utilizaban para vender. La empresa quería transformarlo en una experiencia más completa, con una tienda individual para cada consultora y un flujo de prepedido.</p>
-        <p>Antes de decidir qué agregar, necesitábamos entender cómo utilizaban realmente el catálogo y cuánto de esa transformación podían adoptar.</p>
+        <h2 data-lang="es">El punto de partida</h2>
+        <h2 data-lang="en" hidden>Where it started</h2>
 
-        <h2>Ver el catálogo en uso</h2>
-        <p>Combinamos entrevistas, shadowing y revisión de métricas. Observar a las consultoras en su contexto fue especialmente importante porque reveló comportamientos que no aparecían en los requerimientos ni en los datos de uso.</p>
-        <p>Las consultoras conocían muy bien a sus clientas. Recordaban sus gustos, la composición de sus familias y los productos que compraban habitualmente. Antes de una visita o de dejarles el catálogo, marcaban determinadas páginas según lo que creían que podía interesarle a cada persona.</p>
-        <p>No utilizaban el catálogo físico como una publicación igual para todas. Lo adaptaban para cada conversación de venta.</p>
-        <p>También encontramos una distancia entre la experiencia digital que parte de la empresa imaginaba y las condiciones reales de uso. Algunas consultoras tenían conectividad limitada o celulares con poca capacidad. Agregar complejidad podía hacer que el producto pareciera más avanzado, pero también más difícil de utilizar.</p>
+        <p data-lang="es">El Catálogo Digital ya tenía una primera versión cuando me incorporé. Había sido diseñado por la UX que fue mi mentora y, aunque inicialmente trabajaríamos juntas durante más tiempo, cuando consideró que estaba preparada me dejó el producto a cargo.</p>
+        <p data-lang="en" hidden>The Digital Catalog already had a first version when I joined. It had been designed by the UX designer who was my mentor and, although we were initially going to work together for longer, once she felt I was ready she handed the product over to me.</p>
 
-        <h2>Lo que decidimos conservar</h2>
-        <p>En lugar de crear una forma completamente nueva de personalizar el catálogo, diseñé una función que permitía seleccionar y compartir páginas según cada clienta.</p>
-        <p>La intención no era replicar literalmente el catálogo físico. Queríamos conservar la lógica que ya funcionaba en la venta presencial y trasladarla a una experiencia digital.</p>
-        <p>De esta manera, la consultora podía preparar una selección más relevante para cada clienta sin tener que aprender una forma distinta de vender.</p>
+        <p data-lang="es">Yo formaba parte de Altimea, el proveedor tecnológico de Belcorp, pero trabajaba dentro de la empresa junto al equipo del producto. Era la única diseñadora dedicada al catálogo y colaboraba diariamente con Producto y Tecnología.</p>
+        <p data-lang="en" hidden>I was part of Altimea, the technology provider for Belcorp, but I worked inside the company alongside the product team. I was the only designer dedicated to the catalog and I worked with Product and Technology every day.</p>
 
-        <h2>Hasta dónde digitalizar</h2>
-        <p>El research también nos ayudó a conversar con stakeholders sobre el nivel de digitalización adecuado para ese momento.</p>
-        <p>Había interés en avanzar con rapidez y construir una experiencia más sofisticada. Mi responsabilidad fue mostrar qué partes de esa visión estaban alineadas con el contexto de las consultoras y cuáles podían convertirse en barreras de adopción.</p>
-        <p>Presenté los hallazgos a personas con mayor nivel de decisión dentro de la empresa y los utilicé para argumentar un alcance más realista.</p>
-        <p>No se trataba de detener la digitalización. Se trataba de encontrar un punto desde el cual el producto pudiera crecer sin dejar atrás a las personas que debían utilizarlo.</p>
+        <p data-lang="es">En ese momento, el catálogo era principalmente una versión digital de la herramienta física que las consultoras utilizaban para vender. La empresa quería transformarlo en una experiencia más completa, con una tienda individual para cada consultora y un flujo de prepedido.</p>
+        <p data-lang="en" hidden>At that point the catalog was mainly a digital version of the physical tool the consultants used to sell. The company wanted to turn it into a fuller experience, with an individual store for each consultant and a pre-order flow.</p>
 
-        <h2>Cómo evolucionó el producto</h2>
-        <p>El producto fue creciendo hasta integrar tres partes:</p>
-        <ol class="pasos">
+        <p data-lang="es">Antes de decidir qué agregar, necesitábamos entender cómo utilizaban realmente el catálogo y cuánto de esa transformación podían adoptar.</p>
+        <p data-lang="en" hidden>Before deciding what to add, we needed to understand how they actually used the catalog and how much of that transformation they could take on.</p>
+
+        <h2 data-lang="es">Ver el catálogo en uso</h2>
+        <h2 data-lang="en" hidden>Seeing the catalog in use</h2>
+
+        <p data-lang="es">Combinamos entrevistas, shadowing y revisión de métricas. Observar a las consultoras en su contexto fue especialmente importante porque reveló comportamientos que no aparecían en los requerimientos ni en los datos de uso.</p>
+        <p data-lang="en" hidden>We combined interviews, shadowing and a review of metrics. Observing the consultants in their own context mattered especially, because it surfaced behavior that appeared neither in the requirements nor in the usage data.</p>
+
+        <p data-lang="es">Las consultoras conocían muy bien a sus clientas. Recordaban sus gustos, la composición de sus familias y los productos que compraban habitualmente. Antes de una visita o de dejarles el catálogo, marcaban determinadas páginas según lo que creían que podía interesarle a cada persona.</p>
+        <p data-lang="en" hidden>The consultants knew their clients very well. They remembered their tastes, the make-up of their families and the products they usually bought. Before a visit, or before leaving the catalog with someone, they marked certain pages according to what they thought might interest that particular person.</p>
+
+        <p data-lang="es">No utilizaban el catálogo físico como una publicación igual para todas. Lo adaptaban para cada conversación de venta.</p>
+        <p data-lang="en" hidden>They did not use the physical catalog as a publication that was the same for everyone. They adapted it for each sales conversation.</p>
+
+        <p data-lang="es">También encontramos una distancia entre la experiencia digital que parte de la empresa imaginaba y las condiciones reales de uso. Algunas consultoras tenían conectividad limitada o celulares con poca capacidad. Agregar complejidad podía hacer que el producto pareciera más avanzado, pero también más difícil de utilizar.</p>
+        <p data-lang="en" hidden>We also found a gap between the digital experience part of the company imagined and the real conditions of use. Some consultants had limited connectivity or phones with little capacity. Adding complexity could make the product look more advanced, but also harder to use.</p>
+
+        <h2 data-lang="es">Lo que decidimos conservar</h2>
+        <h2 data-lang="en" hidden>What we decided to keep</h2>
+
+        <p data-lang="es">En lugar de crear una forma completamente nueva de personalizar el catálogo, diseñé una función que permitía seleccionar y compartir páginas según cada clienta.</p>
+        <p data-lang="en" hidden>Instead of creating an entirely new way to personalize the catalog, I designed a feature that let consultants select and share pages for each client.</p>
+
+        <p data-lang="es">La intención no era replicar literalmente el catálogo físico. Queríamos conservar la lógica que ya funcionaba en la venta presencial y trasladarla a una experiencia digital.</p>
+        <p data-lang="en" hidden>The intention was not to replicate the physical catalog literally. We wanted to keep the logic that already worked in face-to-face selling and carry it into a digital experience.</p>
+
+        <p data-lang="es">De esta manera, la consultora podía preparar una selección más relevante para cada clienta sin tener que aprender una forma distinta de vender.</p>
+        <p data-lang="en" hidden>This way, a consultant could put together a more relevant selection for each client without having to learn a different way of selling.</p>
+
+        <h2 data-lang="es">Hasta dónde digitalizar</h2>
+        <h2 data-lang="en" hidden>How far to digitize</h2>
+
+        <p data-lang="es">El research también nos ayudó a conversar con stakeholders sobre el nivel de digitalización adecuado para ese momento.</p>
+        <p data-lang="en" hidden>The research also helped us talk with stakeholders about the right level of digitization for that moment.</p>
+
+        <p data-lang="es">Había interés en avanzar con rapidez y construir una experiencia más sofisticada. Mi responsabilidad fue mostrar qué partes de esa visión estaban alineadas con el contexto de las consultoras y cuáles podían convertirse en barreras de adopción.</p>
+        <p data-lang="en" hidden>There was appetite to move quickly and build a more sophisticated experience. My responsibility was to show which parts of that vision were aligned with the consultants context and which could turn into barriers to adoption.</p>
+
+        <p data-lang="es">Presenté los hallazgos a personas con mayor nivel de decisión dentro de la empresa y los utilicé para argumentar un alcance más realista.</p>
+        <p data-lang="en" hidden>I presented the findings to people at higher levels of decision-making within the company and used them to argue for a more realistic scope.</p>
+
+        <p data-lang="es">No se trataba de detener la digitalización. Se trataba de encontrar un punto desde el cual el producto pudiera crecer sin dejar atrás a las personas que debían utilizarlo.</p>
+        <p data-lang="en" hidden>It was not about stopping digitization. It was about finding a point from which the product could grow without leaving behind the people who had to use it.</p>
+
+        <h2 data-lang="es">Cómo evolucionó el producto</h2>
+        <h2 data-lang="en" hidden>How the product evolved</h2>
+
+        <p data-lang="es">El producto fue creciendo hasta integrar tres partes:</p>
+        <p data-lang="en" hidden>The product grew until it brought together three parts:</p>
+
+        <ol class="pasos" data-lang="es">
           <li>Un catálogo central desde el que se administraban contenidos y promociones.</li>
           <li>Una tienda individual con una dirección propia para cada consultora.</li>
           <li>Un flujo de prepedido conectado con los sistemas logísticos de Belcorp.</li>
         </ol>
-        <p>La personalización por clienta vivía dentro de la tienda individual. Esto permitía mantener una única fuente de contenido y, al mismo tiempo, dar a cada consultora un espacio que pudiera adaptar y compartir.</p>
 
-        <figure>
+        <ol class="pasos" data-lang="en" hidden>
+          <li>A central catalog from which content and promotions were managed.</li>
+          <li>An individual store with its own address for each consultant.</li>
+          <li>A pre-order flow connected to the Belcorp logistics systems.</li>
+        </ol>
+
+        <p data-lang="es">La personalización por clienta vivía dentro de la tienda individual. Esto permitía mantener una única fuente de contenido y, al mismo tiempo, dar a cada consultora un espacio que pudiera adaptar y compartir.</p>
+        <p data-lang="en" hidden>Personalization by client lived inside the individual store. This let us keep a single source of content while giving each consultant a space she could adapt and share.</p>
+
+        <figure data-lang="es">
           <div class="fig-frame">
             <svg viewBox="0 0 760 300" role="img" aria-label="Arquitectura del Catálogo Virtual: un CMS alimenta un catálogo central, que se replica en una tienda individual por consultora con personalización por clienta, y desemboca en un motor de pre-pedido conectado a los sistemas logísticos de Belcorp.">
               <defs>
@@ -562,25 +677,104 @@ footer.site{border-top:1px solid var(--rule);padding:1.5rem 0 2.5rem}
           <figcaption>Las tres piezas del Catálogo Virtual. La personalización por clienta vive dentro de la tienda individual y no en el catálogo central, porque replica lo que la consultora ya hacía en papel: marcar páginas según a quién iba a visitar. Diagrama ilustrativo elaborado para este caso.</figcaption>
         </figure>
 
-        <p>También participé en el impulso de un sistema de diseño utilizado en distintos productos digitales de Belcorp. Su adopción fue progresiva y se realizó de acuerdo con el backlog y las necesidades de cada equipo.</p>
+        <figure data-lang="en" hidden>
+          <div class="fig-frame">
+            <svg viewBox="0 0 760 300" role="img" aria-label="Catálogo Virtual architecture: a CMS feeds a central catalog, which is replicated into an individual store per consultant with personalization by client, and flows into a pre-order engine connected to Belcorp logistics systems.">
+              <defs>
+                <marker id="ar-bel" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+                  <path d="M0,0 L10,5 L0,10 z" fill="currentColor"/>
+                </marker>
+              </defs>
+              <g font-family="IBM Plex Mono, monospace" font-size="11" fill="currentColor">
+                <!-- CMS -->
+                <rect x="8" y="112" width="112" height="52" fill="none" stroke="currentColor" stroke-width="1" opacity=".55"/>
+                <text x="64" y="134" text-anchor="middle" opacity=".75">CMS</text>
+                <text x="64" y="150" text-anchor="middle" opacity=".55" font-size="10">content · promos</text>
 
-        <h2>Diseñar junto con tecnología</h2>
-        <p>Trabajé con el Product Owner y el Tech Lead en la priorización del backlog, y con el equipo Scrum en el refinamiento de historias. También acompañé a desarrollo durante la implementación y participé en decisiones técnicas que afectaban directamente la experiencia.</p>
-        <p>Una de ellas fue la carga progresiva de información e imágenes. Esta solución ayudaba a reducir el consumo de datos y espacio en los dispositivos de las consultoras, algo relevante por las condiciones que habíamos observado durante el research.</p>
-        <p>El mismo equipo acompañó la evolución desde la primera versión del catálogo hasta su expansión a otros países. A medida que aumentaba el alcance, tuvimos que priorizar y mantener la consistencia sin que creciera el equipo de diseño.</p>
+                <!-- catálogo central -->
+                <rect x="180" y="102" width="150" height="72" fill="none" stroke="currentColor" stroke-width="1.6"/>
+                <text x="255" y="130" text-anchor="middle" font-size="12">Central catalog</text>
+                <text x="255" y="148" text-anchor="middle" opacity=".6" font-size="10">a single source</text>
 
-        <h2>Cuando cambió el contexto</h2>
-        <p>Cuando la pandemia interrumpió la venta presencial, el Catálogo Virtual pasó a ocupar un lugar mucho más importante dentro de la operación de las consultoras.</p>
-        <p>La base que habíamos construido evolucionó y se expandió a cinco países. Según el caso publicado por Altimea, durante sus primeros seis meses el producto generó más de US$1 millón en ventas adicionales y alcanzó 2 millones de usuarios activos entre consultoras y clientas.</p>
-        <p>El mismo caso reporta 127.000 prepedidos durante el primer trimestre, una cifra diez veces mayor que la proyección inicial.</p>
-        <p>Estos resultados corresponden al trabajo conjunto de Belcorp, Altimea y los diferentes equipos involucrados. Mi contribución estuvo en el research, la definición de la experiencia y el diseño del producto de principio a fin.</p>
-        <p class="fuente">Fuente: <a href="https://www.altimea.com/casos-de-exito/belcorp-catalogo-virtual/" target="_blank" rel="noopener noreferrer">Caso de éxito del Catálogo Virtual, Altimea</a></p>
+                <!-- tiendas -->
+                <rect x="392" y="36" width="176" height="60" fill="none" stroke-width="1.6" class="acc-s"/>
+                <text x="480" y="60" text-anchor="middle" font-size="12" fill="currentColor">Store per consultant</text>
+                <text x="480" y="78" text-anchor="middle" opacity=".6" font-size="10" fill="currentColor">Own URL · personalization by client</text>
 
-        <h2>Lo que cambió en mi manera de trabajar</h2>
-        <p>Este fue el primer producto que tuve completamente a cargo y uno de los proyectos que más influyó en mi manera de diseñar.</p>
-        <p>Aprendí que el research no sirve solamente para validar una interfaz. También puede ayudar a cuestionar el alcance de una iniciativa y sostener conversaciones difíciles con evidencia.</p>
-        <p>Observar cómo las consultoras ya resolvían sus ventas nos permitió diseñar desde un comportamiento real, en lugar de pedirles que adoptaran una lógica completamente nueva.</p>
-        <p>Esa experiencia sigue siendo una referencia para mí cuando entro a un producto. Antes de proponer una solución, intento entender qué están haciendo hoy las personas, por qué lo hacen de esa manera y qué no deberíamos perder al cambiarlo.</p>
+                <rect x="400" y="112" width="160" height="44" fill="none" stroke="currentColor" opacity=".3"/>
+                <rect x="408" y="122" width="160" height="44" fill="none" stroke="currentColor" opacity=".18"/>
+                <text x="488" y="150" text-anchor="middle" opacity=".45" font-size="10">…one for each consultant</text>
+
+                <!-- pre-pedido -->
+                <rect x="392" y="206" width="176" height="60" fill="none" stroke="currentColor" stroke-width="1.6"/>
+                <text x="480" y="230" text-anchor="middle" font-size="12">Pre-order engine</text>
+                <text x="480" y="248" text-anchor="middle" opacity=".6" font-size="10">127,000 in the first quarter</text>
+
+                <!-- logística -->
+                <rect x="632" y="206" width="120" height="60" fill="none" stroke="currentColor" opacity=".55"/>
+                <text x="692" y="230" text-anchor="middle" opacity=".75" font-size="11">Logistics</text>
+                <text x="692" y="246" text-anchor="middle" opacity=".75" font-size="11">systems</text>
+
+                <!-- arrows -->
+                <line x1="122" y1="138" x2="176" y2="138" stroke="currentColor" stroke-width="1.2" marker-end="url(#ar-bel)"/>
+                <path d="M332,124 C362,124 362,66 388,66" fill="none" stroke="currentColor" stroke-width="1.2" marker-end="url(#ar-bel)"/>
+                <text x="352" y="98" text-anchor="middle" font-size="10" opacity=".65">replicates</text>
+                <path d="M480,100 L480,202" fill="none" stroke="currentColor" stroke-width="1.2" marker-end="url(#ar-bel)"/>
+                <text x="492" y="156" font-size="10" opacity=".65">the client orders</text>
+                <line x1="572" y1="236" x2="628" y2="236" stroke="currentColor" stroke-width="1.2" marker-end="url(#ar-bel)"/>
+              </g>
+            </svg>
+          </div>
+          <figcaption>The three pieces of the Catálogo Virtual. Personalization by client lives inside the individual store rather than the central catalog, because it mirrors what the consultant was already doing on paper: marking pages according to who she was going to visit. Illustrative diagram made for this case.</figcaption>
+        </figure>
+
+        <p data-lang="es">También participé en el impulso de un sistema de diseño utilizado en distintos productos digitales de Belcorp. Su adopción fue progresiva y se realizó de acuerdo con el backlog y las necesidades de cada equipo.</p>
+        <p data-lang="en" hidden>I also helped drive a design system used across different Belcorp digital products. Adoption was gradual and followed the backlog and needs of each team.</p>
+
+        <h2 data-lang="es">Diseñar junto con tecnología</h2>
+        <h2 data-lang="en" hidden>Designing alongside technology</h2>
+
+        <p data-lang="es">Trabajé con el Product Owner y el Tech Lead en la priorización del backlog, y con el equipo Scrum en el refinamiento de historias. También acompañé a desarrollo durante la implementación y participé en decisiones técnicas que afectaban directamente la experiencia.</p>
+        <p data-lang="en" hidden>I worked with the Product Owner and the Tech Lead on backlog prioritization, and with the Scrum team on story refinement. I also supported development through implementation and took part in technical decisions that directly affected the experience.</p>
+
+        <p data-lang="es">Una de ellas fue la carga progresiva de información e imágenes. Esta solución ayudaba a reducir el consumo de datos y espacio en los dispositivos de las consultoras, algo relevante por las condiciones que habíamos observado durante el research.</p>
+        <p data-lang="en" hidden>One of them was progressive loading of information and images. This reduced data and storage use on the consultants devices, which mattered given the conditions we had observed during the research.</p>
+
+        <p data-lang="es">El mismo equipo acompañó la evolución desde la primera versión del catálogo hasta su expansión a otros países. A medida que aumentaba el alcance, tuvimos que priorizar y mantener la consistencia sin que creciera el equipo de diseño.</p>
+        <p data-lang="en" hidden>The same team supported the product from the first version of the catalog through its expansion into other countries. As the scope grew, we had to prioritize and hold consistency without the design team growing.</p>
+
+        <h2 data-lang="es">Cuando cambió el contexto</h2>
+        <h2 data-lang="en" hidden>When the context changed</h2>
+
+        <p data-lang="es">Cuando la pandemia interrumpió la venta presencial, el Catálogo Virtual pasó a ocupar un lugar mucho más importante dentro de la operación de las consultoras.</p>
+        <p data-lang="en" hidden>When the pandemic interrupted face-to-face selling, the Catálogo Virtual took on a far more important place in the consultants day to day operation.</p>
+
+        <p data-lang="es">La base que habíamos construido evolucionó y se expandió a cinco países. Según el caso publicado por Altimea, durante sus primeros seis meses el producto generó más de US$1 millón en ventas adicionales y alcanzó 2 millones de usuarios activos entre consultoras y clientas.</p>
+        <p data-lang="en" hidden>The foundation we had built evolved and expanded to five countries. According to the case study published by Altimea, in its first six months the product generated over US$1 million in additional sales and reached 2 million active users across consultants and clients.</p>
+
+        <p data-lang="es">El mismo caso reporta 127.000 prepedidos durante el primer trimestre, una cifra diez veces mayor que la proyección inicial.</p>
+        <p data-lang="en" hidden>The same case study reports 127,000 pre-orders in the first quarter, ten times the initial projection.</p>
+
+        <p data-lang="es">Estos resultados corresponden al trabajo conjunto de Belcorp, Altimea y los diferentes equipos involucrados. Mi contribución estuvo en el research, la definición de la experiencia y el diseño del producto de principio a fin.</p>
+        <p data-lang="en" hidden>These results belong to the joint work of Belcorp, Altimea and the different teams involved. My contribution was in the research, the definition of the experience and the design of the product end to end.</p>
+
+        <p class="fuente" data-lang="es">Fuente: <a href="https://www.altimea.com/casos-de-exito/belcorp-catalogo-virtual/" target="_blank" rel="noopener noreferrer">Caso de éxito del Catálogo Virtual, Altimea</a></p>
+        <p class="fuente" data-lang="en" hidden>Source: <a href="https://www.altimea.com/casos-de-exito/belcorp-catalogo-virtual/" target="_blank" rel="noopener noreferrer">Catálogo Virtual case study, Altimea</a></p>
+
+        <h2 data-lang="es">Lo que cambió en mi manera de trabajar</h2>
+        <h2 data-lang="en" hidden>What changed in the way I work</h2>
+
+        <p data-lang="es">Este fue el primer producto que tuve completamente a cargo y uno de los proyectos que más influyó en mi manera de diseñar.</p>
+        <p data-lang="en" hidden>This was the first product I owned completely and one of the projects that most shaped how I design.</p>
+
+        <p data-lang="es">Aprendí que el research no sirve solamente para validar una interfaz. También puede ayudar a cuestionar el alcance de una iniciativa y sostener conversaciones difíciles con evidencia.</p>
+        <p data-lang="en" hidden>I learned that research is not only for validating an interface. It can also help question the scope of an initiative and hold difficult conversations with evidence.</p>
+
+        <p data-lang="es">Observar cómo las consultoras ya resolvían sus ventas nos permitió diseñar desde un comportamiento real, en lugar de pedirles que adoptaran una lógica completamente nueva.</p>
+        <p data-lang="en" hidden>Watching how the consultants already handled their sales let us design from real behavior, instead of asking them to adopt an entirely new logic.</p>
+
+        <p data-lang="es">Esa experiencia sigue siendo una referencia para mí cuando entro a un producto. Antes de proponer una solución, intento entender qué están haciendo hoy las personas, por qué lo hacen de esa manera y qué no deberíamos perder al cambiarlo.</p>
+        <p data-lang="en" hidden>That experience is still a reference for me when I join a product. Before proposing a solution, I try to understand what people are doing today, why they do it that way, and what we should not lose by changing it.</p>
       </div>
     </div>
   </div>
@@ -589,10 +783,10 @@ footer.site{border-top:1px solid var(--rule);padding:1.5rem 0 2.5rem}
     <div class="case-next">
       <div class="case-next-grid">
         <a class="next-link" href="#/bid">
-          <span class="label">Caso siguiente</span>
-          <div class="record-name">BID, Unidad Fiduciaria</div>
+          <span class="label"><span data-lang="es">Caso siguiente</span><span data-lang="en" hidden>Next case</span></span>
+          <div class="record-name"><span data-lang="es">BID, Unidad Fiduciaria</span><span data-lang="en" hidden>IDB, Fiduciary Unit</span></div>
         </a>
-        <a class="next-link" href="#/"><span class="label">↑ Todos los casos</span></a>
+        <a class="next-link" href="#/"><span class="label"><span data-lang="es">↑ Todos los casos</span><span data-lang="en" hidden>↑ All work</span></span></a>
       </div>
     </div>
   </div>
@@ -603,51 +797,95 @@ footer.site{border-top:1px solid var(--rule);padding:1.5rem 0 2.5rem}
   <div class="wrap">
     <div class="case-head">
       <div class="eyebrow">
-        <span class="tag">Desarrollo internacional y banca multilateral</span>
+        <span class="tag"><span data-lang="es">Desarrollo internacional y banca multilateral</span><span data-lang="en" hidden>International development and multilateral banking</span></span>
       </div>
-      <h1>BID, Unidad Fiduciaria</h1>
-      <p class="case-sub">Encontrar una lógica común entre áreas y países que trabajaban con procesos diferentes.</p>
+            <h1 data-lang="es">BID, Unidad Fiduciaria</h1>
+      <h1 data-lang="en" hidden>IDB, Fiduciary Unit</h1>
+            <p class="case-sub" data-lang="es">Encontrar una lógica común entre áreas y países que trabajaban con procesos diferentes.</p>
+      <p class="case-sub" data-lang="en" hidden>Finding a shared logic across areas and countries that worked with different processes.</p>
     </div>
 
     <div class="case-body">
       <aside class="rail">
-        <dl>
+        <dl data-lang="es">
           <div><dt class="label">Rol</dt><dd>Diseñadora en un equipo de dos personas de Continuum. Durante el proyecto pasé de un rol semisénior a senior.</dd></div>
           <div><dt class="label">Colaboración</dt><dd>Product Managers, Tech Leads, representantes de áreas internas del BID y participantes de distintos países miembros.</dd></div>
           <div><dt class="label">Duración</dt><dd>Aproximadamente un año y medio, dividido en varias fases.</dd></div>
           <div><dt class="label">Mi contribución</dt><dd>Research, facilitación de workshops, levantamiento de procesos, definición de flujos y diseño de la experiencia.</dd></div>
           <div><dt class="label">Idiomas</dt><dd>Español e inglés.</dd></div>
         </dl>
+        <dl data-lang="en" hidden>
+          <div><dt class="label">Role</dt><dd>Designer in a two-person team at Continuum. During the project I moved from a mid-level to a senior role.</dd></div>
+          <div><dt class="label">Collaboration</dt><dd>Product Managers, Tech Leads, representatives from IDB internal areas and participants from various member countries.</dd></div>
+          <div><dt class="label">Duration</dt><dd>About a year and a half, split into several phases.</dd></div>
+          <div><dt class="label">My contribution</dt><dd>Research, workshop facilitation, process mapping, flow definition and experience design.</dd></div>
+          <div><dt class="label">Languages</dt><dd>Spanish and English.</dd></div>
+        </dl>
       </aside>
 
       <div class="prose">
-        <div class="aviso">
+        <div class="aviso" data-lang="es">
           <p class="label">Aviso de confidencialidad</p>
           <p>Por razones de confidencialidad, este caso no muestra pantallas, flujos ni información interna de la plataforma. Los diagramas fueron creados únicamente para explicar las decisiones del proyecto.</p>
         </div>
 
-        <h2>Una plataforma para procesos que no eran iguales</h2>
-        <p>La Unidad Fiduciaria del BID participa en distintas etapas de la gestión de préstamos con sus 26 países miembros. El proceso incluye adquisición, revisión de proyectos, aprobación fiduciaria, pagos, facturación y auditorías.</p>
-        <p>Cada etapa involucraba áreas diferentes, con sus propias herramientas, procesos y prioridades. Algunos países también contaban con sistemas internos que cubrían parte de esos flujos.</p>
-        <p>El proyecto buscaba centralizar el proceso en una plataforma compartida. El reto era encontrar qué podía funcionar de la misma manera para todos y qué necesitaba conservar diferencias específicas.</p>
+        <div class="aviso" data-lang="en" hidden>
+          <p class="label">Confidentiality notice</p>
+          <p>For confidentiality reasons, this case does not show screens, flows or internal information from the platform. The diagrams were created solely to explain the decisions made during the project.</p>
+        </div>
 
-        <h2>Construir una visión con información incompleta</h2>
-        <p>No era posible involucrar directamente a los 26 países en el levantamiento. Trabajamos con representantes de varios de ellos, entre los que estuvieron El Salvador, Haití, Brasil, Argentina, Chile, Uruguay, Panamá, Ecuador, Perú y Colombia.</p>
-        <p>Combinamos entrevistas y workshops en español e inglés. También utilizamos herramientas como Maze y Hotjar para complementar las validaciones y revisar cómo se comprendían determinados flujos.</p>
-        <p>La intención no era asumir que los países participantes representaban exactamente a todos. Buscábamos identificar patrones, diferencias y preguntas que necesitaban seguir abiertas.</p>
+        <h2 data-lang="es">Una plataforma para procesos que no eran iguales</h2>
+        <h2 data-lang="en" hidden>A platform for processes that were not the same</h2>
 
-        <h2>La diferencia no estaba solo entre países</h2>
-        <p>Al comenzar, parecía que la mayor complejidad estaría en las diferencias entre los 26 países. Durante el levantamiento encontramos que una parte importante de la tensión también estaba dentro del BID.</p>
-        <p>Cada área interna gestionaba una etapa distinta del préstamo y tenía su propia forma de trabajar. Algunas contaban con procesos maduros y herramientas consolidadas. Otras todavía necesitaban ordenar su operación antes de trasladarla a una plataforma compartida.</p>
-        <p>Esto cambió la conversación. No podíamos diseñar todas las etapas con el mismo nivel de profundidad si las áreas todavía no estaban en el mismo punto.</p>
+        <p data-lang="es">La Unidad Fiduciaria del BID participa en distintas etapas de la gestión de préstamos con sus 26 países miembros. El proceso incluye adquisición, revisión de proyectos, aprobación fiduciaria, pagos, facturación y auditorías.</p>
+        <p data-lang="en" hidden>The IDB Fiduciary Unit takes part in different stages of loan management with its 26 member countries. The process covers procurement, project review, fiduciary approval, payments, invoicing and audits.</p>
 
-        <h2>No digitalizar el desorden</h2>
-        <p>Para definir el alcance, consideramos la madurez de cada proceso.</p>
-        <p>Cuando un área todavía no tenía un flujo centralizado, priorizamos una versión inicial que cubriera lo necesario para empezar a ordenar y registrar su trabajo.</p>
-        <p>Cuando el proceso ya estaba definido y existían datos más claros sobre sus necesidades, podíamos diseñar una experiencia con mayor profundidad.</p>
-        <p>El criterio no fue decidir qué etapa era más importante. Fue reconocer cuánto podía sostener cada área en ese momento. Diseñar una solución demasiado completa para un proceso que aún no estaba claro habría trasladado el desorden existente a la nueva plataforma.</p>
+        <p data-lang="es">Cada etapa involucraba áreas diferentes, con sus propias herramientas, procesos y prioridades. Algunos países también contaban con sistemas internos que cubrían parte de esos flujos.</p>
+        <p data-lang="en" hidden>Each stage involved different areas, with their own tools, processes and priorities. Some countries also had internal systems covering part of those flows.</p>
 
-        <figure>
+        <p data-lang="es">El proyecto buscaba centralizar el proceso en una plataforma compartida. El reto era encontrar qué podía funcionar de la misma manera para todos y qué necesitaba conservar diferencias específicas.</p>
+        <p data-lang="en" hidden>The project set out to centralize the process in a shared platform. The challenge was finding what could work the same way for everyone and what needed to keep specific differences.</p>
+
+        <h2 data-lang="es">Construir una visión con información incompleta</h2>
+        <h2 data-lang="en" hidden>Building a view with incomplete information</h2>
+
+        <p data-lang="es">No era posible involucrar directamente a los 26 países en el levantamiento. Trabajamos con representantes de varios de ellos, entre los que estuvieron El Salvador, Haití, Brasil, Argentina, Chile, Uruguay, Panamá, Ecuador, Perú y Colombia.</p>
+        <p data-lang="en" hidden>It was not possible to involve all 26 countries directly in the discovery. We worked with representatives from several of them, including El Salvador, Haiti, Brazil, Argentina, Chile, Uruguay, Panama, Ecuador, Peru and Colombia.</p>
+
+        <p data-lang="es">Combinamos entrevistas y workshops en español e inglés. También utilizamos herramientas como Maze y Hotjar para complementar las validaciones y revisar cómo se comprendían determinados flujos.</p>
+        <p data-lang="en" hidden>We combined interviews and workshops in Spanish and English. We also used tools such as Maze and Hotjar to complement the validations and to see how certain flows were understood.</p>
+
+        <p data-lang="es">La intención no era asumir que los países participantes representaban exactamente a todos. Buscábamos identificar patrones, diferencias y preguntas que necesitaban seguir abiertas.</p>
+        <p data-lang="en" hidden>The intention was not to assume that the participating countries represented all of them exactly. We were looking to identify patterns, differences and questions that needed to stay open.</p>
+
+        <h2 data-lang="es">La diferencia no estaba solo entre países</h2>
+        <h2 data-lang="en" hidden>The difference was not only between countries</h2>
+
+        <p data-lang="es">Al comenzar, parecía que la mayor complejidad estaría en las diferencias entre los 26 países. Durante el levantamiento encontramos que una parte importante de la tensión también estaba dentro del BID.</p>
+        <p data-lang="en" hidden>At the start, it looked as though the greatest complexity would sit in the differences between the 26 countries. During discovery we found that a significant part of the tension was also inside the IDB.</p>
+
+        <p data-lang="es">Cada área interna gestionaba una etapa distinta del préstamo y tenía su propia forma de trabajar. Algunas contaban con procesos maduros y herramientas consolidadas. Otras todavía necesitaban ordenar su operación antes de trasladarla a una plataforma compartida.</p>
+        <p data-lang="en" hidden>Each internal area managed a different stage of the loan and had its own way of working. Some had mature processes and established tools. Others still needed to put their own operation in order before moving it onto a shared platform.</p>
+
+        <p data-lang="es">Esto cambió la conversación. No podíamos diseñar todas las etapas con el mismo nivel de profundidad si las áreas todavía no estaban en el mismo punto.</p>
+        <p data-lang="en" hidden>This changed the conversation. We could not design every stage at the same level of depth if the areas were not yet at the same point.</p>
+
+        <h2 data-lang="es">No digitalizar el desorden</h2>
+        <h2 data-lang="en" hidden>Not digitizing the mess</h2>
+
+        <p data-lang="es">Para definir el alcance, consideramos la madurez de cada proceso.</p>
+        <p data-lang="en" hidden>To define scope, we looked at the maturity of each process.</p>
+
+        <p data-lang="es">Cuando un área todavía no tenía un flujo centralizado, priorizamos una versión inicial que cubriera lo necesario para empezar a ordenar y registrar su trabajo.</p>
+        <p data-lang="en" hidden>When an area did not yet have a centralized flow, we prioritized an initial version covering what it needed to start ordering and recording its work.</p>
+
+        <p data-lang="es">Cuando el proceso ya estaba definido y existían datos más claros sobre sus necesidades, podíamos diseñar una experiencia con mayor profundidad.</p>
+        <p data-lang="en" hidden>When the process was already defined and there was clearer data about its needs, we could design a deeper experience.</p>
+
+        <p data-lang="es">El criterio no fue decidir qué etapa era más importante. Fue reconocer cuánto podía sostener cada área en ese momento. Diseñar una solución demasiado completa para un proceso que aún no estaba claro habría trasladado el desorden existente a la nueva plataforma.</p>
+        <p data-lang="en" hidden>The criterion was not deciding which stage mattered more. It was recognizing how much each area could carry at that moment. Designing an overly complete solution for a process that was not yet clear would have moved the existing disorder onto the new platform.</p>
+
+        <figure data-lang="es">
           <div class="fig-frame">
             <svg viewBox="0 0 760 268" role="img" aria-label="El ciclo del préstamo atraviesa seis etapas, cada una a cargo de un área interna distinta del BID. La profundidad de diseño de cada etapa se decidió según la madurez del proceso de su área: MVP donde el área aún no había centralizado su proceso, mayor profundidad donde ya existían procesos maduros.">
               <defs>
@@ -705,27 +943,117 @@ footer.site{border-top:1px solid var(--rule);padding:1.5rem 0 2.5rem}
           <figcaption>Una sola plataforma para las seis etapas, pero no todas al mismo nivel de detalle. El criterio de priorización no fue la importancia de la etapa sino la madurez del área que la opera: pedirle un flujo profundo a un área que todavía no había centralizado su proceso habría digitalizado el desorden. Diagrama ilustrativo, no reproduce la interfaz del BID.</figcaption>
         </figure>
 
-        <h2>Compartir la base sin forzar la uniformidad</h2>
-        <p>También necesitábamos decidir cuánto debía adaptarse la plataforma a cada país.</p>
-        <p>Construir una versión diferente para cada uno habría aumentado considerablemente la complejidad. Al mismo tiempo, una experiencia completamente uniforme podía ignorar sistemas y necesidades que ya existían localmente.</p>
-        <p>Definimos una base compartida para el ciclo del préstamo y mantuvimos configuraciones adicionales únicamente cuando el levantamiento mostraba una necesidad concreta.</p>
-        <p>De esta manera, la plataforma podía conservar una lógica común sin asumir que todos los países trabajaban exactamente igual.</p>
+        <figure data-lang="en" hidden>
+          <div class="fig-frame">
+            <svg viewBox="0 0 760 268" role="img" aria-label="The loan cycle runs through six stages, each owned by a different internal area of the IDB. How deeply each stage was designed depended on the maturity of its area process: an MVP where the area had not yet centralized its process, more depth where mature processes already existed.">
+              <defs>
+                <marker id="ar-bid" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M0,0 L10,5 L0,10 z" fill="currentColor"/>
+                </marker>
+              </defs>
+              <g font-family="IBM Plex Mono, monospace" font-size="10" fill="currentColor">
+                <text x="8" y="22" font-size="11" opacity=".6">LOAN CYCLE: one stage, one internal area</text>
 
-        <h2>Facilitar para poder decidir</h2>
-        <p>Una parte importante de mi trabajo ocurrió en las conversaciones entre áreas.</p>
-        <p>Los workshops no se utilizaban solamente para recopilar información. También permitían hacer visibles las diferencias, revisar dependencias y decidir qué debía resolverse dentro del producto y qué necesitaba trabajarse primero a nivel organizacional.</p>
-        <p>Trabajé junto a Product Managers y Tech Leads para convertir esas conversaciones en decisiones sobre alcance, flujos y prioridades. En algunos momentos, avanzar significaba diseñar. En otros, significaba ayudar a que las personas involucradas llegaran a un entendimiento común.</p>
+                <!-- 6 stages -->
+                <g>
+                  <rect x="8" y="40" width="108" height="56" fill="none" stroke="currentColor" stroke-width="1.3"/>
+                  <text x="62" y="66" text-anchor="middle">Procurement</text>
+                  <line x1="120" y1="68" x2="136" y2="68" stroke="currentColor" stroke-width="1.1" marker-end="url(#ar-bid)"/>
 
-        <h2>Lo que pudimos construir</h2>
-        <p>Diseñamos una plataforma que articulaba las distintas etapas del ciclo del préstamo, desde la adquisición y revisión de proyectos hasta los pagos, la facturación y las auditorías.</p>
-        <p>La experiencia compartía una estructura central, pero no obligaba a que todas las áreas tuvieran el mismo nivel de detalle. Los procesos más maduros podían avanzar con mayor profundidad, mientras que otros comenzaban con una versión más acotada.</p>
-        <p>No puedo compartir métricas, pantallas ni resultados posteriores por tratarse de información interna del BID. Mi participación abarcó el levantamiento y el diseño de los flujos durante las distintas fases del proyecto.</p>
+                  <rect x="140" y="40" width="108" height="56" fill="none" stroke="currentColor" stroke-width="1.3"/>
+                  <text x="194" y="62" text-anchor="middle">Project</text>
+                  <text x="194" y="76" text-anchor="middle">review</text>
+                  <line x1="252" y1="68" x2="268" y2="68" stroke="currentColor" stroke-width="1.1" marker-end="url(#ar-bid)"/>
 
-        <h2>Lo que cambió en mi manera de trabajar</h2>
-        <p>Este proyecto me enseñó que algunos problemas de producto no se resuelven únicamente dentro de una interfaz.</p>
-        <p>Cuando varias áreas participan en un mismo proceso, sus herramientas, responsabilidades e intereses también forman parte de la experiencia que estamos diseñando. Antes de decidir cómo debía funcionar la plataforma, tuvimos que ayudar a hacer visibles esas diferencias.</p>
-        <p>Comencé el proyecto como diseñadora semisénior y pasé a un rol senior a medida que asumí conversaciones, facilitaciones y decisiones más complejas.</p>
-        <p>Desde entonces, cuando entro a un producto con múltiples stakeholders, intento entender no solo qué necesita cada persona, sino también qué decisiones puede sostener realmente la organización.</p>
+                  <rect x="272" y="40" width="108" height="56" fill="none" stroke="currentColor" stroke-width="1.3"/>
+                  <text x="326" y="62" text-anchor="middle">Fiduciary</text>
+                  <text x="326" y="76" text-anchor="middle">approval</text>
+                  <line x1="384" y1="68" x2="400" y2="68" stroke="currentColor" stroke-width="1.1" marker-end="url(#ar-bid)"/>
+
+                  <rect x="404" y="40" width="108" height="56" fill="none" stroke="currentColor" stroke-width="1.3"/>
+                  <text x="458" y="66" text-anchor="middle">Payments</text>
+                  <line x1="516" y1="68" x2="532" y2="68" stroke="currentColor" stroke-width="1.1" marker-end="url(#ar-bid)"/>
+
+                  <rect x="536" y="40" width="108" height="56" fill="none" stroke="currentColor" stroke-width="1.3"/>
+                  <text x="590" y="66" text-anchor="middle">Invoicing</text>
+                  <line x1="648" y1="68" x2="664" y2="68" stroke="currentColor" stroke-width="1.1" marker-end="url(#ar-bid)"/>
+
+                  <rect x="668" y="40" width="84" height="56" fill="none" stroke="currentColor" stroke-width="1.3"/>
+                  <text x="710" y="66" text-anchor="middle">Audits</text>
+                </g>
+
+                <!-- the decision rule -->
+                <line x1="8" y1="126" x2="752" y2="126" stroke="currentColor" stroke-width="1" opacity=".3"/>
+                <text x="8" y="150" font-size="11" opacity=".6">DECISION RULE: depth was set by the area maturity, not by the stage</text>
+
+                <rect x="8" y="166" width="360" height="76" fill="none" stroke="currentColor" stroke-width="1" opacity=".45" stroke-dasharray="4 3"/>
+                <text x="26" y="192">Area without a centralized process</text>
+                <text x="26" y="212" opacity=".65">needs to put its own house in order first</text>
+                <text x="26" y="230" class="acc-f" font-weight="500">→ the flow ships as an MVP</text>
+
+                <rect x="392" y="166" width="360" height="76" fill="none" stroke="currentColor" stroke-width="1.4"/>
+                <text x="410" y="192">Area with a mature process</text>
+                <text x="410" y="212" opacity=".65">clear data about what it needs</text>
+                <text x="410" y="230" class="acc-f" font-weight="500">→ the flow is designed in more depth</text>
+              </g>
+            </svg>
+          </div>
+          <figcaption>One platform for all six stages, but not all at the same level of detail. The prioritization criterion was not how important a stage was but how mature the area running it was: asking for a deep flow from an area that had not yet centralized its process would have digitized the mess. Illustrative diagram, it does not reproduce the IDB interface.</figcaption>
+        </figure>
+
+        <h2 data-lang="es">Compartir la base sin forzar la uniformidad</h2>
+        <h2 data-lang="en" hidden>Sharing the base without forcing uniformity</h2>
+
+        <p data-lang="es">También necesitábamos decidir cuánto debía adaptarse la plataforma a cada país.</p>
+        <p data-lang="en" hidden>We also had to decide how much the platform should adapt to each country.</p>
+
+        <p data-lang="es">Construir una versión diferente para cada uno habría aumentado considerablemente la complejidad. Al mismo tiempo, una experiencia completamente uniforme podía ignorar sistemas y necesidades que ya existían localmente.</p>
+        <p data-lang="en" hidden>Building a different version for each one would have increased complexity considerably. At the same time, a completely uniform experience could ignore systems and needs that already existed locally.</p>
+
+        <p data-lang="es">Definimos una base compartida para el ciclo del préstamo y mantuvimos configuraciones adicionales únicamente cuando el levantamiento mostraba una necesidad concreta.</p>
+        <p data-lang="en" hidden>We defined a shared base for the loan cycle and kept additional configurations only where the discovery showed a concrete need.</p>
+
+        <p data-lang="es">De esta manera, la plataforma podía conservar una lógica común sin asumir que todos los países trabajaban exactamente igual.</p>
+        <p data-lang="en" hidden>This way, the platform could hold a common logic without assuming that every country worked in exactly the same way.</p>
+
+        <h2 data-lang="es">Facilitar para poder decidir</h2>
+        <h2 data-lang="en" hidden>Facilitating so decisions could be made</h2>
+
+        <p data-lang="es">Una parte importante de mi trabajo ocurrió en las conversaciones entre áreas.</p>
+        <p data-lang="en" hidden>A significant part of my work happened in the conversations between areas.</p>
+
+        <p data-lang="es">Los workshops no se utilizaban solamente para recopilar información. También permitían hacer visibles las diferencias, revisar dependencias y decidir qué debía resolverse dentro del producto y qué necesitaba trabajarse primero a nivel organizacional.</p>
+        <p data-lang="en" hidden>The workshops were not only for gathering information. They also made differences visible, let us review dependencies, and decide what had to be solved inside the product and what needed to be worked out at an organizational level first.</p>
+
+        <p data-lang="es">Trabajé junto a Product Managers y Tech Leads para convertir esas conversaciones en decisiones sobre alcance, flujos y prioridades. En algunos momentos, avanzar significaba diseñar. En otros, significaba ayudar a que las personas involucradas llegaran a un entendimiento común.</p>
+        <p data-lang="en" hidden>I worked alongside Product Managers and Tech Leads to turn those conversations into decisions about scope, flows and priorities. At some moments, moving forward meant designing. At others, it meant helping the people involved reach a shared understanding.</p>
+
+        <h2 data-lang="es">Lo que pudimos construir</h2>
+        <h2 data-lang="en" hidden>What we were able to build</h2>
+
+        <p data-lang="es">Diseñamos una plataforma que articulaba las distintas etapas del ciclo del préstamo, desde la adquisición y revisión de proyectos hasta los pagos, la facturación y las auditorías.</p>
+        <p data-lang="en" hidden>We designed a platform that connected the different stages of the loan cycle, from procurement and project review through to payments, invoicing and audits.</p>
+
+        <p data-lang="es">La experiencia compartía una estructura central, pero no obligaba a que todas las áreas tuvieran el mismo nivel de detalle. Los procesos más maduros podían avanzar con mayor profundidad, mientras que otros comenzaban con una versión más acotada.</p>
+        <p data-lang="en" hidden>The experience shared a central structure, but did not require every area to have the same level of detail. More mature processes could go deeper, while others started with a more limited version.</p>
+
+        <p data-lang="es">No puedo compartir métricas, pantallas ni resultados posteriores por tratarse de información interna del BID. Mi participación abarcó el levantamiento y el diseño de los flujos durante las distintas fases del proyecto.</p>
+        <p data-lang="en" hidden>I cannot share metrics, screens or later results, as this is internal IDB information. My involvement covered the discovery and the design of the flows across the different phases of the project.</p>
+
+        <h2 data-lang="es">Lo que cambió en mi manera de trabajar</h2>
+        <h2 data-lang="en" hidden>What changed in the way I work</h2>
+
+        <p data-lang="es">Este proyecto me enseñó que algunos problemas de producto no se resuelven únicamente dentro de una interfaz.</p>
+        <p data-lang="en" hidden>This project taught me that some product problems are not solved inside an interface alone.</p>
+
+        <p data-lang="es">Cuando varias áreas participan en un mismo proceso, sus herramientas, responsabilidades e intereses también forman parte de la experiencia que estamos diseñando. Antes de decidir cómo debía funcionar la plataforma, tuvimos que ayudar a hacer visibles esas diferencias.</p>
+        <p data-lang="en" hidden>When several areas take part in the same process, their tools, responsibilities and interests are also part of the experience we are designing. Before deciding how the platform should work, we had to help make those differences visible.</p>
+
+        <p data-lang="es">Comencé el proyecto como diseñadora semisénior y pasé a un rol senior a medida que asumí conversaciones, facilitaciones y decisiones más complejas.</p>
+        <p data-lang="en" hidden>I started the project as a mid-level designer and moved into a senior role as I took on more complex conversations, facilitation and decisions.</p>
+
+        <p data-lang="es">Desde entonces, cuando entro a un producto con múltiples stakeholders, intento entender no solo qué necesita cada persona, sino también qué decisiones puede sostener realmente la organización.</p>
+        <p data-lang="en" hidden>Since then, when I join a product with multiple stakeholders, I try to understand not only what each person needs, but also what decisions the organization can actually sustain.</p>
       </div>
     </div>
   </div>
@@ -734,10 +1062,10 @@ footer.site{border-top:1px solid var(--rule);padding:1.5rem 0 2.5rem}
     <div class="case-next">
       <div class="case-next-grid">
         <a class="next-link" href="#/isapre">
-          <span class="label">Caso siguiente</span>
-          <div class="record-name">Isapre Esencial</div>
+          <span class="label"><span data-lang="es">Caso siguiente</span><span data-lang="en" hidden>Next case</span></span>
+          <div class="record-name"><span data-lang="es">Isapre Esencial</span><span data-lang="en" hidden>Isapre Esencial</span></div>
         </a>
-        <a class="next-link" href="#/"><span class="label">↑ Todos los casos</span></a>
+        <a class="next-link" href="#/"><span class="label"><span data-lang="es">↑ Todos los casos</span><span data-lang="en" hidden>↑ All work</span></span></a>
       </div>
     </div>
   </div>
@@ -748,49 +1076,94 @@ footer.site{border-top:1px solid var(--rule);padding:1.5rem 0 2.5rem}
   <div class="wrap">
     <div class="case-head">
       <div class="eyebrow">
-        <span class="tag">Salud y seguros privados</span>
+        <span class="tag"><span data-lang="es">Salud y seguros privados</span><span data-lang="en" hidden>Health and private insurance</span></span>
       </div>
-      <h1>Isapre Esencial</h1>
-      <p class="case-sub">Priorizar y coordinar el lanzamiento de una nueva plataforma cuando la fecha no podía moverse.</p>
+            <h1 data-lang="es">Isapre Esencial</h1>
+      <h1 data-lang="en" hidden>Isapre Esencial</h1>
+            <p class="case-sub" data-lang="es">Priorizar y coordinar el lanzamiento de una nueva plataforma cuando la fecha no podía moverse.</p>
+      <p class="case-sub" data-lang="en" hidden>Prioritizing and coordinating the launch of a new platform when the date could not move.</p>
     </div>
 
     <div class="case-body">
       <aside class="rail">
-        <dl>
+        <dl data-lang="es">
           <div><dt class="label">Rol</dt><dd>Responsable de diseño y tecnología desde Continuum, en reemplazo de la líder de producto saliente.</dd></div>
           <div><dt class="label">Equipo</dt><dd>Una diseñadora, un líder técnico y cuatro desarrolladores con distintos niveles de experiencia.</dd></div>
           <div><dt class="label">Duración</dt><dd>Seis meses como plazo máximo para el MVP.</dd></div>
           <div><dt class="label">Mi contribución</dt><dd>Priorización del MVP, coordinación de diseño y tecnología, gestión del backlog, definición de la experiencia y seguimiento de la implementación.</dd></div>
           <div><dt class="label">Industria</dt><dd>Salud y seguros privados.</dd></div>
         </dl>
+        <dl data-lang="en" hidden>
+          <div><dt class="label">Role</dt><dd>Responsible for design and technology from Continuum, replacing the outgoing product lead.</dd></div>
+          <div><dt class="label">Team</dt><dd>One designer, one tech lead and four developers at different levels of experience.</dd></div>
+          <div><dt class="label">Duration</dt><dd>Six months as the maximum window for the MVP.</dd></div>
+          <div><dt class="label">My contribution</dt><dd>MVP prioritization, coordination of design and technology, backlog management, experience definition and implementation follow-up.</dd></div>
+          <div><dt class="label">Industry</dt><dd>Health and private insurance.</dd></div>
+        </dl>
       </aside>
 
       <div class="prose">
-        <h2>Entrar a un proyecto que ya estaba en marcha</h2>
-        <p>Me incorporé a mitad del proyecto de Isapre Esencial para reemplazar temporalmente a la líder de producto, que iniciaba su licencia de maternidad.</p>
-        <p>La nueva isapre necesitaba una plataforma para clientes y ejecutivos. Esta debía cubrir requisitos legales, acompañar la operación de la marca y sostener su posicionamiento como una isapre principalmente digital.</p>
-        <p>El lanzamiento tenía una fecha fija. Contábamos con un máximo de seis meses para construir el MVP y no existía la posibilidad de extender el plazo.</p>
-        <p>Además de liderar el diseño, asumí la coordinación del equipo tecnológico: una diseñadora, un líder técnico y cuatro desarrolladores.</p>
+        <h2 data-lang="es">Entrar a un proyecto que ya estaba en marcha</h2>
+        <h2 data-lang="en" hidden>Joining a project already under way</h2>
 
-        <h2>Diseñar sin conversar con usuarios reales</h2>
-        <p>El lanzamiento se manejaba bajo estricta confidencialidad. Fuera del equipo, se conocía muy poco sobre la nueva isapre y no era posible realizar entrevistas o pruebas con futuros usuarios.</p>
-        <p>Esta restricción cambió nuestra forma de investigar.</p>
-        <p>Revisamos las plataformas de otras isapres chilenas para entender qué funcionalidades eran comunes, cómo organizaban la información y qué patrones ya podían resultar familiares para los usuarios.</p>
-        <p>También trabajamos con el listado de requisitos legales que la plataforma debía cumplir. Esa información nos permitió construir una base, aunque éramos conscientes de que no reemplazaba la validación directa con personas.</p>
+        <p data-lang="es">Me incorporé a mitad del proyecto de Isapre Esencial para reemplazar temporalmente a la líder de producto, que iniciaba su licencia de maternidad.</p>
+        <p data-lang="en" hidden>I joined the Isapre Esencial project halfway through, temporarily replacing the product lead as she started her maternity leave.</p>
 
-        <h2>Separar lo obligatorio de lo deseable</h2>
-        <p>Con una fecha fija, necesitábamos una manera clara de priorizar.</p>
-        <p>Primero identificamos las funcionalidades obligatorias para cumplir con la regulación y permitir el lanzamiento. Después distinguimos aquellas que aportaban valor, pero podían incorporarse en versiones posteriores.</p>
-        <p>Lo obligatorio entró en el MVP. Lo demás quedó visible y priorizado en el backlog para que el cliente pudiera decidir qué retomar después del lanzamiento.</p>
-        <p>En este proyecto, priorizar no significaba elegir la experiencia ideal. Significaba construir una primera versión que pudiera operar, cumplir con la regulación y estar lista a tiempo.</p>
+        <p data-lang="es">La nueva isapre necesitaba una plataforma para clientes y ejecutivos. Esta debía cubrir requisitos legales, acompañar la operación de la marca y sostener su posicionamiento como una isapre principalmente digital.</p>
+        <p data-lang="en" hidden>The new private health insurer needed a platform for clients and account executives. It had to cover legal requirements, support the operation of the brand and hold up its positioning as a largely digital insurer.</p>
 
-        <h2>Dos experiencias conectadas</h2>
-        <p>La plataforma debía ser utilizada tanto por clientes como por ejecutivos.</p>
-        <p>En lugar de tratarlas como dos soluciones completamente independientes, diseñamos una organización de secciones compartida. Cada perfil encontraba una estructura similar, pero realizaba tareas diferentes dentro de ella.</p>
-        <p>El cliente podía iniciar o gestionar una solicitud. El ejecutivo podía ver esa misma acción, darle seguimiento y responder desde su propia experiencia.</p>
-        <p>Esta estructura nos ayudaba a mantener coherencia entre los dos lados del proceso y reducía la necesidad de construir dos modelos completamente distintos en un plazo limitado.</p>
+        <p data-lang="es">El lanzamiento tenía una fecha fija. Contábamos con un máximo de seis meses para construir el MVP y no existía la posibilidad de extender el plazo.</p>
+        <p data-lang="en" hidden>The launch had a fixed date. We had a maximum of six months to build the MVP and there was no possibility of extending it.</p>
 
-        <figure>
+        <p data-lang="es">Además de liderar el diseño, asumí la coordinación del equipo tecnológico: una diseñadora, un líder técnico y cuatro desarrolladores.</p>
+        <p data-lang="en" hidden>Beyond leading design, I took on coordination of the technology team: one designer, one tech lead and four developers.</p>
+
+        <h2 data-lang="es">Diseñar sin conversar con usuarios reales</h2>
+        <h2 data-lang="en" hidden>Designing without talking to real users</h2>
+
+        <p data-lang="es">El lanzamiento se manejaba bajo estricta confidencialidad. Fuera del equipo, se conocía muy poco sobre la nueva isapre y no era posible realizar entrevistas o pruebas con futuros usuarios.</p>
+        <p data-lang="en" hidden>The launch was handled under strict confidentiality. Outside the team, very little was known about the new insurer and it was not possible to run interviews or tests with future users.</p>
+
+        <p data-lang="es">Esta restricción cambió nuestra forma de investigar.</p>
+        <p data-lang="en" hidden>That constraint changed how we researched.</p>
+
+        <p data-lang="es">Revisamos las plataformas de otras isapres chilenas para entender qué funcionalidades eran comunes, cómo organizaban la información y qué patrones ya podían resultar familiares para los usuarios.</p>
+        <p data-lang="en" hidden>We reviewed the platforms of other Chilean insurers to understand which features were common, how they organized information and which patterns might already feel familiar to users.</p>
+
+        <p data-lang="es">También trabajamos con el listado de requisitos legales que la plataforma debía cumplir. Esa información nos permitió construir una base, aunque éramos conscientes de que no reemplazaba la validación directa con personas.</p>
+        <p data-lang="en" hidden>We also worked from the list of legal requirements the platform had to meet. That gave us a base, though we were aware it did not replace validating directly with people.</p>
+
+        <h2 data-lang="es">Separar lo obligatorio de lo deseable</h2>
+        <h2 data-lang="en" hidden>Separating the mandatory from the desirable</h2>
+
+        <p data-lang="es">Con una fecha fija, necesitábamos una manera clara de priorizar.</p>
+        <p data-lang="en" hidden>With a fixed date, we needed a clear way to prioritize.</p>
+
+        <p data-lang="es">Primero identificamos las funcionalidades obligatorias para cumplir con la regulación y permitir el lanzamiento. Después distinguimos aquellas que aportaban valor, pero podían incorporarse en versiones posteriores.</p>
+        <p data-lang="en" hidden>First we identified the features that were mandatory in order to comply with regulation and allow the launch. Then we separated out those that added value but could come in later versions.</p>
+
+        <p data-lang="es">Lo obligatorio entró en el MVP. Lo demás quedó visible y priorizado en el backlog para que el cliente pudiera decidir qué retomar después del lanzamiento.</p>
+        <p data-lang="en" hidden>The mandatory went into the MVP. The rest stayed visible and prioritized in the backlog so the client could decide what to pick up after launch.</p>
+
+        <p data-lang="es">En este proyecto, priorizar no significaba elegir la experiencia ideal. Significaba construir una primera versión que pudiera operar, cumplir con la regulación y estar lista a tiempo.</p>
+        <p data-lang="en" hidden>On this project, prioritizing did not mean choosing the ideal experience. It meant building a first version that could operate, meet regulation and be ready on time.</p>
+
+        <h2 data-lang="es">Dos experiencias conectadas</h2>
+        <h2 data-lang="en" hidden>Two connected experiences</h2>
+
+        <p data-lang="es">La plataforma debía ser utilizada tanto por clientes como por ejecutivos.</p>
+        <p data-lang="en" hidden>The platform had to be used by both clients and account executives.</p>
+
+        <p data-lang="es">En lugar de tratarlas como dos soluciones completamente independientes, diseñamos una organización de secciones compartida. Cada perfil encontraba una estructura similar, pero realizaba tareas diferentes dentro de ella.</p>
+        <p data-lang="en" hidden>Rather than treating them as two completely independent solutions, we designed a shared organization of sections. Each profile found a similar structure, but performed different tasks within it.</p>
+
+        <p data-lang="es">El cliente podía iniciar o gestionar una solicitud. El ejecutivo podía ver esa misma acción, darle seguimiento y responder desde su propia experiencia.</p>
+        <p data-lang="en" hidden>A client could start or manage a request. An executive could see that same action, follow it and respond from their own experience.</p>
+
+        <p data-lang="es">Esta estructura nos ayudaba a mantener coherencia entre los dos lados del proceso y reducía la necesidad de construir dos modelos completamente distintos en un plazo limitado.</p>
+        <p data-lang="en" hidden>This structure helped us keep coherence between the two sides of the process and reduced the need to build two entirely different models within a limited timeframe.</p>
+
+        <figure data-lang="es">
           <div class="fig-frame">
             <svg viewBox="0 0 700 262" role="img" aria-label="Estructura espejo: cliente y ejecutivo comparten la misma organización de secciones, pero cada perfil hace algo distinto en ellas. El cliente gestiona una acción y el ejecutivo la ve y responde desde su versión de la misma sección.">
               <defs>
@@ -832,27 +1205,101 @@ footer.site{border-top:1px solid var(--rule);padding:1.5rem 0 2.5rem}
           <figcaption>La estructura espejo: en vez de dos productos, una misma organización de secciones que cada perfil recorre con un propósito distinto. Con seis meses y sin validación con usuarios, compartir la estructura reducía tanto el trabajo de diseño como el riesgo de inventar dos modelos mentales. Diagrama ilustrativo elaborado para este caso.</figcaption>
         </figure>
 
-        <h2>Una dependencia que no controlábamos</h2>
-        <p>Una parte importante del riesgo estaba fuera de nuestro equipo.</p>
-        <p>El core tecnológico de Clínica Alemana era un sistema heredado y una consultora externa se encargaba de construir los servicios que necesitábamos para conectarnos con él. Nuestro equipo manejaba la experiencia y las integraciones, pero dependíamos de entregas realizadas por un tercero.</p>
-        <p>Los ritmos y métodos de trabajo de ambos equipos no siempre coincidían. Esto generaba bloqueos que podían afectar una fecha que no era negociable.</p>
-        <p>Parte de mi trabajo consistió en mantener alineados al cliente, la consultora externa y nuestro equipo. Necesitábamos detectar las dependencias con anticipación, ajustar prioridades y decidir qué podía avanzar mientras esperábamos una entrega externa.</p>
+        <figure data-lang="en" hidden>
+          <div class="fig-frame">
+            <svg viewBox="0 0 700 262" role="img" aria-label="Mirror structure: client and executive share the same organization of sections, but each profile does something different inside them. The client manages an action and the executive sees it and responds from their version of the same section.">
+              <defs>
+                <marker id="ar-isa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M0,0 L10,5 L0,10 z" fill="currentColor"/>
+                </marker>
+              </defs>
+              <g font-family="IBM Plex Mono, monospace" font-size="11" fill="currentColor">
+                <text x="120" y="24" text-anchor="middle" font-size="12">Client</text>
+                <text x="580" y="24" text-anchor="middle" font-size="12">Executive</text>
+                <text x="350" y="24" text-anchor="middle" font-size="10" opacity=".55">same section</text>
 
-        <h2>Coordinar también era parte del diseño</h2>
-        <p>Mi responsabilidad no terminaba en definir pantallas o revisar flujos.</p>
-        <p>Trabajaba con la diseñadora en la experiencia, con el líder técnico y los desarrolladores en la viabilidad, y con el cliente en las prioridades del MVP. Al mismo tiempo, coordinaba con la consultora encargada del core para resolver dependencias.</p>
-        <p>En un proyecto con poco tiempo, muchas decisiones de experiencia también eran decisiones de implementación. Necesitábamos saber qué podía construirse, qué dependía de terceros y qué debía simplificarse sin incumplir los requisitos legales.</p>
+                <!-- rows -->
+                <g stroke="currentColor">
+                  <rect x="14" y="44" width="212" height="46" fill="none" stroke-width="1.3"/>
+                  <rect x="474" y="44" width="212" height="46" fill="none" stroke-width="1.3"/>
+                  <rect x="14" y="106" width="212" height="46" fill="none" stroke-width="1.3"/>
+                  <rect x="474" y="106" width="212" height="46" fill="none" stroke-width="1.3"/>
+                  <rect x="14" y="168" width="212" height="46" fill="none" stroke-width="1.3"/>
+                  <rect x="474" y="168" width="212" height="46" fill="none" stroke-width="1.3"/>
+                </g>
+                <text x="120" y="73" text-anchor="middle" font-size="10">manages their action</text>
+                <text x="120" y="135" text-anchor="middle" font-size="10">manages their action</text>
+                <text x="120" y="197" text-anchor="middle" font-size="10">manages their action</text>
+                <text x="580" y="73" text-anchor="middle" font-size="10">sees and responds</text>
+                <text x="580" y="135" text-anchor="middle" font-size="10">sees and responds</text>
+                <text x="580" y="197" text-anchor="middle" font-size="10">sees and responds</text>
 
-        <h2>Llegar al lanzamiento</h2>
-        <p>La plataforma se lanzó dentro del plazo de seis meses.</p>
-        <p>La primera versión cubría las funcionalidades legales necesarias y ofrecía experiencias conectadas para clientes y ejecutivos. Las funcionalidades que no eran indispensables quedaron organizadas en el backlog para etapas posteriores.</p>
-        <p>No tuve acceso a cifras de adopción o uso después del lanzamiento, por lo que el resultado que puedo afirmar es el cumplimiento de la fecha y del alcance definido para el MVP.</p>
+                <!-- shared spine -->
+                <line x1="350" y1="40" x2="350" y2="218" stroke="currentColor" stroke-width="1" opacity=".3" stroke-dasharray="3 4"/>
+                <line x1="230" y1="67" x2="470" y2="67" stroke-width="1.2" class="acc-s" marker-end="url(#ar-isa)"/>
+                <line x1="230" y1="129" x2="470" y2="129" stroke-width="1.2" class="acc-s" marker-end="url(#ar-isa)"/>
+                <line x1="230" y1="191" x2="470" y2="191" stroke-width="1.2" class="acc-s" marker-end="url(#ar-isa)"/>
 
-        <h2>Lo que cambió en mi manera de trabajar</h2>
-        <p>Este proyecto me enseñó a liderar cuando el riesgo no depende únicamente del equipo propio.</p>
-        <p>No podíamos mover la fecha, acceder a usuarios reales ni controlar directamente todas las entregas técnicas. La respuesta no podía ser intentar hacer todo más rápido. Necesitábamos hacer visibles las dependencias, priorizar con claridad y mantener conversaciones constantes entre las personas involucradas.</p>
-        <p>También aprendí que, en algunos contextos, diseñar responsablemente significa reconocer qué todavía no sabemos. El benchmarking y los requisitos legales nos permitieron avanzar, pero no los presentamos como un reemplazo perfecto del research con usuarios.</p>
-        <p>La primera versión debía ser viable y cumplir con la regulación. La oportunidad de aprender de su uso real tendría que comenzar después del lanzamiento.</p>
+                <text x="350" y="244" text-anchor="middle" font-size="10" opacity=".6">one structure of sections · two different jobs on top of it</text>
+              </g>
+            </svg>
+          </div>
+          <figcaption>The mirror structure: instead of two products, one organization of sections that each profile moves through with a different purpose. With six months and no user validation, sharing the structure cut both the design work and the risk of inventing two mental models. Illustrative diagram made for this case.</figcaption>
+        </figure>
+
+        <h2 data-lang="es">Una dependencia que no controlábamos</h2>
+        <h2 data-lang="en" hidden>A dependency we did not control</h2>
+
+        <p data-lang="es">Una parte importante del riesgo estaba fuera de nuestro equipo.</p>
+        <p data-lang="en" hidden>A significant part of the risk sat outside our team.</p>
+
+        <p data-lang="es">El core tecnológico de Clínica Alemana era un sistema heredado y una consultora externa se encargaba de construir los servicios que necesitábamos para conectarnos con él. Nuestro equipo manejaba la experiencia y las integraciones, pero dependíamos de entregas realizadas por un tercero.</p>
+        <p data-lang="en" hidden>The Clínica Alemana technology core was a legacy system, and an external consultancy was building the services we needed in order to connect to it. Our team handled the experience and the integrations, but we depended on deliveries made by a third party.</p>
+
+        <p data-lang="es">Los ritmos y métodos de trabajo de ambos equipos no siempre coincidían. Esto generaba bloqueos que podían afectar una fecha que no era negociable.</p>
+        <p data-lang="en" hidden>The rhythms and working methods of the two teams did not always match. This created blockers that could affect a date that was not negotiable.</p>
+
+        <p data-lang="es">Parte de mi trabajo consistió en mantener alineados al cliente, la consultora externa y nuestro equipo. Necesitábamos detectar las dependencias con anticipación, ajustar prioridades y decidir qué podía avanzar mientras esperábamos una entrega externa.</p>
+        <p data-lang="en" hidden>Part of my work was keeping the client, the external consultancy and our team aligned. We needed to spot dependencies early, adjust priorities and decide what could move forward while we waited on an external delivery.</p>
+
+        <h2 data-lang="es">Coordinar también era parte del diseño</h2>
+        <h2 data-lang="en" hidden>Coordinating was part of the design too</h2>
+
+        <p data-lang="es">Mi responsabilidad no terminaba en definir pantallas o revisar flujos.</p>
+        <p data-lang="en" hidden>My responsibility did not end at defining screens or reviewing flows.</p>
+
+        <p data-lang="es">Trabajaba con la diseñadora en la experiencia, con el líder técnico y los desarrolladores en la viabilidad, y con el cliente en las prioridades del MVP. Al mismo tiempo, coordinaba con la consultora encargada del core para resolver dependencias.</p>
+        <p data-lang="en" hidden>I worked with the designer on the experience, with the tech lead and the developers on feasibility, and with the client on MVP priorities. At the same time, I coordinated with the consultancy responsible for the core to resolve dependencies.</p>
+
+        <p data-lang="es">En un proyecto con poco tiempo, muchas decisiones de experiencia también eran decisiones de implementación. Necesitábamos saber qué podía construirse, qué dependía de terceros y qué debía simplificarse sin incumplir los requisitos legales.</p>
+        <p data-lang="en" hidden>On a project with little time, many experience decisions were also implementation decisions. We needed to know what could be built, what depended on third parties and what had to be simplified without breaching the legal requirements.</p>
+
+        <h2 data-lang="es">Llegar al lanzamiento</h2>
+        <h2 data-lang="en" hidden>Reaching launch</h2>
+
+        <p data-lang="es">La plataforma se lanzó dentro del plazo de seis meses.</p>
+        <p data-lang="en" hidden>The platform launched within the six-month window.</p>
+
+        <p data-lang="es">La primera versión cubría las funcionalidades legales necesarias y ofrecía experiencias conectadas para clientes y ejecutivos. Las funcionalidades que no eran indispensables quedaron organizadas en el backlog para etapas posteriores.</p>
+        <p data-lang="en" hidden>The first version covered the necessary legal features and offered connected experiences for clients and executives. Features that were not essential were organized in the backlog for later stages.</p>
+
+        <p data-lang="es">No tuve acceso a cifras de adopción o uso después del lanzamiento, por lo que el resultado que puedo afirmar es el cumplimiento de la fecha y del alcance definido para el MVP.</p>
+        <p data-lang="en" hidden>I did not have access to adoption or usage figures after launch, so the result I can state is meeting the date and the scope defined for the MVP.</p>
+
+        <h2 data-lang="es">Lo que cambió en mi manera de trabajar</h2>
+        <h2 data-lang="en" hidden>What changed in the way I work</h2>
+
+        <p data-lang="es">Este proyecto me enseñó a liderar cuando el riesgo no depende únicamente del equipo propio.</p>
+        <p data-lang="en" hidden>This project taught me to lead when the risk does not depend on your own team alone.</p>
+
+        <p data-lang="es">No podíamos mover la fecha, acceder a usuarios reales ni controlar directamente todas las entregas técnicas. La respuesta no podía ser intentar hacer todo más rápido. Necesitábamos hacer visibles las dependencias, priorizar con claridad y mantener conversaciones constantes entre las personas involucradas.</p>
+        <p data-lang="en" hidden>We could not move the date, reach real users, or directly control every technical delivery. The answer could not be trying to do everything faster. We needed to make dependencies visible, prioritize clearly and keep constant conversations between the people involved.</p>
+
+        <p data-lang="es">También aprendí que, en algunos contextos, diseñar responsablemente significa reconocer qué todavía no sabemos. El benchmarking y los requisitos legales nos permitieron avanzar, pero no los presentamos como un reemplazo perfecto del research con usuarios.</p>
+        <p data-lang="en" hidden>I also learned that in some contexts, designing responsibly means acknowledging what we do not yet know. Benchmarking and the legal requirements let us move forward, but we did not present them as a perfect replacement for user research.</p>
+
+        <p data-lang="es">La primera versión debía ser viable y cumplir con la regulación. La oportunidad de aprender de su uso real tendría que comenzar después del lanzamiento.</p>
+        <p data-lang="en" hidden>The first version had to be viable and compliant. The chance to learn from real use would have to start after launch.</p>
       </div>
     </div>
   </div>
@@ -861,10 +1308,10 @@ footer.site{border-top:1px solid var(--rule);padding:1.5rem 0 2.5rem}
     <div class="case-next">
       <div class="case-next-grid">
         <a class="next-link" href="#/sigo">
-          <span class="label">Caso siguiente</span>
-          <div class="record-name">SIGO, Seguimiento oncológico</div>
+          <span class="label"><span data-lang="es">Caso siguiente</span><span data-lang="en" hidden>Next case</span></span>
+          <div class="record-name"><span data-lang="es">SIGO, Seguimiento oncológico</span><span data-lang="en" hidden>SIGO, Oncology patient tracking</span></div>
         </a>
-        <a class="next-link" href="#/"><span class="label">↑ Todos los casos</span></a>
+        <a class="next-link" href="#/"><span class="label"><span data-lang="es">↑ Todos los casos</span><span data-lang="en" hidden>↑ All work</span></span></a>
       </div>
     </div>
   </div>
@@ -875,49 +1322,94 @@ footer.site{border-top:1px solid var(--rule);padding:1.5rem 0 2.5rem}
   <div class="wrap">
     <div class="case-head">
       <div class="eyebrow">
-        <span class="tag">Salud pública</span>
+        <span class="tag"><span data-lang="es">Salud pública</span><span data-lang="en" hidden>Public health</span></span>
       </div>
-      <h1>SIGO, Seguimiento oncológico</h1>
-      <p class="case-sub">Diseñar un proceso compartido para centros de salud que trabajaban con recursos y realidades diferentes.</p>
+            <h1 data-lang="es">SIGO, Seguimiento oncológico</h1>
+      <h1 data-lang="en" hidden>SIGO, Oncology patient tracking</h1>
+            <p class="case-sub" data-lang="es">Diseñar un proceso compartido para centros de salud que trabajaban con recursos y realidades diferentes.</p>
+      <p class="case-sub" data-lang="en" hidden>Designing a shared process for health centers working with different resources and realities.</p>
     </div>
 
     <div class="case-body">
       <aside class="rail">
-        <dl>
+        <dl data-lang="es">
           <div><dt class="label">Rol</dt><dd>Colíder de diseño junto a otra diseñadora de Continuum.</dd></div>
           <div><dt class="label">Colaboración</dt><dd>Product Manager y equipo del Ministerio de Salud de Chile. Por parte de Continuum, diseño, gestión y desarrollo.</dd></div>
           <div><dt class="label">Mi contribución</dt><dd>Mapeo del proceso, entrevistas, definición de flujos, prototipado, validación y participación en el plan de adopción.</dd></div>
           <div><dt class="label">Industria</dt><dd>Salud pública.</dd></div>
           <div><dt class="label">Contexto</dt><dd>Plataforma para el seguimiento de pacientes oncológicos en Chile.</dd></div>
         </dl>
+        <dl data-lang="en" hidden>
+          <div><dt class="label">Role</dt><dd>Design co-lead alongside another designer from Continuum.</dd></div>
+          <div><dt class="label">Collaboration</dt><dd>Product Manager and team from the Chilean Ministry of Health. On the Continuum side, design, delivery and development.</dd></div>
+          <div><dt class="label">My contribution</dt><dd>Process mapping, interviews, flow definition, prototyping, validation and input into the adoption plan.</dd></div>
+          <div><dt class="label">Industry</dt><dd>Public health.</dd></div>
+          <div><dt class="label">Context</dt><dd>Platform for tracking oncology patients in Chile.</dd></div>
+        </dl>
       </aside>
 
       <div class="prose">
-        <h2>Una ley común, procesos diferentes</h2>
-        <p>Chile cuenta con una ley que establece el seguimiento de pacientes oncológicos y define plazos para distintas etapas de su atención.</p>
-        <p>Para cumplir con ese seguimiento, se creó el rol de gestora oncológica. Estas profesionales acompañan a los pacientes desde que ingresan al sistema como un posible caso de cáncer y ayudan a coordinar su atención entre diferentes establecimientos.</p>
-        <p>El Ministerio de Salud necesitaba una plataforma que permitiera dar seguimiento al proceso, identificar demoras y revisar si los tiempos establecidos se estaban cumpliendo.</p>
-        <p>Aunque la regulación era común, la forma de gestionar a los pacientes variaba considerablemente entre centros de salud.</p>
+        <h2 data-lang="es">Una ley común, procesos diferentes</h2>
+        <h2 data-lang="en" hidden>A shared law, different processes</h2>
 
-        <h2>Entender el proceso antes de digitalizarlo</h2>
-        <p>Comenzamos mapeando el proceso existente junto con el equipo del Ministerio. Después conversamos con gestoras oncológicas para comprender cómo funcionaba realmente el seguimiento en los establecimientos.</p>
-        <p>El proceso incluía tareas manuales, documentos duplicados y coordinación entre distintas personas y centros. En algunos establecimientos existían herramientas digitales propias. En otros, gran parte del seguimiento se realizaba en papel.</p>
-        <p>También encontramos situaciones en las que un paciente debía trasladarse a otro centro por falta de especialistas y luego regresar a su establecimiento de origen para continuar con el seguimiento.</p>
-        <p>El proceso dibujado en una reunión no era suficiente. Necesitábamos comprender cómo cambiaba cuando se encontraba con la realidad de cada centro.</p>
+        <p data-lang="es">Chile cuenta con una ley que establece el seguimiento de pacientes oncológicos y define plazos para distintas etapas de su atención.</p>
+        <p data-lang="en" hidden>Chile has a law that establishes follow-up for oncology patients and sets time limits for the different stages of their care.</p>
 
-        <h2>No todos comenzaban desde el mismo lugar</h2>
-        <p>Las diferencias no eran solamente tecnológicas.</p>
-        <p>Los centros tenían distintos niveles de financiamiento, personal y acceso a especialistas. Algunos contaban con equipos más grandes y procesos digitalizados. Otros dependían de pocas personas que realizaban el seguimiento con herramientas manuales.</p>
-        <p>Diseñar una solución que asumiera las mismas condiciones para todos habría funcionado mejor para los centros con más recursos y creado nuevas dificultades para los que ya trabajaban con mayores limitaciones.</p>
-        <p>Esto nos llevó a cuestionar cuánto del proceso debía ser igual para todos.</p>
+        <p data-lang="es">Para cumplir con ese seguimiento, se creó el rol de gestora oncológica. Estas profesionales acompañan a los pacientes desde que ingresan al sistema como un posible caso de cáncer y ayudan a coordinar su atención entre diferentes establecimientos.</p>
+        <p data-lang="en" hidden>To meet that requirement, the role of oncology case manager was created. These professionals accompany patients from the moment they enter the system as a possible cancer case and help coordinate their care across different facilities.</p>
 
-        <h2>Decidir qué necesitaba ser común</h2>
-        <p>El Ministerio necesitaba trazabilidad para identificar en qué momentos se producían las demoras y evaluar los tiempos de seguimiento.</p>
-        <p>Priorizamos los flujos más importantes para esa trazabilidad. Esos eran los que necesitaban una definición compartida y una versión digital que pudiera ser utilizada entre los distintos establecimientos.</p>
-        <p>El resto del proceso conservó mayor flexibilidad.</p>
-        <p>No intentamos digitalizar cada paso ni reemplazar todas las herramientas existentes. Buscamos construir una base común en los puntos donde la falta de información afectaba el seguimiento y la capacidad del Ministerio para comprender lo que estaba ocurriendo.</p>
+        <p data-lang="es">El Ministerio de Salud necesitaba una plataforma que permitiera dar seguimiento al proceso, identificar demoras y revisar si los tiempos establecidos se estaban cumpliendo.</p>
+        <p data-lang="en" hidden>The Ministry of Health needed a platform that would let it follow the process, identify delays and check whether the established time limits were being met.</p>
 
-        <figure>
+        <p data-lang="es">Aunque la regulación era común, la forma de gestionar a los pacientes variaba considerablemente entre centros de salud.</p>
+        <p data-lang="en" hidden>Although the regulation was the same for everyone, the way patients were managed varied considerably between health centers.</p>
+
+        <h2 data-lang="es">Entender el proceso antes de digitalizarlo</h2>
+        <h2 data-lang="en" hidden>Understanding the process before digitizing it</h2>
+
+        <p data-lang="es">Comenzamos mapeando el proceso existente junto con el equipo del Ministerio. Después conversamos con gestoras oncológicas para comprender cómo funcionaba realmente el seguimiento en los establecimientos.</p>
+        <p data-lang="en" hidden>We started by mapping the existing process together with the Ministry team. We then talked with oncology case managers to understand how follow-up actually worked in the facilities.</p>
+
+        <p data-lang="es">El proceso incluía tareas manuales, documentos duplicados y coordinación entre distintas personas y centros. En algunos establecimientos existían herramientas digitales propias. En otros, gran parte del seguimiento se realizaba en papel.</p>
+        <p data-lang="en" hidden>The process involved manual tasks, duplicated documents and coordination between different people and centers. Some facilities had their own digital tools. In others, much of the follow-up was done on paper.</p>
+
+        <p data-lang="es">También encontramos situaciones en las que un paciente debía trasladarse a otro centro por falta de especialistas y luego regresar a su establecimiento de origen para continuar con el seguimiento.</p>
+        <p data-lang="en" hidden>We also found situations where a patient had to travel to another center because no specialists were available, and then return to their original facility to continue follow-up.</p>
+
+        <p data-lang="es">El proceso dibujado en una reunión no era suficiente. Necesitábamos comprender cómo cambiaba cuando se encontraba con la realidad de cada centro.</p>
+        <p data-lang="en" hidden>The process drawn in a meeting was not enough. We needed to understand how it changed when it met the reality of each center.</p>
+
+        <h2 data-lang="es">No todos comenzaban desde el mismo lugar</h2>
+        <h2 data-lang="en" hidden>Not everyone started from the same place</h2>
+
+        <p data-lang="es">Las diferencias no eran solamente tecnológicas.</p>
+        <p data-lang="en" hidden>The differences were not only technological.</p>
+
+        <p data-lang="es">Los centros tenían distintos niveles de financiamiento, personal y acceso a especialistas. Algunos contaban con equipos más grandes y procesos digitalizados. Otros dependían de pocas personas que realizaban el seguimiento con herramientas manuales.</p>
+        <p data-lang="en" hidden>Centers had different levels of funding, staffing and access to specialists. Some had larger teams and digitized processes. Others depended on a few people doing the follow-up with manual tools.</p>
+
+        <p data-lang="es">Diseñar una solución que asumiera las mismas condiciones para todos habría funcionado mejor para los centros con más recursos y creado nuevas dificultades para los que ya trabajaban con mayores limitaciones.</p>
+        <p data-lang="en" hidden>Designing a solution that assumed the same conditions everywhere would have worked better for the centers with more resources and created new difficulties for those already working with greater limitations.</p>
+
+        <p data-lang="es">Esto nos llevó a cuestionar cuánto del proceso debía ser igual para todos.</p>
+        <p data-lang="en" hidden>This led us to question how much of the process had to be the same for everyone.</p>
+
+        <h2 data-lang="es">Decidir qué necesitaba ser común</h2>
+        <h2 data-lang="en" hidden>Deciding what needed to be common</h2>
+
+        <p data-lang="es">El Ministerio necesitaba trazabilidad para identificar en qué momentos se producían las demoras y evaluar los tiempos de seguimiento.</p>
+        <p data-lang="en" hidden>The Ministry needed traceability in order to identify where delays were occurring and to assess follow-up times.</p>
+
+        <p data-lang="es">Priorizamos los flujos más importantes para esa trazabilidad. Esos eran los que necesitaban una definición compartida y una versión digital que pudiera ser utilizada entre los distintos establecimientos.</p>
+        <p data-lang="en" hidden>We prioritized the flows that mattered most for that traceability. Those were the ones that needed a shared definition and a digital version that could be used across the different facilities.</p>
+
+        <p data-lang="es">El resto del proceso conservó mayor flexibilidad.</p>
+        <p data-lang="en" hidden>The rest of the process kept more flexibility.</p>
+
+        <p data-lang="es">No intentamos digitalizar cada paso ni reemplazar todas las herramientas existentes. Buscamos construir una base común en los puntos donde la falta de información afectaba el seguimiento y la capacidad del Ministerio para comprender lo que estaba ocurriendo.</p>
+        <p data-lang="en" hidden>We did not try to digitize every step or replace all the existing tools. We set out to build a common base at the points where missing information affected follow-up and the ability of the Ministry to understand what was happening.</p>
+
+        <figure data-lang="es">
           <div class="fig-frame">
             <svg viewBox="0 0 740 300" role="img" aria-label="Centros de salud con capacidades muy distintas, desde papel hasta plataformas propias, convergen en una franja de flujos críticos estandarizada y digital, que alimenta la trazabilidad del Ministerio. El resto del proceso queda flexible según la realidad de cada centro.">
               <defs>
@@ -966,26 +1458,105 @@ footer.site{border-top:1px solid var(--rule);padding:1.5rem 0 2.5rem}
           <figcaption>Solo el tramo que el Ministerio necesitaba auditar se estandarizó. Forzar una digitalización uniforme habría excluido a los centros que trabajan en papel, que son justamente los que más lejos están de cumplir los plazos de la ley. Diagrama ilustrativo elaborado para este caso.</figcaption>
         </figure>
 
-        <h2>Estandarizar sin asumir que todos eran iguales</h2>
-        <p>La solución digitalizaba los flujos críticos del seguimiento oncológico y centralizaba la información necesaria para revisar tiempos y movimientos del paciente.</p>
-        <p>Esto permitía que el Ministerio tuviera mayor trazabilidad sin exigir que cada centro adoptara exactamente la misma forma de trabajar en todo el proceso.</p>
-        <p>La decisión no fue elegir entre estandarizar o ser flexibles. Fue identificar dónde la estandarización era necesaria y dónde la flexibilidad permitía que la solución se adaptara mejor a las capacidades reales de cada establecimiento.</p>
+        <figure data-lang="en" hidden>
+          <div class="fig-frame">
+            <svg viewBox="0 0 740 300" role="img" aria-label="Health centers with very different capabilities, from paper to their own platforms, converge on a standardized digital band of critical flows that feeds the Ministry traceability. The rest of the process stays flexible according to each center reality.">
+              <defs>
+                <marker id="ar-sig" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M0,0 L10,5 L0,10 z" fill="currentColor"/>
+                </marker>
+              </defs>
+              <g font-family="IBM Plex Mono, monospace" font-size="10" fill="currentColor">
+                <text x="8" y="20" font-size="11" opacity=".6">HEALTH CENTERS: uneven capacity, real</text>
 
-        <h2>Diseñar con conocimiento del dominio</h2>
-        <p>Colideré el proyecto junto a otra diseñadora. Trabajamos directamente con el Product Manager y el equipo del Ministerio, quienes nos ayudaban a comprender la regulación, los roles y las particularidades del sistema de salud.</p>
-        <p>Las gestoras oncológicas aportaban la perspectiva de quienes realizaban el seguimiento diariamente.</p>
-        <p>Durante el diseño creamos y validamos prototipos en Figma. También participamos en la definición de reglas para estandarizar los flujos seleccionados y en un plan de adopción que ayudara a incorporar la plataforma en los establecimientos.</p>
+                <rect x="8" y="34" width="216" height="58" fill="none" stroke="currentColor" stroke-width="1" opacity=".5"/>
+                <text x="26" y="56">All on paper</text>
+                <text x="26" y="74" opacity=".6">less funding and staff</text>
 
-        <h2>El límite de nuestra participación</h2>
-        <p>Durante el proyecto se estimó que el rediseño podía reducir los tiempos de seguimiento. Sin embargo, esa cifra fue una proyección realizada durante el diseño y no un resultado medido.</p>
-        <p>Nuestra participación terminó con la entrega al Ministerio. Después del handoff no tuve visibilidad suficiente para comprobar la implementación ni realizar seguimiento de los resultados.</p>
-        <p>Por esa razón, no presento la reducción proyectada como impacto del producto. El resultado que puedo mostrar es la definición y validación de una solución orientada a mejorar la trazabilidad de los flujos críticos.</p>
+                <rect x="248" y="34" width="216" height="58" fill="none" stroke="currentColor" stroke-width="1" opacity=".7"/>
+                <text x="266" y="56">Mixed process</text>
+                <text x="266" y="74" opacity=".6">no specialists · patients transferred</text>
 
-        <h2>Lo que cambió en mi manera de trabajar</h2>
-        <p>Este proyecto me ayudó a entender que estandarizar no significa hacer que todos trabajen exactamente igual.</p>
-        <p>Una solución común puede ser necesaria para generar trazabilidad, pero también puede excluir si parte de condiciones que no existen en todos los lugares.</p>
-        <p>Antes de definir el flujo ideal, necesitábamos reconocer qué podía sostener cada centro y qué información era realmente necesaria para el Ministerio.</p>
-        <p>También fue una experiencia importante para comprender los límites del trabajo de consultoría. Participamos en el diagnóstico, diseño y validación, pero no acompañamos el producto durante el tiempo suficiente para medir su efecto. Ser clara sobre ese límite también forma parte de contar el proyecto con honestidad.</p>
+                <rect x="488" y="34" width="216" height="58" fill="none" stroke="currentColor" stroke-width="1.3"/>
+                <text x="506" y="56">Their own digital platform</text>
+                <text x="506" y="74" opacity=".6">more funding and staff</text>
+
+                <line x1="116" y1="96" x2="300" y2="140" stroke="currentColor" stroke-width="1" opacity=".55" marker-end="url(#ar-sig)"/>
+                <line x1="356" y1="96" x2="356" y2="140" stroke="currentColor" stroke-width="1" opacity=".55" marker-end="url(#ar-sig)"/>
+                <line x1="596" y1="96" x2="412" y2="140" stroke="currentColor" stroke-width="1" opacity=".55" marker-end="url(#ar-sig)"/>
+
+                <!-- standardized band -->
+                <rect x="128" y="148" width="456" height="60" fill="none" stroke-width="1.8" class="acc-s"/>
+                <text x="356" y="174" text-anchor="middle" font-size="12">Critical flows, standardized and digital</text>
+                <text x="356" y="192" text-anchor="middle" opacity=".65">the ones that weigh most on follow-up times</text>
+
+                <line x1="356" y1="212" x2="356" y2="242" stroke="currentColor" stroke-width="1.2" marker-end="url(#ar-sig)"/>
+                <rect x="216" y="246" width="280" height="44" fill="none" stroke="currentColor" stroke-width="1.3"/>
+                <text x="356" y="273" text-anchor="middle" font-size="11">Traceability and audit · Ministry</text>
+
+                <!-- flexible remainder -->
+                <line x1="8" y1="178" x2="120" y2="178" stroke="currentColor" stroke-width="1" opacity=".35" stroke-dasharray="4 3"/>
+                <text x="8" y="168" opacity=".55">rest of the process:</text>
+                <text x="8" y="196" opacity=".55">flexible per center</text>
+                <line x1="592" y1="178" x2="704" y2="178" stroke="currentColor" stroke-width="1" opacity=".35" stroke-dasharray="4 3"/>
+                <text x="620" y="168" opacity=".55">rest of the process:</text>
+                <text x="620" y="196" opacity=".55">flexible per center</text>
+              </g>
+            </svg>
+          </div>
+          <figcaption>Only the stretch the Ministry needed to audit was standardized. Forcing uniform digitization would have excluded the centers working on paper, which are precisely the ones furthest from meeting the deadlines the law sets. Illustrative diagram made for this case.</figcaption>
+        </figure>
+
+        <h2 data-lang="es">Estandarizar sin asumir que todos eran iguales</h2>
+        <h2 data-lang="en" hidden>Standardizing without assuming everyone was the same</h2>
+
+        <p data-lang="es">La solución digitalizaba los flujos críticos del seguimiento oncológico y centralizaba la información necesaria para revisar tiempos y movimientos del paciente.</p>
+        <p data-lang="en" hidden>The solution digitized the critical flows of oncology follow-up and centralized the information needed to review times and patient movements.</p>
+
+        <p data-lang="es">Esto permitía que el Ministerio tuviera mayor trazabilidad sin exigir que cada centro adoptara exactamente la misma forma de trabajar en todo el proceso.</p>
+        <p data-lang="en" hidden>This gave the Ministry greater traceability without requiring every center to adopt exactly the same way of working across the whole process.</p>
+
+        <p data-lang="es">La decisión no fue elegir entre estandarizar o ser flexibles. Fue identificar dónde la estandarización era necesaria y dónde la flexibilidad permitía que la solución se adaptara mejor a las capacidades reales de cada establecimiento.</p>
+        <p data-lang="en" hidden>The decision was not choosing between standardizing and being flexible. It was identifying where standardization was necessary and where flexibility let the solution fit the real capabilities of each facility better.</p>
+
+        <h2 data-lang="es">Diseñar con conocimiento del dominio</h2>
+        <h2 data-lang="en" hidden>Designing with domain knowledge</h2>
+
+        <p data-lang="es">Colideré el proyecto junto a otra diseñadora. Trabajamos directamente con el Product Manager y el equipo del Ministerio, quienes nos ayudaban a comprender la regulación, los roles y las particularidades del sistema de salud.</p>
+        <p data-lang="en" hidden>I co-led the project alongside another designer. We worked directly with the Product Manager and the Ministry team, who helped us understand the regulation, the roles and the particularities of the health system.</p>
+
+        <p data-lang="es">Las gestoras oncológicas aportaban la perspectiva de quienes realizaban el seguimiento diariamente.</p>
+        <p data-lang="en" hidden>The oncology case managers brought the perspective of those doing the follow-up every day.</p>
+
+        <p data-lang="es">Durante el diseño creamos y validamos prototipos en Figma. También participamos en la definición de reglas para estandarizar los flujos seleccionados y en un plan de adopción que ayudara a incorporar la plataforma en los establecimientos.</p>
+        <p data-lang="en" hidden>During design we created and validated prototypes in Figma. We also took part in defining rules to standardize the selected flows and in an adoption plan to help bring the platform into the facilities.</p>
+
+        <h2 data-lang="es">El límite de nuestra participación</h2>
+        <h2 data-lang="en" hidden>The limit of our involvement</h2>
+
+        <p data-lang="es">Durante el proyecto se estimó que el rediseño podía reducir los tiempos de seguimiento. Sin embargo, esa cifra fue una proyección realizada durante el diseño y no un resultado medido.</p>
+        <p data-lang="en" hidden>During the project it was estimated that the redesign could reduce follow-up times. That figure, however, was a projection made during design and not a measured result.</p>
+
+        <p data-lang="es">Nuestra participación terminó con la entrega al Ministerio. Después del handoff no tuve visibilidad suficiente para comprobar la implementación ni realizar seguimiento de los resultados.</p>
+        <p data-lang="en" hidden>Our involvement ended with the handover to the Ministry. After that handoff I did not have enough visibility to verify the implementation or to follow up on results.</p>
+
+        <p data-lang="es">Por esa razón, no presento la reducción proyectada como impacto del producto. El resultado que puedo mostrar es la definición y validación de una solución orientada a mejorar la trazabilidad de los flujos críticos.</p>
+        <p data-lang="en" hidden>For that reason, I do not present the projected reduction as the impact of the product. The result I can show is the definition and validation of a solution aimed at improving the traceability of critical flows.</p>
+
+        <h2 data-lang="es">Lo que cambió en mi manera de trabajar</h2>
+        <h2 data-lang="en" hidden>What changed in the way I work</h2>
+
+        <p data-lang="es">Este proyecto me ayudó a entender que estandarizar no significa hacer que todos trabajen exactamente igual.</p>
+        <p data-lang="en" hidden>This project helped me understand that standardizing does not mean making everyone work in exactly the same way.</p>
+
+        <p data-lang="es">Una solución común puede ser necesaria para generar trazabilidad, pero también puede excluir si parte de condiciones que no existen en todos los lugares.</p>
+        <p data-lang="en" hidden>A common solution may be necessary to create traceability, but it can also exclude if it starts from conditions that do not exist everywhere.</p>
+
+        <p data-lang="es">Antes de definir el flujo ideal, necesitábamos reconocer qué podía sostener cada centro y qué información era realmente necesaria para el Ministerio.</p>
+        <p data-lang="en" hidden>Before defining the ideal flow, we needed to recognize what each center could sustain and what information the Ministry actually needed.</p>
+
+        <p data-lang="es">También fue una experiencia importante para comprender los límites del trabajo de consultoría. Participamos en el diagnóstico, diseño y validación, pero no acompañamos el producto durante el tiempo suficiente para medir su efecto. Ser clara sobre ese límite también forma parte de contar el proyecto con honestidad.</p>
+        <p data-lang="en" hidden>It was also an important experience for understanding the limits of consulting work. We took part in the diagnosis, design and validation, but we did not stay with the product long enough to measure its effect. Being clear about that limit is part of telling the project honestly.</p>
       </div>
     </div>
   </div>
@@ -994,90 +1565,88 @@ footer.site{border-top:1px solid var(--rule);padding:1.5rem 0 2.5rem}
     <div class="case-next">
       <div class="case-next-grid">
         <a class="next-link" href="#/belcorp">
-          <span class="label">Volver al primer caso</span>
-          <div class="record-name">Belcorp, Catálogo Virtual</div>
+          <span class="label"><span data-lang="es">Volver al primer caso</span><span data-lang="en" hidden>Back to the first case</span></span>
+          <div class="record-name"><span data-lang="es">Belcorp, Catálogo Virtual</span><span data-lang="en" hidden>Belcorp, Catálogo Virtual</span></div>
         </a>
-        <a class="next-link" href="#/"><span class="label">↑ Todos los casos</span></a>
+        <a class="next-link" href="#/"><span class="label"><span data-lang="es">↑ Todos los casos</span><span data-lang="en" hidden>↑ All work</span></span></a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============================= ABOUT ============================= -->
 <section class="page" id="page-about" hidden>
   <div class="wrap">
     <div class="case-head">
-      <span class="label">Sobre mí</span>
+      <span class="label"><span data-lang="es">Sobre mí</span><span data-lang="en" hidden>About</span></span>
       <h1 style="margin-top:1.25rem">Solange Lavarello</h1>
     </div>
 
     <div class="case-body" style="grid-template-columns:1fr">
       <div class="about-grid">
         <div>
-          <p class="label" style="margin-bottom:1.25rem">Bio</p>
+          <p class="label" style="margin-bottom:1.25rem"><span data-lang="es">Bio</span><span data-lang="en" hidden>Bio</span></p>
           <div class="bio">
-            <p class="bio-lead">Siempre he sido de las personas que preguntan por qué. Me atraen los misterios, las contradicciones y esas situaciones en las que primero hay que ordenar las piezas para comprender qué está ocurriendo. Durante un tiempo pensé que ese interés podía llevarme hacia la sociología o la antropología, porque quería entender mejor a las personas y los sistemas de los que formamos parte.</p>
-            <p>Años después conocí UX/UI en una charla de Laboratoria y sentí que había encontrado algo que reunía muchas de las cosas que estaba buscando. Cuando empecé a trabajar en Belcorp lo confirmé. Me interesaba diseñar experiencias, pero todavía más comprender a las personas, sus decisiones y lo que había detrás de un problema.</p>
-            <p>Con el tiempo, mi trabajo evolucionó hacia el diseño de producto. Descubrí que disfrutaba conectar las necesidades de usuarios, negocio y tecnología, participar en decisiones estratégicas y acompañar las soluciones hasta su implementación. Trabajar como consultora en sectores como banca, seguros, salud y consumo masivo también me enseñó a entrar en contextos diferentes, aprender rápidamente sus reglas y reconocer que cada problema necesita una manera distinta de abordarse.</p>
-            <p>Cuando recibo un reto confuso, mi primer impulso no es diseñar una solución. Primero intento reconstruir cómo llegamos hasta allí, qué sabemos realmente y qué estamos asumiendo. Pregunto mucho, busco patrones y exploro alternativas, pero también entiendo que no siempre existe tiempo para investigar todo. Parte de mi trabajo consiste en encontrar el nivel de profundidad que el proyecto necesita para poder avanzar con criterio.</p>
-            <p>Mi forma de trabajar combina curiosidad, pensamiento sistémico y ejecución. Me gusta ordenar la complejidad, conectar perspectivas y convertir las conversaciones en decisiones y acciones concretas. Soy directa con lo que necesito y valoro trabajar con personas que también puedan comunicar con claridad lo que esperan de mí.</p>
-            <p>Me interesa seguir acercándome a productos relacionados con salud, impacto social y políticas públicas. Son espacios en los que el diseño puede ayudar a mejorar sistemas que afectan directamente la vida de las personas.</p>
-            <p>Fuera del trabajo, comparto mi vida con dos gatos, disfruto cocinar, viajar y hacer caminatas para alejarme un poco de las pantallas. Estoy retomando la lectura, especialmente las novelas distópicas, y puedo pasar horas escuchando historias sobre misterios sin resolver. Incluso en mi tiempo libre, parece que sigo buscando respuestas.</p>
+            <p class="bio-lead" data-lang="es">Siempre he sido de las personas que preguntan por qué. Me atraen los misterios, las contradicciones y esas situaciones en las que primero hay que ordenar las piezas para comprender qué está ocurriendo. Durante un tiempo pensé que ese interés podía llevarme hacia la sociología o la antropología, porque quería entender mejor a las personas y los sistemas de los que formamos parte.</p>
+            <p class="bio-lead" data-lang="en" hidden>I have always been one of those people who ask why. I am drawn to mysteries, to contradictions, and to situations where you first have to arrange the pieces in order to understand what is going on. For a while I thought that interest might lead me toward sociology or anthropology, because I wanted to understand people and the systems we are all part of.</p>
+            <p data-lang="es">Años después conocí UX/UI en una charla de Laboratoria y sentí que había encontrado algo que reunía muchas de las cosas que estaba buscando. Cuando empecé a trabajar en Belcorp lo confirmé. Me interesaba diseñar experiencias, pero todavía más comprender a las personas, sus decisiones y lo que había detrás de un problema.</p>
+            <p data-lang="en" hidden>Years later I came across UX/UI at a talk given by Laboratoria, and it felt like I had found something that brought together many of the things I was looking for. When I started working at Belcorp, that was confirmed. I was interested in designing experiences, but even more in understanding people, their decisions, and what sat behind a problem.</p>
+            <p data-lang="es">Con el tiempo, mi trabajo evolucionó hacia el diseño de producto. Descubrí que disfrutaba conectar las necesidades de usuarios, negocio y tecnología, participar en decisiones estratégicas y acompañar las soluciones hasta su implementación. Trabajar como consultora en sectores como banca, seguros, salud y consumo masivo también me enseñó a entrar en contextos diferentes, aprender rápidamente sus reglas y reconocer que cada problema necesita una manera distinta de abordarse.</p>
+            <p data-lang="en" hidden>Over time my work moved toward product design. I found that I enjoyed connecting the needs of users, business and technology, taking part in strategic decisions and staying with solutions through to implementation. Working as a consultant in sectors like banking, insurance, health and consumer goods also taught me to step into different contexts, learn their rules quickly, and recognize that each problem needs its own way in.</p>
+            <p data-lang="es">Cuando recibo un reto confuso, mi primer impulso no es diseñar una solución. Primero intento reconstruir cómo llegamos hasta allí, qué sabemos realmente y qué estamos asumiendo. Pregunto mucho, busco patrones y exploro alternativas, pero también entiendo que no siempre existe tiempo para investigar todo. Parte de mi trabajo consiste en encontrar el nivel de profundidad que el proyecto necesita para poder avanzar con criterio.</p>
+            <p data-lang="en" hidden>When I get a confusing brief, my first instinct is not to design a solution. First I try to reconstruct how we got here, what we actually know and what we are assuming. I ask a lot, I look for patterns and I explore alternatives, but I also understand that there is not always time to research everything. Part of my work is finding the level of depth a project needs in order to move forward with judgment.</p>
+            <p data-lang="es">Mi forma de trabajar combina curiosidad, pensamiento sistémico y ejecución. Me gusta ordenar la complejidad, conectar perspectivas y convertir las conversaciones en decisiones y acciones concretas. Soy directa con lo que necesito y valoro trabajar con personas que también puedan comunicar con claridad lo que esperan de mí.</p>
+            <p data-lang="en" hidden>The way I work combines curiosity, systems thinking and execution. I like bringing order to complexity, connecting perspectives and turning conversations into decisions and concrete action. I am direct about what I need, and I value working with people who can also say clearly what they expect from me.</p>
+            <p data-lang="es">Me interesa seguir acercándome a productos relacionados con salud, impacto social y políticas públicas. Son espacios en los que el diseño puede ayudar a mejorar sistemas que afectan directamente la vida de las personas.</p>
+            <p data-lang="en" hidden>I am interested in continuing to move toward products connected to health, social impact and public policy. These are spaces where design can help improve systems that directly affect people lives.</p>
+            <p data-lang="es">Fuera del trabajo, comparto mi vida con dos gatos, disfruto cocinar, viajar y hacer caminatas para alejarme un poco de las pantallas. Estoy retomando la lectura, especialmente las novelas distópicas, y puedo pasar horas escuchando historias sobre misterios sin resolver. Incluso en mi tiempo libre, parece que sigo buscando respuestas.</p>
+            <p data-lang="en" hidden>Outside work, I share my life with two cats, and I enjoy cooking, traveling and hiking to get away from screens for a while. I am getting back into reading, dystopian novels especially, and I can spend hours listening to stories about unsolved mysteries. Even in my free time, it seems I am still looking for answers.</p>
           </div>
         </div>
 
         <div>
-          <p class="label" style="margin-bottom:1.25rem">Trayectoria</p>
+          <p class="label" style="margin-bottom:1.25rem"><span data-lang="es">Trayectoria</span><span data-lang="en" hidden>Career</span></p>
           <ol class="tl">
             <li>
-              <div class="tl-when label">Dic 2020 — hoy</div>
+              <div class="tl-when label"><span data-lang="es">Dic 2020 a hoy</span><span data-lang="en" hidden>Dec 2020 to today</span></div>
               <div class="tl-what">
-                <h3>Senior UX / Product Designer</h3>
-                <p class="tl-org">Continuum HQ — consultoría de producto y transformación digital · Lima, Perú</p>
-                <p class="tl-note">Clientes: Ministerio de Salud de Chile (SIGO), Isapre Esencial, BID, AFP PlanVital, CMF, Banco Alfin.</p>
+                <h3><span data-lang="es">Senior UX / Product Designer</span><span data-lang="en" hidden>Senior UX / Product Designer</span></h3>
+                <p class="tl-org"><span data-lang="es">Continuum HQ, consultoría de producto y transformación digital · Lima, Perú</span><span data-lang="en" hidden>Continuum HQ, product and digital transformation consultancy · Lima, Peru</span></p>
+                <p class="tl-note"><span data-lang="es">Clientes: Ministerio de Salud de Chile (SIGO), Isapre Esencial, BID, AFP PlanVital, CMF, Banco Alfin.</span><span data-lang="en" hidden>Clients: Chilean Ministry of Health (SIGO), Isapre Esencial, IDB, AFP PlanVital, CMF, Banco Alfin.</span></p>
               </div>
             </li>
             <li>
-              <div class="tl-when label">Dic 2018 — Dic 2020</div>
+              <div class="tl-when label"><span data-lang="es">Dic 2018 a Dic 2020</span><span data-lang="en" hidden>Dec 2018 to Dec 2020</span></div>
               <div class="tl-what">
-                <h3>Product Designer <span class="tl-arrow">(UX Designer → Product Designer)</span></h3>
-                <p class="tl-org">Belcorp — consumo / belleza · Lima, Perú</p>
-                <p class="tl-note">Única diseñadora del Catálogo Digital, con la visión de diseño del producto de punta a punta.</p>
+                <h3><span data-lang="es">Product Designer <span class="tl-arrow">(UX Designer → Product Designer)</span></span><span data-lang="en" hidden>Product Designer <span class="tl-arrow">(UX Designer → Product Designer)</span></span></h3>
+                <p class="tl-org"><span data-lang="es">Belcorp, consumo y belleza · Lima, Perú</span><span data-lang="en" hidden>Belcorp, consumer and beauty · Lima, Peru</span></p>
+                <p class="tl-note"><span data-lang="es">Única diseñadora del Catálogo Digital, con la visión de diseño del producto de punta a punta.</span><span data-lang="en" hidden>Sole designer on the Digital Catalog, owning the design vision of the product end to end.</span></p>
               </div>
             </li>
           </ol>
         </div>
 
         <div>
-          <p class="label" style="margin-bottom:1.25rem">Formación y certificaciones</p>
+          <p class="label" style="margin-bottom:1.25rem"><span data-lang="es">Formación y certificaciones</span><span data-lang="en" hidden>Education and certifications</span></p>
           <ul class="cert">
-            <li><strong>UX/UI Designer Bootcamp</strong> — Laboratoria, 2018</li>
-            <li><strong>Advanced Prototyping with Figma</strong> — César Sáenz, 2024</li>
-            <li><strong>Future Thinking: Scenario-Based Planning</strong> — UTEC, 2024</li>
-            <li><strong>Creative Thinking for Complex Problem Solving</strong> — IDEO U, 2024</li>
-            <li><strong>Advanced Figma &amp; Practical Usability</strong> — Platzi, 2023</li>
-            <li><strong>Digital Product Management</strong> — Colectivo23, 2022</li>
-            <li><strong>Data Applied to Business / Thick Data</strong> — Colectivo23 y Platzi, 2021–2022</li>
-            <li><strong>Service Design</strong> — Continuum Academy, 2021</li>
-            <li><strong>Design Thinking</strong> — IDEO U, 2020</li>
-            <li><strong>Design Sprint</strong> — Bardo, 2019</li>
+            <li><span data-lang="es"><strong>UX/UI Designer Bootcamp</strong>, Laboratoria, 2018</span><span data-lang="en" hidden><strong>UX/UI Designer Bootcamp</strong>, Laboratoria, 2018</span></li>
+            <li><span data-lang="es"><strong>Advanced Prototyping with Figma</strong>, César Sáenz, 2024</span><span data-lang="en" hidden><strong>Advanced Prototyping with Figma</strong>, César Sáenz, 2024</span></li>
+            <li><span data-lang="es"><strong>Future Thinking: Scenario-Based Planning</strong>, UTEC, 2024</span><span data-lang="en" hidden><strong>Future Thinking: Scenario-Based Planning</strong>, UTEC, 2024</span></li>
+            <li><span data-lang="es"><strong>Creative Thinking for Complex Problem Solving</strong>, IDEO U, 2024</span><span data-lang="en" hidden><strong>Creative Thinking for Complex Problem Solving</strong>, IDEO U, 2024</span></li>
+            <li><span data-lang="es"><strong>Advanced Figma &amp; Practical Usability</strong>, Platzi, 2023</span><span data-lang="en" hidden><strong>Advanced Figma &amp; Practical Usability</strong>, Platzi, 2023</span></li>
+            <li><span data-lang="es"><strong>Digital Product Management</strong>, Colectivo23, 2022</span><span data-lang="en" hidden><strong>Digital Product Management</strong>, Colectivo23, 2022</span></li>
+            <li><span data-lang="es"><strong>Data Applied to Business / Thick Data</strong>, Colectivo23 y Platzi, 2021 a 2022</span><span data-lang="en" hidden><strong>Data Applied to Business / Thick Data</strong>, Colectivo23 and Platzi, 2021 to 2022</span></li>
+            <li><span data-lang="es"><strong>Service Design</strong>, Continuum Academy, 2021</span><span data-lang="en" hidden><strong>Service Design</strong>, Continuum Academy, 2021</span></li>
+            <li><span data-lang="es"><strong>Design Thinking</strong>, IDEO U, 2020</span><span data-lang="en" hidden><strong>Design Thinking</strong>, IDEO U, 2020</span></li>
+            <li><span data-lang="es"><strong>Design Sprint</strong>, Bardo, 2019</span><span data-lang="en" hidden><strong>Design Sprint</strong>, Bardo, 2019</span></li>
           </ul>
         </div>
 
         <div>
-          <p class="label" style="margin-bottom:1.25rem">Idiomas y comunidad</p>
+          <p class="label" style="margin-bottom:1.25rem"><span data-lang="es">Idiomas y comunidad</span><span data-lang="en" hidden>Languages and community</span></p>
           <ul class="cert">
-            <li><strong>Español</strong> nativo · <strong>Inglés</strong> C1 avanzado — user testing y presentaciones bilingües en proyectos internacionales</li>
-            <li><strong>Mentora</strong> — Más Mujeres UX Latam, 2022 y 2023</li>
+            <li><span data-lang="es"><strong>Español</strong> nativo · <strong>Inglés</strong> C1 avanzado, con user testing y presentaciones bilingües en proyectos internacionales</span><span data-lang="en" hidden><strong>Spanish</strong> native · <strong>English</strong> C1 advanced, with bilingual user testing and presentations on international projects</span></li>
+            <li><span data-lang="es"><strong>Mentora</strong>, Más Mujeres UX Latam, 2022 y 2023</span><span data-lang="en" hidden><strong>Mentor</strong>, Más Mujeres UX Latam, 2022 and 2023</span></li>
           </ul>
-        </div>
-
-        <div class="bloque-interno">
-          <p class="label" style="margin-bottom:.75rem">Testimonios</p>
-          <div class="reservado">
-            <p class="label">Espacio reservado</p>
-            <p>Cita + nombre + rol. No se publica ningún testimonio hasta contar con permiso explícito de cada persona y el texto aprobado.</p>
-          </div>
         </div>
       </div>
     </div>
@@ -1086,7 +1655,7 @@ footer.site{border-top:1px solid var(--rule);padding:1.5rem 0 2.5rem}
   <div class="wrap">
     <div class="case-next">
       <div class="case-next-grid">
-        <a class="next-link" href="#/"><span class="label">↑ Ver los casos</span></a>
+        <a class="next-link" href="#/"><span class="label"><span data-lang="es">↑ Ver los casos</span><span data-lang="en" hidden>↑ View the work</span></span></a>
       </div>
     </div>
   </div>
@@ -1122,6 +1691,29 @@ footer.site{border-top:1px solid var(--rule);padding:1.5rem 0 2.5rem}
     });
     if (scroll) window.scrollTo(0, 0);
   }
+
+  // Idioma: cada bloque traducible existe dos veces, una por idioma.
+  function setLang(l) {
+    document.documentElement.lang = l;
+    document.querySelectorAll('[data-lang]').forEach(function (e) {
+      e.hidden = (e.getAttribute('data-lang') !== l);
+    });
+    document.querySelectorAll('[data-setlang]').forEach(function (b) {
+      var on = b.getAttribute('data-setlang') === l;
+      b.setAttribute('aria-pressed', on ? 'true' : 'false');
+      b.classList.toggle('on', on);
+    });
+    try { localStorage.setItem('lang', l); } catch (e) {}
+  }
+
+  document.querySelectorAll('[data-setlang]').forEach(function (b) {
+    b.addEventListener('click', function () { setLang(b.getAttribute('data-setlang')); });
+  });
+
+  var guardado = null;
+  try { guardado = localStorage.getItem('lang'); } catch (e) {}
+  var nav = (navigator.language || 'es').toLowerCase();
+  setLang(guardado === 'en' || guardado === 'es' ? guardado : (nav.indexOf('es') === 0 ? 'es' : 'en'));
 
   window.addEventListener('hashchange', function () { render(true); });
   render(false);

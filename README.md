@@ -41,6 +41,19 @@ El `<script>` del final oculta y muestra las secciones según el hash. Para agre
 caso nuevo hay que sumar la `<section class="page" id="page-X">` y el `'X'` al array
 `pages`.
 
+### Idiomas
+
+El sitio está en español e inglés. Cada bloque de texto existe dos veces en el marcado,
+marcado con `data-lang="es"` o `data-lang="en"`, y el script muestra solo el idioma
+activo. El selector vive arriba a la derecha.
+
+El idioma se elige así: primero lo que la persona haya escogido antes (queda en
+`localStorage`), y si no hay nada guardado, se mira el idioma del navegador. Español si
+empieza por `es`, inglés en cualquier otro caso.
+
+Al traducir o corregir un texto hay que tocar **las dos versiones**. Si una queda sin su
+par, ese contenido desaparece al cambiar de idioma.
+
 ### Diseño
 
 - **Tipografías:** Newsreader (display), Public Sans (texto), IBM Plex Mono (etiquetas y
@@ -48,7 +61,10 @@ caso nuevo hay que sumar la `<section class="page" id="page-X">` y el `'X'` al a
 - **Color:** petróleo sobre papel verde-grisáceo. Todo pasa por variables CSS en `:root`,
   con tema claro y oscuro. Ningún color está escrito directo en un componente.
 - **Diagramas:** SVG inline, escritos a mano, sin librerías. Usan `currentColor` y las
-  variables del tema, así que se leen igual en claro y en oscuro.
+  variables del tema, así que se leen igual en claro y en oscuro. Cada uno existe en las
+  dos versiones de idioma, con los textos del SVG traducidos.
+- **Móvil:** el layout colapsa a una columna. Los diagramas no se encogen hasta volverse
+  ilegibles, se desplazan en horizontal dentro de su propio marco.
 
 ---
 
