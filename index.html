@@ -1,0 +1,1137 @@
+<title>Solange Lavarello</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..500&family=Public+Sans:ital,wght@0,300..700;1,400&display=swap">
+
+<style>
+/* ---------- tokens: light is the base, both dark states re-declare ---------- */
+:root{
+  --paper:#F1F2EE;
+  --surface:#FBFBF9;
+  --ink:#161C1A;
+  --ink-2:#3B4643;
+  --muted:#66716D;
+  --rule:#D4D8D0;
+  --rule-soft:#E4E7E1;
+  --accent:#0B5A55;
+  --accent-ink:#08423E;
+  --accent-soft:#DCE8E5;
+  --signal:#8A5313;
+  --signal-soft:#EFE4D3;
+  --shadow:0 1px 0 rgba(22,28,26,.04);
+
+  --f-display:"Newsreader",Georgia,"Times New Roman",serif;
+  --f-body:"Public Sans","Helvetica Neue",Arial,sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
+
+  --gutter:clamp(1.25rem,5vw,4rem);
+  --max:1200px;
+  --prose:66ch;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#0E1211;
+    --surface:#151B19;
+    --ink:#E7EAE5;
+    --ink-2:#C0C8C4;
+    --muted:#8D9894;
+    --rule:#28312E;
+    --rule-soft:#1C2321;
+    --accent:#5FC3B5;
+    --accent-ink:#8AD8CC;
+    --accent-soft:#12332F;
+    --signal:#D69C55;
+    --signal-soft:#332617;
+    --shadow:0 1px 0 rgba(0,0,0,.3);
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#0E1211;
+  --surface:#151B19;
+  --ink:#E7EAE5;
+  --ink-2:#C0C8C4;
+  --muted:#8D9894;
+  --rule:#28312E;
+  --rule-soft:#1C2321;
+  --accent:#5FC3B5;
+  --accent-ink:#8AD8CC;
+  --accent-soft:#12332F;
+  --signal:#D69C55;
+  --signal-soft:#332617;
+  --shadow:0 1px 0 rgba(0,0,0,.3);
+}
+
+/* ---------- base ---------- */
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:var(--f-body);
+  font-size:1.0625rem;
+  font-weight:350;
+  line-height:1.7;
+  font-optical-sizing:auto;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:inherit}
+h1,h2,h3,h4{margin:0;font-family:var(--f-display);font-weight:400;text-wrap:balance;letter-spacing:-.01em}
+p{margin:0}
+img,svg{max-width:100%}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
+
+.wrap{max-width:var(--max);margin-inline:auto;padding-inline:var(--gutter)}
+
+/* mono utility label */
+.label{
+  font-family:var(--f-mono);
+  font-size:.6875rem;
+  font-weight:500;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  color:var(--muted);
+}
+
+/* ---------- top bar ---------- */
+.topbar{
+  position:sticky;top:0;z-index:20;
+  background:color-mix(in srgb, var(--paper) 88%, transparent);
+  backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--rule);
+}
+.topbar-in{
+  max-width:var(--max);margin-inline:auto;padding:.85rem var(--gutter);
+  display:flex;align-items:baseline;justify-content:space-between;gap:1.5rem;
+}
+.brand{
+  font-family:var(--f-display);font-size:1.0625rem;letter-spacing:-.01em;
+  text-decoration:none;
+}
+.brand:hover{color:var(--accent)}
+.topnav{display:flex;gap:1.5rem;align-items:baseline}
+.topnav a{
+  font-family:var(--f-mono);font-size:.6875rem;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--muted);text-decoration:none;padding-bottom:2px;border-bottom:1px solid transparent;white-space:nowrap;
+}
+.topnav a:hover,.topnav a[aria-current="page"]{color:var(--ink);border-bottom-color:var(--accent)}
+
+/* ---------- page mechanics ---------- */
+.page[hidden]{display:none}
+
+/* ---------- home hero ---------- */
+.hero{padding:clamp(4rem,11vw,8.5rem) 0 clamp(2.5rem,5vw,4rem)}
+.hero h1{
+  font-size:clamp(2.9rem,8.5vw,5.75rem);
+  line-height:.98;font-weight:300;letter-spacing:-.025em;margin-bottom:1.75rem;
+}
+.hero-lead{
+  font-size:clamp(1.15rem,2.1vw,1.4rem);line-height:1.55;max-width:34ch;
+  color:var(--ink-2);font-weight:350;
+}
+.hero-lead em{font-family:var(--f-display);font-style:italic;color:var(--ink);font-weight:400}
+.hero-meta{
+  margin-top:2.75rem;padding-top:1rem;border-top:1px solid var(--rule);
+  display:flex;flex-wrap:wrap;gap:.5rem 1.75rem;
+}
+
+/* ---------- home case records ---------- */
+.records{border-top:1px solid var(--ink);margin-top:clamp(2rem,5vw,3.5rem)}
+.record{
+  display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);
+  gap:clamp(1rem,4vw,3.5rem);
+  padding:clamp(1.75rem,3.5vw,2.75rem) 0;
+  border-bottom:1px solid var(--rule);
+  text-decoration:none;color:inherit;position:relative;
+  transition:background-color .25s ease;
+}
+.record::after{
+  content:"";position:absolute;left:0;bottom:-1px;height:1px;width:0;
+  background:var(--accent);transition:width .45s cubic-bezier(.2,.7,.3,1);
+}
+.record:hover::after,.record:focus-visible::after{width:100%}
+.record:hover .record-name{color:var(--accent)}
+.record-name{
+  font-family:var(--f-display);font-size:clamp(1.5rem,2.9vw,2.05rem);
+  line-height:1.15;font-weight:400;margin-top:.55rem;transition:color .2s ease;
+}
+.record-diff{
+  margin-top:.9rem;font-family:var(--f-display);font-style:italic;
+  font-size:1.0625rem;line-height:1.45;color:var(--accent);max-width:30ch;
+}
+.record-blurb{font-size:1rem;line-height:1.65;color:var(--ink-2);max-width:58ch}
+.record-tags{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:1.1rem}
+.record-go{
+  margin-top:1.1rem;display:inline-flex;align-items:center;gap:.45rem;
+  font-family:var(--f-mono);font-size:.6875rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);
+}
+.record:hover .record-go{color:var(--accent)}
+@media (max-width:760px){
+  .record{grid-template-columns:1fr;gap:1rem}
+}
+
+/* ---------- tags ---------- */
+.tag{
+  font-family:var(--f-mono);font-size:.625rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;
+  padding:.28rem .5rem;border:1px solid var(--rule);color:var(--muted);border-radius:2px;white-space:nowrap;
+}
+.tag--conf{border-color:var(--signal);color:var(--signal);background:var(--signal-soft)}
+.tag--accent{border-color:var(--accent);color:var(--accent);background:var(--accent-soft)}
+
+/* ---------- generic section ---------- */
+.band{padding:clamp(3rem,7vw,5.5rem) 0;border-top:1px solid var(--rule)}
+.band-head{display:flex;align-items:baseline;gap:1rem;margin-bottom:1.75rem}
+.band h2{font-size:clamp(1.6rem,3vw,2.1rem);line-height:1.2}
+
+/* ---------- reserved / pending slots ---------- */
+.reservado{
+  border:1px dashed var(--rule);border-radius:3px;
+  padding:1.5rem 1.5rem;background:transparent;
+  display:flex;flex-direction:column;gap:.4rem;
+}
+.reservado .label{color:var(--signal)}
+.reservado p:last-child{color:var(--muted);font-size:.9375rem;line-height:1.55;max-width:60ch}
+
+/* ---------- case page ---------- */
+.case-head{padding:clamp(3rem,7vw,5.5rem) 0 clamp(1.75rem,4vw,3rem)}
+.case-head .eyebrow{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:1.5rem}
+.case-head h1{
+  font-size:clamp(2.05rem,4.6vw,3.5rem);line-height:1.06;font-weight:300;letter-spacing:-.022em;
+  max-width:22ch;
+}
+.case-sub{
+  margin-top:1.5rem;font-family:var(--f-display);font-style:italic;font-weight:300;
+  font-size:clamp(1.15rem,2.1vw,1.45rem);line-height:1.45;color:var(--ink-2);max-width:44ch;
+}
+
+.case-body{
+  display:grid;grid-template-columns:230px minmax(0,1fr);
+  gap:clamp(2rem,5vw,4.5rem);
+  padding-bottom:clamp(3rem,7vw,6rem);
+  border-top:1px solid var(--ink);padding-top:clamp(2rem,4vw,3rem);
+}
+@media (max-width:900px){
+  .case-body{grid-template-columns:1fr;gap:2.5rem}
+}
+.rail{align-self:start}
+@media (min-width:901px){.rail{position:sticky;top:5rem}}
+.rail dl{margin:0;display:flex;flex-direction:column;gap:1.25rem}
+.rail dt{margin-bottom:.3rem}
+.rail dd{margin:0;font-size:.9375rem;line-height:1.5;color:var(--ink-2)}
+
+.prose{max-width:var(--prose)}
+.prose > * + *{margin-top:1.15rem}
+.prose h2{
+  font-size:1.5rem;line-height:1.25;margin-top:3.25rem;padding-top:1.5rem;
+  border-top:1px solid var(--rule-soft);
+}
+.prose h2:first-child{margin-top:0;padding-top:0;border-top:0}
+.prose .kicker{margin-top:3.25rem;padding-top:1.5rem;border-top:1px solid var(--rule-soft)}
+.prose .kicker + h2{margin-top:.25rem;padding-top:0;border-top:0}
+.prose p{color:var(--ink-2)}
+.prose .lead{font-size:1.1875rem;line-height:1.6;color:var(--ink)}
+.prose a{color:var(--accent);text-underline-offset:3px}
+.prose .fuente{font-size:.875rem;color:var(--muted)}
+
+/* decision pull-outs — the spine of a senior case */
+.decision{
+  border-left:2px solid var(--accent);
+  padding:.35rem 0 .35rem 1.5rem;
+  margin-top:1.75rem;
+}
+.decision h3{
+  font-family:var(--f-display);font-style:italic;font-weight:400;
+  font-size:1.25rem;line-height:1.35;color:var(--ink);margin-bottom:.6rem;
+}
+.decision p{color:var(--ink-2)}
+
+/* callout for estimates / confidentiality */
+.aviso{
+  border:1px solid var(--signal);background:var(--signal-soft);
+  border-radius:3px;padding:1.25rem 1.35rem;display:flex;flex-direction:column;gap:.45rem;
+  margin-top:1.75rem;
+}
+.aviso .label{color:var(--signal)}
+.aviso p{font-size:.9375rem;line-height:1.6;color:var(--ink-2)}
+
+/* figures */
+figure{margin:2.5rem 0 0;padding:0}
+.fig-frame{
+  border:1px solid var(--rule);border-radius:3px;background:var(--surface);
+  padding:1.5rem 1.25rem;overflow-x:auto;
+}
+figure svg{display:block;width:100%;height:auto;color:var(--ink)}
+figure svg .acc-s{stroke:var(--accent)}
+figure svg .acc-f{fill:var(--accent)}
+figcaption{
+  margin-top:.75rem;font-size:.875rem;line-height:1.5;color:var(--muted);max-width:62ch;
+}
+
+/* case footer nav */
+.case-next{border-top:1px solid var(--ink);padding:clamp(2rem,4vw,3rem) 0 clamp(3rem,6vw,5rem)}
+.case-next-grid{display:flex;flex-wrap:wrap;gap:1.5rem;justify-content:space-between;align-items:flex-end}
+.next-link{text-decoration:none;display:block}
+.next-link .record-name{font-size:clamp(1.35rem,2.4vw,1.75rem);margin-top:.4rem}
+.next-link:hover .record-name{color:var(--accent)}
+
+/* about */
+.about-grid{display:grid;gap:3rem;max-width:var(--prose)}
+
+/* trayectoria */
+.tl{list-style:none;margin:0;padding:0;display:flex;flex-direction:column}
+.tl li{
+  display:grid;grid-template-columns:150px minmax(0,1fr);gap:1.5rem;
+  padding:1.5rem 0;border-top:1px solid var(--rule);
+}
+.tl li:last-child{border-bottom:1px solid var(--rule)}
+.tl-when{padding-top:.35rem;font-variant-numeric:tabular-nums}
+.tl-what h3{font-family:var(--f-display);font-size:1.25rem;font-weight:400;line-height:1.3}
+.tl-arrow{font-family:var(--f-mono);font-size:.75rem;color:var(--muted);letter-spacing:0;white-space:nowrap}
+.tl-org{margin-top:.35rem;font-size:.9375rem;color:var(--ink-2)}
+.tl-note{margin-top:.5rem;font-size:.9375rem;line-height:1.55;color:var(--muted)}
+@media (max-width:620px){
+  .tl li{grid-template-columns:1fr;gap:.5rem}
+  .tl-when{padding-top:0}
+}
+
+/* listas de formación */
+.cert{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:.6rem}
+.cert li{
+  font-size:.9375rem;line-height:1.55;color:var(--muted);
+  padding-left:1rem;border-left:1px solid var(--rule);
+}
+.cert strong{font-weight:600;color:var(--ink-2)}
+
+/* contacto */
+.contact-links{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:2.5rem}
+.contact-links li{display:flex;flex-direction:column;gap:.4rem}
+.contact-links a{color:var(--accent);text-decoration:none;border-bottom:1px solid var(--rule);padding-bottom:2px}
+.contact-links a:hover{border-bottom-color:var(--accent)}
+.contact-plain{color:var(--ink-2)}
+
+/* contact */
+.contact{border-top:1px solid var(--ink);padding:clamp(3rem,7vw,5.5rem) 0 clamp(4rem,8vw,6rem)}
+.contact h2{font-size:clamp(1.6rem,3.4vw,2.4rem);max-width:20ch;margin-bottom:1.5rem}
+
+footer.site{border-top:1px solid var(--rule);padding:1.5rem 0 2.5rem}
+.foot-in{display:flex;flex-wrap:wrap;gap:.75rem 2rem;justify-content:space-between}
+
+@media (prefers-reduced-motion: reduce){
+  *,*::after,*::before{transition:none!important;animation:none!important;scroll-behavior:auto!important}
+}
+</style>
+
+<div class="topbar">
+  <div class="topbar-in">
+    <a class="brand" href="#/">Solange Lavarello</a>
+    <nav class="topnav" aria-label="Principal">
+      <a href="#/" data-nav="home">Casos</a>
+      <a href="#/about" data-nav="about">Sobre mí</a>
+    </nav>
+  </div>
+</div>
+
+<main id="app">
+
+<!-- ============================= HOME ============================= -->
+<section class="page" id="page-home">
+  <div class="wrap">
+    <div class="hero">
+      <h1>Solange&nbsp;Lavarello</h1>
+      <p class="hero-lead">Diseñadora de producto senior, más de 7 años. Diseño plataformas de gestión para instituciones donde <em>la restricción es parte del problema</em>: infraestructura desigual, plazos legales, áreas internas con intereses cruzados.</p>
+      <div class="hero-meta">
+        <span class="label">Banca multilateral</span>
+        <span class="label">Salud pública</span>
+        <span class="label">Seguros de salud</span>
+        <span class="label">Venta directa</span>
+      </div>
+    </div>
+
+    <div class="records">
+
+      <a class="record" href="#/belcorp">
+        <div>
+          <span class="label">Consumo / belleza</span>
+          <div class="record-name">Belcorp — Catálogo Virtual</div>
+          <p class="record-diff">Impacto cuantificado por una fuente externa y verificable.</p>
+          <div class="record-tags">
+            <span class="tag tag--accent">Ownership end-to-end</span>
+            <span class="tag">Research de campo</span>
+          </div>
+        </div>
+        <div>
+          <p class="record-blurb">Diseñé la evolución del Catálogo Digital de Belcorp —heredado de mi mentora— hacia el Catálogo Virtual: una plataforma de venta con tienda individual por consultora y pre-pedido. Fundamenté decisiones clave, como el alcance de digitalización y la personalización de la experiencia, en research de campo con consultoras. Cuando la pandemia cerró su canal físico, esa base escaló a cinco países, con más de US$1MM en ventas adicionales en seis meses.</p>
+          <span class="record-go">Ver el caso →</span>
+        </div>
+      </a>
+
+      <a class="record" href="#/bid">
+        <div>
+          <span class="label">Desarrollo internacional / banca multilateral</span>
+          <div class="record-name">BID — Unidad Fiduciaria, 26 países</div>
+          <p class="record-diff">Complejidad institucional: el reto no era técnico, era de alineamiento.</p>
+          <div class="record-tags">
+            <span class="tag tag--conf">Contenido ilustrativo</span>
+            <span class="tag">Facilitación</span>
+          </div>
+        </div>
+        <div>
+          <p class="record-blurb">Diseñé la plataforma de gestión de préstamos de la Unidad Fiduciaria del BID, usada por los 26 países miembros. En un equipo de dos personas, facilité workshops y entrevistas con distintas áreas del BID y varios países para decidir qué flujos priorizar y dónde mantener configuraciones específicas. El reto principal fue de alineamiento, no técnico: cada área tenía intereses y herramientas propias. Durante el proyecto pasé de diseñadora semi-senior a senior.</p>
+          <span class="record-go">Ver el caso →</span>
+        </div>
+      </a>
+
+      <a class="record" href="#/isapre">
+        <div>
+          <span class="label">Salud / seguros privados · Chile</span>
+          <div class="record-name">Isapre Esencial</div>
+          <p class="record-diff">El único caso donde lideré tecnología además de diseño.</p>
+          <div class="record-tags">
+            <span class="tag tag--accent">Liderazgo cross-funcional</span>
+            <span class="tag">Plazo legal</span>
+          </div>
+        </div>
+        <div>
+          <p class="record-blurb">Me incorporé a mitad del proyecto de Isapre Esencial, en reemplazo de la líder de producto saliente, para liderar diseño y tecnología con un plazo legal fijo de seis meses. Sin poder validar con usuarios reales por confidencialidad, prioricé un MVP basado en requisitos legales mínimos y benchmarking de otras isapres chilenas, coordinando además con una consultora externa que manejaba el core tecnológico heredado. Lanzamos dentro del plazo previsto.</p>
+          <span class="record-go">Ver el caso →</span>
+        </div>
+      </a>
+
+      <a class="record" href="#/sigo">
+        <div>
+          <span class="label">Salud pública · Ministerio de Salud de Chile</span>
+          <div class="record-name">SIGO — Seguimiento oncológico</div>
+          <p class="record-diff">Estandarizar solo lo crítico frente a una desigualdad estructural real.</p>
+          <div class="record-tags">
+            <span class="tag tag--accent">Discovery de campo</span>
+            <span class="tag">Co-liderazgo</span>
+          </div>
+        </div>
+        <div>
+          <p class="record-blurb">Co-lideré el diseño de una plataforma de seguimiento de pacientes oncológicos para el Ministerio de Salud de Chile, en el marco de una ley orientada a reducir la mortalidad por cáncer. El mapeo de campo con gestoras oncológicas mostró una desigualdad real entre centros de salud —financiamiento, personal, digitalización—, así que decidimos estandarizar solo los flujos más críticos, dejando el resto con la flexibilidad que cada centro necesitaba.</p>
+          <span class="record-go">Ver el caso →</span>
+        </div>
+      </a>
+
+    </div>
+
+    <div class="band">
+      <div class="band-head"><h2>Competencias</h2></div>
+      <div class="reservado">
+        <p class="label">Espacio reservado</p>
+        <p>Resumen escaneable de competencias senior. El formato exacto está pendiente de definir — este bloque queda vacío a propósito hasta entonces.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="contact">
+      <h2>Conversemos</h2>
+      <ul class="contact-links">
+        <li><span class="label">Correo</span><a href="mailto:lavarellosolange@gmail.com">lavarellosolange@gmail.com</a></li>
+        <li><span class="label">LinkedIn</span><a href="https://linkedin.com/in/solangelavarello" target="_blank" rel="noopener noreferrer">linkedin.com/in/solangelavarello</a></li>
+        <li><span class="label">Base</span><span class="contact-plain">Lima, Perú</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============================= BELCORP ============================= -->
+<section class="page" id="page-belcorp" hidden>
+  <div class="wrap">
+    <div class="case-head">
+      <div class="eyebrow">
+        <span class="tag">Consumo / belleza</span>
+        <span class="tag">Etapa 3 entregada</span>
+      </div>
+      <h1>El catálogo digital que sostuvo a las consultoras cuando la pandemia cerró la puerta a puerta</h1>
+      <p class="case-sub">Cómo el research de campo con consultoras fundamentó decisiones que, al llegar la pandemia, escalaron a una plataforma de venta digital en cinco países.</p>
+    </div>
+
+    <div class="case-body">
+      <aside class="rail">
+        <dl>
+          <div><dt class="label">Rol</dt><dd>Diseñadora end-to-end del producto, vía Altimea, destacada in-house en Belcorp</dd></div>
+          <div><dt class="label">Equipo</dt><dd>Product Owner, Tech Lead, desarrollo y QA, Scrum Master. Apoyo puntual del equipo de Data Analysts</dd></div>
+          <div><dt class="label">Industria</dt><dd>Consumo / belleza — venta directa</dd></div>
+          <div><dt class="label">Alcance</dt><dd>Catálogo base, tienda online individual por consultora y flujo de pre-pedido</dd></div>
+        </dl>
+      </aside>
+
+      <div class="prose">
+        <div class="reservado">
+          <p class="label">Espacio reservado</p>
+          <p>Resumen escaneable de competencias — formato pendiente de definir.</p>
+        </div>
+
+        <p class="kicker label">Resumen ejecutivo</p>
+        <h2>De un producto heredado a la infraestructura de venta digital</h2>
+        <p class="lead">Entré al Catálogo Digital de Belcorp cuando ya tenía una primera versión, heredado de la UX que fue mi mentora. Como diseñadora del producto —parte del equipo de Altimea, destacada in-house en Belcorp— lideré su evolución hacia el Catálogo Virtual: una plataforma con tienda individual por consultora y motor de pre-pedido. Dos decisiones marcaron el camino: negociar con stakeholders senior un alcance de digitalización realista frente al contexto de las consultoras, y personalizar la experiencia a partir de cómo ellas ya usaban el catálogo físico. Cuando la pandemia cortó el canal de venta puerta a puerta, esa base escaló a cinco países: el caso público de Altimea reporta más de US$1MM en ventas adicionales en seis meses y 2MM de usuarios activos.</p>
+
+        <h2>Contexto y problema</h2>
+        <p>El Catálogo Digital de Belcorp ya existía cuando entré al proyecto — lo había construido la UX designer que fue mi mentora al inicio. El plan era que ella me acompañara más tiempo, pero cuando vio que estaba lista, me dejó el producto a cargo. Yo formaba parte del equipo de Altimea, el proveedor tecnológico de Belcorp, trabajando in-house dentro de la empresa.</p>
+        <p>El producto servía a las consultoras de venta directa —más de 200.000 en Perú y Chile, con potencial de expansión a otros mercados— como versión digital de su herramienta de venta tradicional: el catálogo físico. Justo antes de que llegara la pandemia, la empresa empezó a empujar una digitalización más ambiciosa, con flujos más complejos, sin considerar del todo el contexto real de las consultoras y sus clientas: su nivel de conectividad, el tipo de celular con el que accedían al catálogo, cómo lo usaban en la práctica.</p>
+
+        <h2>Mi rol y alcance</h2>
+        <p>Fui la única diseñadora del Catálogo Digital / Catálogo Virtual durante toda su evolución, con responsabilidad end-to-end: research, levantamiento de datos y diseño de flujos, dentro de un equipo multifuncional clásico (Product Owner, Tech Lead, equipo de desarrollo y QA, Scrum Master). Contaba con el apoyo de un equipo general de Data Analysts de la empresa para consultas puntuales. En paralelo, otros UX designers de Belcorp llevaban otros productos — no trabajaba aislada, aunque sí era la única responsable de diseño de este producto en particular.</p>
+        <p>Mi alcance cubrió el catálogo base, la tienda online individual por consultora y el flujo de pre-pedido: las tres piezas que terminaron conformando el Catálogo Virtual.</p>
+
+        <h2>Discovery y research</h2>
+        <p>El research combinó shadowing y entrevistas de campo con consultoras, además de la revisión de métricas y flujos de uso ya existentes del producto. El shadowing fue clave para entender una dinámica que no estaba documentada en ningún lado: cómo usaban el catálogo físico en su día a día de venta.</p>
+
+        <h2>Hallazgos principales</h2>
+        <p>Las consultoras ya conocían a fondo a sus clientas —sus gustos, la composición de su familia, lo que solían pedir— y usaban esa información dentro del catálogo físico: señalizaban o marcaban páginas específicas según la clienta a la que iban a visitar o a quien le dejarían el catálogo. Esa personalización era parte real de su flujo de venta, no un detalle accesorio.</p>
+        <p>El research también mostró que una versión de catálogo más «moderna» y compleja, tal como la imaginaba parte de la empresa, no iba a ser adoptada por las consultoras dado su contexto real de conectividad y dispositivos: el riesgo era construir algo tecnológicamente más avanzado, pero que las consultoras no pudieran usar en la práctica.</p>
+
+        <h2>Decisiones de producto y diseño</h2>
+        <div class="decision">
+          <h3>Personalizar la experiencia según cómo ya vendían.</h3>
+          <p>En lugar de proponer una función nueva sin anclaje, diseñé una forma de marcar y compartir páginas del catálogo digital por clienta, replicando digitalmente la señalización que las consultoras ya hacían en papel. La decisión fue no imponer un patrón de uso distinto al que ya tenían, sino digitalizar el que funcionaba.</p>
+        </div>
+        <div class="decision">
+          <h3>Negociar un alcance de digitalización realista.</h3>
+          <p>Cuando la presión por digitalizar más rápido y con mayor sofisticación venía de niveles de la empresa por encima de mi equipo directo, usé la evidencia del discovery para argumentar un punto medio: suficiente digitalización para avanzar, sin exceder lo que el contexto real de las consultoras podía adoptar. Presenté y negocié esa posición directamente con esos niveles senior, no solo con mi equipo, que ya estaba alineado conmigo.</p>
+        </div>
+
+        <h2>Restricciones y trade-offs</h2>
+        <p>El trade-off central fue negocio vs. adopción real: la empresa quería avanzar más rápido de lo que el contexto de las consultoras permitía. Resolver eso implicó sostener una posición con evidencia frente a stakeholders con más jerarquía que mi equipo directo, en un momento donde la confianza de la empresa en lo que el diseño podía aportar todavía se estaba construyendo.</p>
+
+        <h2>Solución</h2>
+        <p>El Catálogo Virtual quedó compuesto por tres piezas: un catálogo central con contenido y promociones gestionado desde un CMS, una tienda online individual por consultora (con URL propia) que incluía la personalización por clienta, y un motor de pre-pedido conectado a los sistemas logísticos de Belcorp. El sistema de diseño que ayudé a impulsar —cross a otros productos digitales de Belcorp, no exclusivo de este— sostuvo la consistencia de componentes y flujos a medida que el producto creció.</p>
+
+        <figure>
+          <div class="fig-frame">
+            <svg viewBox="0 0 760 300" role="img" aria-label="Arquitectura del Catálogo Virtual: un CMS alimenta un catálogo central, que se replica en una tienda individual por consultora con personalización por clienta, y desemboca en un motor de pre-pedido conectado a los sistemas logísticos de Belcorp.">
+              <defs>
+                <marker id="ar-bel" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+                  <path d="M0,0 L10,5 L0,10 z" fill="currentColor"/>
+                </marker>
+              </defs>
+              <g font-family="IBM Plex Mono, monospace" font-size="11" fill="currentColor">
+                <!-- CMS -->
+                <rect x="8" y="112" width="112" height="52" fill="none" stroke="currentColor" stroke-width="1" opacity=".55"/>
+                <text x="64" y="134" text-anchor="middle" opacity=".75">CMS</text>
+                <text x="64" y="150" text-anchor="middle" opacity=".55" font-size="10">contenido · promos</text>
+
+                <!-- catálogo central -->
+                <rect x="180" y="102" width="150" height="72" fill="none" stroke="currentColor" stroke-width="1.6"/>
+                <text x="255" y="130" text-anchor="middle" font-size="12">Catálogo central</text>
+                <text x="255" y="148" text-anchor="middle" opacity=".6" font-size="10">una sola fuente</text>
+
+                <!-- tiendas -->
+                <rect x="392" y="36" width="176" height="60" fill="none" stroke-width="1.6" class="acc-s"/>
+                <text x="480" y="60" text-anchor="middle" font-size="12" fill="currentColor">Tienda por consultora</text>
+                <text x="480" y="78" text-anchor="middle" opacity=".6" font-size="10" fill="currentColor">URL propia · personalización por clienta</text>
+
+                <rect x="400" y="112" width="160" height="44" fill="none" stroke="currentColor" opacity=".3"/>
+                <rect x="408" y="122" width="160" height="44" fill="none" stroke="currentColor" opacity=".18"/>
+                <text x="488" y="150" text-anchor="middle" opacity=".45" font-size="10">…una por cada consultora</text>
+
+                <!-- pre-pedido -->
+                <rect x="392" y="206" width="176" height="60" fill="none" stroke="currentColor" stroke-width="1.6"/>
+                <text x="480" y="230" text-anchor="middle" font-size="12">Motor de pre-pedido</text>
+                <text x="480" y="248" text-anchor="middle" opacity=".6" font-size="10">127.000 en el 1.er trimestre</text>
+
+                <!-- logística -->
+                <rect x="632" y="206" width="120" height="60" fill="none" stroke="currentColor" opacity=".55"/>
+                <text x="692" y="230" text-anchor="middle" opacity=".75" font-size="11">Sistemas</text>
+                <text x="692" y="246" text-anchor="middle" opacity=".75" font-size="11">logísticos</text>
+
+                <!-- arrows -->
+                <line x1="122" y1="138" x2="176" y2="138" stroke="currentColor" stroke-width="1.2" marker-end="url(#ar-bel)"/>
+                <path d="M332,124 C362,124 362,66 388,66" fill="none" stroke="currentColor" stroke-width="1.2" marker-end="url(#ar-bel)"/>
+                <text x="352" y="98" text-anchor="middle" font-size="10" opacity=".65">replica</text>
+                <path d="M480,100 L480,202" fill="none" stroke="currentColor" stroke-width="1.2" marker-end="url(#ar-bel)"/>
+                <text x="492" y="156" font-size="10" opacity=".65">la clienta pide</text>
+                <line x1="572" y1="236" x2="628" y2="236" stroke="currentColor" stroke-width="1.2" marker-end="url(#ar-bel)"/>
+              </g>
+            </svg>
+          </div>
+          <figcaption>Las tres piezas del Catálogo Virtual. La personalización por clienta vive en la tienda individual —no en el catálogo central— porque replica algo que la consultora ya hacía en papel: marcar páginas según a quién iba a visitar. Diagrama ilustrativo elaborado para este caso.</figcaption>
+        </figure>
+
+        <h2>Colaboración e implementación</h2>
+        <p>El mismo equipo que trabajaba en la versión original del catálogo (PO, Tech Lead, desarrollo, QA, Scrum Master y yo como diseñadora) sostuvo la evolución del producto hacia el Catálogo Virtual, incluida la fase de expansión a cinco países durante la pandemia — no hubo crecimiento del equipo de diseño pese al salto de escala. El sistema de diseño se adoptó de forma escalonada, producto por producto, respetando el backlog de cada equipo.</p>
+
+        <h2>Resultados</h2>
+        <p>Belcorp y Altimea documentaron públicamente el impacto del Catálogo Virtual: más de US$1MM en ventas adicionales en los primeros seis meses, 2MM de usuarios activos entre consultoras y clientas finales, y 127.000 pre-pedidos procesados en el primer trimestre — diez veces la proyección inicial. Son cifras de un esfuerzo de equipo del que fui la diseñadora responsable, no un resultado que mida individualmente; las cito porque están publicadas y son verificables, no porque las recuerde de memoria.</p>
+        <p class="fuente">Fuente: <a href="https://www.altimea.com/casos-de-exito/belcorp-catalogo-virtual/" target="_blank" rel="noopener noreferrer">Caso de éxito Belcorp — Catálogo Virtual, Altimea</a></p>
+
+        <h2>Aprendizajes</h2>
+        <p>De este proyecto me llevo, sobre todo, la importancia de sostener las decisiones de diseño con evidencia — no solo para mí misma, sino para que se tomaran en serio en una empresa que todavía estaba construyendo confianza en lo que el diseño podía aportar. Esa disciplina de research fue lo que permitió negociar el alcance de digitalización cuando la presión venía de arriba, y lo que después sostuvo el producto cuando tuvo que escalar rápido.</p>
+
+        <div class="reservado" style="margin-top:2.5rem">
+          <p class="label">Espacio reservado — galería</p>
+          <p>Capturas de época de la app, flujos de Figma de la función de personalización y muestra del sistema de diseño, pendientes de confirmar disponibilidad.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="case-next">
+      <div class="case-next-grid">
+        <a class="next-link" href="#/bid">
+          <span class="label">Caso siguiente</span>
+          <div class="record-name">BID — Unidad Fiduciaria, 26 países</div>
+        </a>
+        <a class="next-link" href="#/"><span class="label">↑ Todos los casos</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================= BID ============================= -->
+<section class="page" id="page-bid" hidden>
+  <div class="wrap">
+    <div class="case-head">
+      <div class="eyebrow">
+        <span class="tag">Desarrollo internacional / banca multilateral</span>
+        <span class="tag tag--conf">Contenido ilustrativo</span>
+      </div>
+      <h1>Diseño de la plataforma de gestión de préstamos del BID para 26 países miembros</h1>
+      <p class="case-sub">Cómo facilité consenso entre áreas internas del BID con flujos e intereses distintos, para digitalizar la gestión de préstamos en 26 países miembros.</p>
+    </div>
+
+    <div class="case-body">
+      <aside class="rail">
+        <dl>
+          <div><dt class="label">Rol</dt><dd>Diseñadora en un equipo de dos personas, Continuum. Promovida de semi-senior a senior durante el proyecto</dd></div>
+          <div><dt class="label">Colaboración</dt><dd>Product Managers y Tech Leads del BID; representantes de áreas internas y de países miembros</dd></div>
+          <div><dt class="label">Industria</dt><dd>Desarrollo internacional / banca multilateral</dd></div>
+          <div><dt class="label">Duración</dt><dd>Aproximadamente un año y medio, en varias fases</dd></div>
+          <div><dt class="label">Idiomas</dt><dd>Inglés y español</dd></div>
+        </dl>
+      </aside>
+
+      <div class="prose">
+        <div class="aviso">
+          <p class="label">Aviso de confidencialidad</p>
+          <p>Este caso no muestra contenido real de la plataforma —capturas, flujos ni datos— por política de privacidad del BID. Los diagramas son ilustrativos y fueron elaborados para explicar las decisiones, no reproducen la interfaz.</p>
+        </div>
+
+        <div class="reservado">
+          <p class="label">Espacio reservado</p>
+          <p>Resumen escaneable de competencias — formato pendiente de definir.</p>
+        </div>
+
+        <p class="kicker label">Resumen ejecutivo</p>
+        <h2>El reto no fue técnico, fue de alineamiento</h2>
+        <p class="lead">Diseñé la plataforma de gestión de préstamos de la Unidad Fiduciaria del BID, usada por los 26 países miembros, con configuraciones específicas para unos cuatro o cinco países. Trabajé en un equipo de diseño de dos personas durante un año y medio, cubriendo el ciclo completo: adquisición, revisión de proyectos, aprobación fiduciaria, pagos, facturación y auditorías. El reto principal no fue técnico sino de alineamiento: cada área del BID tenía flujos y herramientas propias, con intereses distintos sobre qué debía cubrir la plataforma. Facilité workshops y entrevistas con representantes de varios países para identificar puntos en común y decidir qué flujos necesitaban mayor complejidad y cuáles podían quedar en MVP. Durante este proyecto pasé de diseñadora semi-senior a senior.</p>
+
+        <h2>Contexto y problema</h2>
+        <p>La Unidad Fiduciaria del BID gestiona el proceso de préstamos con los 26 países miembros del banco: desde la adquisición y revisión de proyectos hasta la aprobación fiduciaria, pagos, facturación y auditorías. Cada una de estas etapas involucraba áreas internas distintas, cada una con su propio flujo de trabajo y sus propias herramientas.</p>
+        <p>El proyecto consistió en digitalizar y centralizar ese proceso en una plataforma compartida por los 26 países, manteniendo configuraciones específicas para unos cuatro o cinco de ellos que lo requerían. No todos los países podían participar directamente en el levantamiento de información, así que parte del trabajo fue construir una visión común a partir de los que sí lo hacían.</p>
+
+        <h2>Mi rol y alcance</h2>
+        <p>Trabajé en un equipo de diseño de dos personas, con responsabilidad de research, levantamiento y diseño de flujos end-to-end, colaborando con Product Managers y Tech Leads para definir soluciones alineadas al sistema de diseño ya existente del BID (trabajábamos con sus componentes base, construyendo los que faltaban cuando era necesario).</p>
+        <p>El proyecto se desarrolló en varias fases a lo largo de aproximadamente un año y medio. Durante ese tiempo pasé de diseñadora semi-senior a senior, por la complejidad tanto del producto como del cliente.</p>
+
+        <h2>Discovery y research</h2>
+        <p>El research combinó workshops y entrevistas con representantes de distintas áreas del BID y de varios de los países miembros —entre ellos El Salvador, Haití, Brasil, Argentina, Chile, Uruguay, Panamá, Ecuador, Perú y Colombia—, en inglés y español. Usé Maze y Hotjar durante estas sesiones para verificar que el levantamiento de información estuviera completo y para sustentar con datos las decisiones sobre qué flujos priorizar.</p>
+
+        <h2>Hallazgos principales</h2>
+        <p>No todos los países podían participar en el levantamiento, así que el trabajo fue identificar los puntos en común entre los que sí participaban y los puntos donde los procesos divergían.</p>
+        <p>La tensión más fuerte no estaba entre países, sino entre las áreas internas del BID: cada una (adquisición, revisión de proyectos, aprobación fiduciaria, pagos, auditoría) tenía su propio flujo y herramientas, y había desacuerdo sobre qué alcance debía tener cada una dentro de la plataforma. Algunas áreas necesitaban primero centralizar su propio proceso internamente antes de poder digitalizarlo.</p>
+
+        <h2>Decisiones de producto y diseño</h2>
+        <div class="decision">
+          <h3>Decidir qué flujos iban como MVP y cuáles necesitaban mayor profundidad.</h3>
+          <p>Con base en lo que mostraba el research, prioricé llevar a un MVP los flujos de áreas que aún no tenían un proceso centralizado internamente, y dar mayor complejidad a los flujos de áreas que ya tenían procesos más maduros y datos más claros sobre lo que necesitaban.</p>
+        </div>
+        <div class="decision">
+          <h3>Mantener una plataforma compartida con configuraciones específicas solo donde el discovery mostraba que hacía falta.</h3>
+          <p>En vez de construir una versión distinta por país, o forzar una plataforma completamente homogénea, definimos configuraciones adicionales únicamente para los países cuyo contexto —herramientas internas ya existentes, necesidades particulares— lo justificaba.</p>
+        </div>
+
+        <figure>
+          <div class="fig-frame">
+            <svg viewBox="0 0 760 268" role="img" aria-label="El ciclo del préstamo atraviesa seis etapas, cada una a cargo de un área interna distinta del BID. La profundidad de diseño de cada etapa se decidió según la madurez del proceso de su área: MVP donde el área aún no había centralizado su proceso, mayor profundidad donde ya existían procesos maduros.">
+              <defs>
+                <marker id="ar-bid" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M0,0 L10,5 L0,10 z" fill="currentColor"/>
+                </marker>
+              </defs>
+              <g font-family="IBM Plex Mono, monospace" font-size="10" fill="currentColor">
+                <text x="8" y="22" font-size="11" opacity=".6">CICLO DEL PRÉSTAMO — una etapa, un área interna</text>
+
+                <!-- 6 stages -->
+                <g>
+                  <rect x="8" y="40" width="108" height="56" fill="none" stroke="currentColor" stroke-width="1.3"/>
+                  <text x="62" y="66" text-anchor="middle">Adquisición</text>
+                  <line x1="120" y1="68" x2="136" y2="68" stroke="currentColor" stroke-width="1.1" marker-end="url(#ar-bid)"/>
+
+                  <rect x="140" y="40" width="108" height="56" fill="none" stroke="currentColor" stroke-width="1.3"/>
+                  <text x="194" y="62" text-anchor="middle">Revisión de</text>
+                  <text x="194" y="76" text-anchor="middle">proyectos</text>
+                  <line x1="252" y1="68" x2="268" y2="68" stroke="currentColor" stroke-width="1.1" marker-end="url(#ar-bid)"/>
+
+                  <rect x="272" y="40" width="108" height="56" fill="none" stroke="currentColor" stroke-width="1.3"/>
+                  <text x="326" y="62" text-anchor="middle">Aprobación</text>
+                  <text x="326" y="76" text-anchor="middle">fiduciaria</text>
+                  <line x1="384" y1="68" x2="400" y2="68" stroke="currentColor" stroke-width="1.1" marker-end="url(#ar-bid)"/>
+
+                  <rect x="404" y="40" width="108" height="56" fill="none" stroke="currentColor" stroke-width="1.3"/>
+                  <text x="458" y="66" text-anchor="middle">Pagos</text>
+                  <line x1="516" y1="68" x2="532" y2="68" stroke="currentColor" stroke-width="1.1" marker-end="url(#ar-bid)"/>
+
+                  <rect x="536" y="40" width="108" height="56" fill="none" stroke="currentColor" stroke-width="1.3"/>
+                  <text x="590" y="66" text-anchor="middle">Facturación</text>
+                  <line x1="648" y1="68" x2="664" y2="68" stroke="currentColor" stroke-width="1.1" marker-end="url(#ar-bid)"/>
+
+                  <rect x="668" y="40" width="84" height="56" fill="none" stroke="currentColor" stroke-width="1.3"/>
+                  <text x="710" y="66" text-anchor="middle">Auditorías</text>
+                </g>
+
+                <!-- the decision rule -->
+                <line x1="8" y1="126" x2="752" y2="126" stroke="currentColor" stroke-width="1" opacity=".3"/>
+                <text x="8" y="150" font-size="11" opacity=".6">REGLA DE DECISIÓN — la profundidad la fijó la madurez del área, no la etapa</text>
+
+                <rect x="8" y="166" width="360" height="76" fill="none" stroke="currentColor" stroke-width="1" opacity=".45" stroke-dasharray="4 3"/>
+                <text x="26" y="192">Área sin proceso centralizado</text>
+                <text x="26" y="212" opacity=".65">primero necesita ordenarse internamente</text>
+                <text x="26" y="230" class="acc-f" font-weight="500">→ el flujo entra como MVP</text>
+
+                <rect x="392" y="166" width="360" height="76" fill="none" stroke="currentColor" stroke-width="1.4"/>
+                <text x="410" y="192">Área con proceso maduro</text>
+                <text x="410" y="212" opacity=".65">datos claros sobre lo que necesita</text>
+                <text x="410" y="230" class="acc-f" font-weight="500">→ el flujo se diseña con mayor profundidad</text>
+              </g>
+            </svg>
+          </div>
+          <figcaption>Una sola plataforma para las seis etapas, pero no todas al mismo nivel de detalle. El criterio de priorización no fue la importancia de la etapa sino la madurez del área que la opera: pedirle un flujo profundo a un área que todavía no había centralizado su proceso habría digitalizado el desorden. Diagrama ilustrativo — no reproduce la interfaz del BID.</figcaption>
+        </figure>
+
+        <h2>Restricciones y trade-offs</h2>
+        <p>El trade-off central fue negociar entre lo que cada país o área necesitaba y lo que el negocio necesitaba para operar de forma más simple: auditorías más sencillas y trazabilidad de datos y tiempos de proyecto de inicio a fin. Algunos países ya tenían plataformas internas que cubrían parte de estos flujos, lo que también entraba en la negociación de alcance.</p>
+
+        <h2>Solución</h2>
+        <p>La plataforma quedó organizada como un flujo compartido que cubre todo el ciclo del préstamo —adquisición, revisión de proyectos, aprobación fiduciaria, pagos, facturación y auditorías—, con configuraciones adicionales para los países que las necesitaban, y con distintos niveles de profundidad por área según el research: MVP donde hacía falta centralizar primero, mayor complejidad donde ya había procesos maduros.</p>
+
+        <h2>Colaboración e implementación</h2>
+        <p>Trabajé junto a Product Managers y Tech Leads del BID, y facilité los workshops con representantes de las distintas áreas y países involucrados. Las presentaciones y entrevistas fueron en inglés y español.</p>
+
+        <h2>Resultados</h2>
+        <p>No cuento con cifras de este proyecto — es información interna del BID que no puedo compartir. El indicador más concreto de impacto que puedo dar es sobre mi propio desarrollo: pasé de diseñadora semi-senior a senior durante este proyecto, por la complejidad asumida.</p>
+
+        <h2>Aprendizajes</h2>
+        <p>De este proyecto me llevo la importancia de traducir intereses distintos —y a veces opuestos— entre áreas de una misma institución en decisiones de producto concretas, sin intentar complacer a todos por igual.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="case-next">
+      <div class="case-next-grid">
+        <a class="next-link" href="#/isapre">
+          <span class="label">Caso siguiente</span>
+          <div class="record-name">Isapre Esencial</div>
+        </a>
+        <a class="next-link" href="#/"><span class="label">↑ Todos los casos</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================= ISAPRE ============================= -->
+<section class="page" id="page-isapre" hidden>
+  <div class="wrap">
+    <div class="case-head">
+      <div class="eyebrow">
+        <span class="tag">Salud / seguros privados · Chile</span>
+        <span class="tag">Etapa 3 entregada</span>
+      </div>
+      <h1>Liderar diseño y tecnología para lanzar Isapre Esencial en un plazo legal de seis meses</h1>
+      <p class="case-sub">Cómo lideré diseño y tecnología para lanzar, en seis meses, la plataforma de una isapre nueva en Chile sin poder validar con usuarios reales.</p>
+    </div>
+
+    <div class="case-body">
+      <aside class="rail">
+        <dl>
+          <div><dt class="label">Rol</dt><dd>Líder de diseño y tecnología, Continuum. Entré a mitad del proyecto en reemplazo de la líder de producto saliente</dd></div>
+          <div><dt class="label">Equipo a cargo</dt><dd>Una diseñadora, un líder técnico y cuatro desarrolladores (senior, mid y junior)</dd></div>
+          <div><dt class="label">Industria</dt><dd>Salud / seguros privados — isapre nueva de Clínica Alemana</dd></div>
+          <div><dt class="label">Plazo</dt><dd>Seis meses máximo para el MVP, fijado por requisito legal</dd></div>
+        </dl>
+      </aside>
+
+      <div class="prose">
+        <div class="reservado">
+          <p class="label">Espacio reservado</p>
+          <p>Resumen escaneable de competencias — formato pendiente de definir.</p>
+        </div>
+
+        <p class="kicker label">Resumen ejecutivo</p>
+        <h2>Un plazo que no se movía y ningún usuario con quien validar</h2>
+        <p class="lead">Me incorporé a mitad del proyecto de Isapre Esencial, una isapre nueva de Clínica Alemana, en reemplazo de la líder de producto saliente, con un plazo legal fijo de seis meses para el lanzamiento del MVP. Lideré diseño y tecnología: una diseñadora, un líder técnico y cuatro desarrolladores. La confidencialidad del lanzamiento impidió validar con usuarios reales, así que basamos el diseño en un levantamiento comparativo de otras isapres chilenas y en los requisitos legales mínimos que debía cubrir la plataforma. Prioricé un MVP que cumpliera esos mínimos, dejando las funcionalidades nice-to-have para después, mientras coordinaba con una consultora externa que manejaba el core tecnológico heredado de la clínica. Lanzamos dentro de los seis meses previstos.</p>
+
+        <h2>Contexto y problema</h2>
+        <p>Isapre Esencial es una isapre nueva, creada como otra marca de Clínica Alemana. La plataforma se necesitaba tanto por requisitos legales como por temas de gestión de esta nueva marca —todo se construía desde cero. Aunque iba a acompañar a las agencias físicas, uno de los ejes de posicionamiento de la marca era presentarse como una isapre 100% digital, así que la plataforma de clientes era clave para sostener esa promesa.</p>
+        <p>El plazo era fijo: la plataforma tenía que estar lista para el lanzamiento de la marca, con un máximo de seis meses para el MVP. Me incorporé a mitad de ese proyecto, en reemplazo de la líder de producto que salía por licencia de maternidad.</p>
+
+        <h2>Mi rol y alcance</h2>
+        <p>Lideré tanto diseño como tecnología: una diseñadora a mi cargo, un líder técnico y cuatro desarrolladores (senior, mid y junior). No era solo responsable del diseño de la plataforma, sino de coordinar la entrega completa dentro del plazo legal fijado.</p>
+
+        <h2>Discovery y research</h2>
+        <p>La confidencialidad del lanzamiento era muy estricta —fuera del equipo, nadie sabía qué ofrecería la nueva isapre, solo que se lanzaría una—, así que no fue posible validar el diseño con usuarios reales. En su lugar, hicimos un levantamiento comparativo de plataformas de otras isapres chilenas, buscando puntos en común y buenas prácticas, y lo combinamos con el listado de requisitos legales que la plataforma debía cubrir.</p>
+
+        <h2>Hallazgos principales</h2>
+        <p>El levantamiento mostró qué funcionalidades eran estándar entre las isapres existentes y cuáles eran obligatorias por ley. Con eso, pudimos separar lo indispensable para el MVP de lo que era mejora o diferenciación, sin depender de validación directa con usuarios.</p>
+
+        <h2>Decisiones de producto y diseño</h2>
+        <div class="decision">
+          <h3>Priorizar el MVP por cumplimiento legal, no por deseabilidad de negocio.</h3>
+          <p>Definí qué funcionalidades eran obligatorias por ley y debían estar en el primer lanzamiento, y cuáles eran nice-to-have que el cliente podía decidir postergar. Los nice-to-have quedaron en el backlog para versiones posteriores.</p>
+        </div>
+        <div class="decision">
+          <h3>Construir una experiencia espejo para clientes y ejecutivos.</h3>
+          <p>Diseñamos la plataforma con la misma estructura de secciones para ambos perfiles, pero cada una respondía a lo que necesitaba su usuario: el cliente gestionaba sus acciones, y el ejecutivo veía y respondía a esas mismas acciones desde su versión de la plataforma.</p>
+        </div>
+
+        <figure>
+          <div class="fig-frame">
+            <svg viewBox="0 0 700 262" role="img" aria-label="Estructura espejo: cliente y ejecutivo comparten la misma organización de secciones, pero cada perfil hace algo distinto en ellas. El cliente gestiona una acción y el ejecutivo la ve y responde desde su versión de la misma sección.">
+              <defs>
+                <marker id="ar-isa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M0,0 L10,5 L0,10 z" fill="currentColor"/>
+                </marker>
+              </defs>
+              <g font-family="IBM Plex Mono, monospace" font-size="11" fill="currentColor">
+                <text x="120" y="24" text-anchor="middle" font-size="12">Cliente</text>
+                <text x="580" y="24" text-anchor="middle" font-size="12">Ejecutivo</text>
+                <text x="350" y="24" text-anchor="middle" font-size="10" opacity=".55">misma sección</text>
+
+                <!-- rows -->
+                <g stroke="currentColor">
+                  <rect x="14" y="44" width="212" height="46" fill="none" stroke-width="1.3"/>
+                  <rect x="474" y="44" width="212" height="46" fill="none" stroke-width="1.3"/>
+                  <rect x="14" y="106" width="212" height="46" fill="none" stroke-width="1.3"/>
+                  <rect x="474" y="106" width="212" height="46" fill="none" stroke-width="1.3"/>
+                  <rect x="14" y="168" width="212" height="46" fill="none" stroke-width="1.3"/>
+                  <rect x="474" y="168" width="212" height="46" fill="none" stroke-width="1.3"/>
+                </g>
+                <text x="120" y="73" text-anchor="middle" font-size="10">gestiona su acción</text>
+                <text x="120" y="135" text-anchor="middle" font-size="10">gestiona su acción</text>
+                <text x="120" y="197" text-anchor="middle" font-size="10">gestiona su acción</text>
+                <text x="580" y="73" text-anchor="middle" font-size="10">ve y responde</text>
+                <text x="580" y="135" text-anchor="middle" font-size="10">ve y responde</text>
+                <text x="580" y="197" text-anchor="middle" font-size="10">ve y responde</text>
+
+                <!-- shared spine -->
+                <line x1="350" y1="40" x2="350" y2="218" stroke="currentColor" stroke-width="1" opacity=".3" stroke-dasharray="3 4"/>
+                <line x1="230" y1="67" x2="470" y2="67" stroke-width="1.2" class="acc-s" marker-end="url(#ar-isa)"/>
+                <line x1="230" y1="129" x2="470" y2="129" stroke-width="1.2" class="acc-s" marker-end="url(#ar-isa)"/>
+                <line x1="230" y1="191" x2="470" y2="191" stroke-width="1.2" class="acc-s" marker-end="url(#ar-isa)"/>
+
+                <text x="350" y="244" text-anchor="middle" font-size="10" opacity=".6">una sola estructura de secciones · dos trabajos distintos sobre ella</text>
+              </g>
+            </svg>
+          </div>
+          <figcaption>La estructura espejo: en vez de dos productos, una misma organización de secciones que cada perfil recorre con un propósito distinto. Con seis meses y sin validación con usuarios, compartir la estructura reducía tanto el trabajo de diseño como el riesgo de inventar dos modelos mentales. Diagrama ilustrativo elaborado para este caso.</figcaption>
+        </figure>
+
+        <h2>Restricciones y trade-offs</h2>
+        <p>El mayor trade-off no fue de diseño sino de dependencia técnica: el core tecnológico de Clínica Alemana era antiguo, y una consultora externa distinta a la mía se encargaba de los servicios sobre ese core, mientras mi equipo manejaba las conexiones. Hubo fricción entre los tiempos de entrega de esa consultora y nuestro método de trabajo, lo que exigió coordinar activamente entre el cliente, la otra consultora y mi equipo para no comprometer el plazo.</p>
+
+        <h2>Solución</h2>
+        <p>La plataforma quedó estructurada en dos experiencias espejo —cliente y ejecutivo— con las funcionalidades legales mínimas cubiertas para el lanzamiento, y el resto del backlog planificado para versiones posteriores.</p>
+
+        <h2>Colaboración e implementación</h2>
+        <p>Coordiné directamente al líder técnico y los cuatro desarrolladores de mi equipo, además de la diseñadora a mi cargo, y sostuve la comunicación entre el cliente y la consultora externa responsable del core tecnológico para resolver la fricción de tiempos entre ambos equipos.</p>
+
+        <h2>Resultados</h2>
+        <p>Lanzamos la plataforma dentro de los seis meses previstos, pese a la dependencia de un core heredado y a la coordinación con una consultora externa adicional. No tengo cifras de adopción o uso posteriores al lanzamiento.</p>
+
+        <h2>Aprendizajes</h2>
+        <p>Este proyecto me mostró cómo sostener un plazo no negociable cuando gran parte del riesgo no depende del propio equipo, sino de terceros —en este caso, un core tecnológico ajeno y otra consultora. Aprendí a priorizar con un criterio distinto al habitual: no qué es mejor para el usuario en abstracto, sino qué es obligatorio, qué es valioso, y qué puede esperar.</p>
+
+        <div class="reservado" style="margin-top:2.5rem">
+          <p class="label">Espacio reservado — galería</p>
+          <p>Capturas de las dos plataformas (cliente y ejecutivo) y ejemplos concretos de requisito legal mínimo frente a nice-to-have, pendientes de recuperar.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="case-next">
+      <div class="case-next-grid">
+        <a class="next-link" href="#/sigo">
+          <span class="label">Caso siguiente</span>
+          <div class="record-name">SIGO — Seguimiento oncológico</div>
+        </a>
+        <a class="next-link" href="#/"><span class="label">↑ Todos los casos</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================= SIGO ============================= -->
+<section class="page" id="page-sigo" hidden>
+  <div class="wrap">
+    <div class="case-head">
+      <div class="eyebrow">
+        <span class="tag">Salud pública · Ministerio de Salud de Chile</span>
+        <span class="tag">Etapa 3 entregada</span>
+      </div>
+      <h1>Estandarizar el seguimiento de pacientes oncológicos entre centros de salud desiguales en Chile</h1>
+      <p class="case-sub">Cómo el mapeo de campo con gestoras oncológicas guió qué flujos estandarizar entre centros de salud con recursos desiguales en Chile.</p>
+    </div>
+
+    <div class="case-body">
+      <aside class="rail">
+        <dl>
+          <div><dt class="label">Rol</dt><dd>Co-lead de diseño junto a otra diseñadora, Continuum</dd></div>
+          <div><dt class="label">Colaboración</dt><dd>Product Manager y equipo del Ministerio de Salud, que asesoraban en el dominio. De nuestro lado: diseño, gestión y desarrollo</dd></div>
+          <div><dt class="label">Industria</dt><dd>Salud pública</dd></div>
+          <div><dt class="label">Financiamiento</dt><dd>CAF — sin restricciones de presupuesto público</dd></div>
+          <div><dt class="label">Marco</dt><dd>Ley chilena vigente desde 2018 sobre seguimiento oncológico</dd></div>
+        </dl>
+      </aside>
+
+      <div class="prose">
+        <div class="reservado">
+          <p class="label">Espacio reservado</p>
+          <p>Resumen escaneable de competencias — formato pendiente de definir.</p>
+        </div>
+
+        <p class="kicker label">Resumen ejecutivo</p>
+        <h2>Estandarizar no siempre significa homogeneizar</h2>
+        <p class="lead">Co-lideré, junto con otra diseñadora, el diseño de una plataforma para el Ministerio de Salud de Chile que hace seguimiento a pacientes oncológicos entre centros de salud, en el marco de una ley vigente desde 2018 orientada a reducir la mortalidad por cáncer. Trabajamos directamente con un PM y un equipo del Ministerio, y mapeamos el proceso real junto a las gestoras oncológicas, el cargo creado para hacer este seguimiento. El hallazgo central: la gestión variaba mucho entre centros según su financiamiento, personal y nivel de digitalización, y algunos pacientes debían ser trasladados por falta de especialistas locales. Con eso, decidimos estandarizar solo los flujos más críticos para llevarlos a una versión digital manejada por el Ministerio.</p>
+
+        <h2>Contexto y problema</h2>
+        <p>Chile tiene una ley vigente desde 2018 que exige seguimiento a los pacientes oncológicos, con plazos y especificaciones definidas, y cuya presión de cumplimiento ha ido en aumento. El objetivo de fondo es reducir la tasa de mortalidad por cáncer en el país mediante un diagnóstico y atención más oportunos.</p>
+        <p>El Ministerio de Salud quería una plataforma que permitiera auditar el proceso —identificar en qué momentos se generaban más demoras— y apoyar a las gestoras oncológicas, el cargo creado específicamente para hacer seguimiento a estos pacientes desde que ingresan como sospecha. El proyecto fue financiado por la CAF, lo que evitó restricciones de presupuesto público, y tuvo un alcance acotado en el tiempo, aunque se cumplió el plazo trabajando de la mano del Ministerio.</p>
+
+        <h2>Mi rol y alcance</h2>
+        <p>Co-lideré el proyecto junto con otra diseñadora —ambas como design leads—, trabajando directamente con un Product Manager del Ministerio y su equipo, que nos asesoraba en el conocimiento del dominio. De nuestro lado, el equipo cubría diseño, gestión y desarrollo.</p>
+
+        <h2>Discovery y research</h2>
+        <p>Hicimos el mapeo AS-IS junto con el equipo del Ministerio, y lo complementamos con entrevistas a las gestoras oncológicas, quienes llevan el seguimiento de los pacientes en la práctica.</p>
+
+        <h2>Hallazgos principales</h2>
+        <p>Buena parte del proceso se manejaba de forma manual. Encontramos una diferencia importante en las capacidades de los distintos centros de salud según su zona y municipio: algunos tenían más financiamiento y personal, o incluso sus propias plataformas digitales; otros manejaban todo en papel. Esto hacía que los tiempos y la forma de gestionar a cada paciente variaran mucho de un centro a otro. Además, algunos centros no contaban con especialistas, así que ciertos pacientes eran trasladados para parte de la atención y luego regresaban solo para el seguimiento posterior al diagnóstico.</p>
+
+        <h2>Decisiones de producto y diseño</h2>
+        <div class="decision">
+          <h3>Estandarizar solo los flujos más críticos, no todo el proceso.</h3>
+          <p>Dada la desigualdad de recursos entre centros, no tenía sentido forzar una digitalización uniforme de todo el proceso. Priorizamos estandarizar y digitalizar los flujos con mayor impacto en los tiempos de seguimiento —los que el Ministerio necesitaba auditar para ver si sus indicadores mejoraban—, dejando el resto del proceso con mayor flexibilidad según la realidad de cada centro.</p>
+        </div>
+
+        <figure>
+          <div class="fig-frame">
+            <svg viewBox="0 0 740 300" role="img" aria-label="Centros de salud con capacidades muy distintas —desde papel hasta plataformas propias— convergen en una franja de flujos críticos estandarizada y digital, que alimenta la trazabilidad del Ministerio. El resto del proceso queda flexible según la realidad de cada centro.">
+              <defs>
+                <marker id="ar-sig" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M0,0 L10,5 L0,10 z" fill="currentColor"/>
+                </marker>
+              </defs>
+              <g font-family="IBM Plex Mono, monospace" font-size="10" fill="currentColor">
+                <text x="8" y="20" font-size="11" opacity=".6">CENTROS DE SALUD — capacidad desigual, real</text>
+
+                <rect x="8" y="34" width="216" height="58" fill="none" stroke="currentColor" stroke-width="1" opacity=".5"/>
+                <text x="26" y="56">Todo en papel</text>
+                <text x="26" y="74" opacity=".6">menos financiamiento y personal</text>
+
+                <rect x="248" y="34" width="216" height="58" fill="none" stroke="currentColor" stroke-width="1" opacity=".7"/>
+                <text x="266" y="56">Proceso mixto</text>
+                <text x="266" y="74" opacity=".6">sin especialistas · pacientes trasladados</text>
+
+                <rect x="488" y="34" width="216" height="58" fill="none" stroke="currentColor" stroke-width="1.3"/>
+                <text x="506" y="56">Plataforma digital propia</text>
+                <text x="506" y="74" opacity=".6">más financiamiento y personal</text>
+
+                <line x1="116" y1="96" x2="300" y2="140" stroke="currentColor" stroke-width="1" opacity=".55" marker-end="url(#ar-sig)"/>
+                <line x1="356" y1="96" x2="356" y2="140" stroke="currentColor" stroke-width="1" opacity=".55" marker-end="url(#ar-sig)"/>
+                <line x1="596" y1="96" x2="412" y2="140" stroke="currentColor" stroke-width="1" opacity=".55" marker-end="url(#ar-sig)"/>
+
+                <!-- standardized band -->
+                <rect x="128" y="148" width="456" height="60" fill="none" stroke-width="1.8" class="acc-s"/>
+                <text x="356" y="174" text-anchor="middle" font-size="12">Flujos críticos — estandarizados y digitales</text>
+                <text x="356" y="192" text-anchor="middle" opacity=".65">los que más pesan en los tiempos de seguimiento</text>
+
+                <line x1="356" y1="212" x2="356" y2="242" stroke="currentColor" stroke-width="1.2" marker-end="url(#ar-sig)"/>
+                <rect x="216" y="246" width="280" height="44" fill="none" stroke="currentColor" stroke-width="1.3"/>
+                <text x="356" y="273" text-anchor="middle" font-size="11">Trazabilidad y auditoría · Ministerio</text>
+
+                <!-- flexible remainder -->
+                <line x1="8" y1="178" x2="120" y2="178" stroke="currentColor" stroke-width="1" opacity=".35" stroke-dasharray="4 3"/>
+                <text x="8" y="168" opacity=".55">resto del proceso:</text>
+                <text x="8" y="196" opacity=".55">flexible por centro</text>
+                <line x1="592" y1="178" x2="704" y2="178" stroke="currentColor" stroke-width="1" opacity=".35" stroke-dasharray="4 3"/>
+                <text x="620" y="168" opacity=".55">resto del proceso:</text>
+                <text x="620" y="196" opacity=".55">flexible por centro</text>
+              </g>
+            </svg>
+          </div>
+          <figcaption>Solo el tramo que el Ministerio necesitaba auditar se estandarizó. Forzar una digitalización uniforme habría excluido a los centros que trabajan en papel — que son justamente los que más lejos están de cumplir los plazos de la ley. Diagrama ilustrativo elaborado para este caso.</figcaption>
+        </figure>
+
+        <h2>Restricciones y trade-offs</h2>
+        <p>Trabajamos bajo mayor regulación por la sensibilidad de los datos de salud. El trade-off principal no fue de presupuesto (el financiamiento de la CAF evitó esa restricción) sino de tiempo y de desigualdad estructural entre centros: no podíamos diseñar una solución que asumiera el mismo nivel de digitalización o personal en todos los lugares, así que el alcance se ajustó a lo que la mayoría de centros podía realmente adoptar.</p>
+
+        <h2>Solución</h2>
+        <p>Una versión digital de los flujos críticos de seguimiento oncológico, estandarizada para uso del Ministerio entre sus centros de salud, priorizando trazabilidad y auditoría de tiempos por encima de digitalizar cada detalle del proceso.</p>
+
+        <h2>Colaboración e implementación</h2>
+        <p>Trabajamos en conjunto con el PM y el equipo del Ministerio durante todo el mapeo y diseño. El Ministerio priorizaba tener trazabilidad para ver si sus estadísticas mejoraban con el tiempo, más que revisar el detalle de cada pantalla.</p>
+
+        <h2>Resultados</h2>
+        <p>En su momento se proyectó una reducción de tiempos de seguimiento a partir del rediseño, pero no fue una cifra medida — fue una estimación hecha durante el diseño. Después del handoff del proyecto al Ministerio no tuve visibilidad para hacer seguimiento a esos resultados.</p>
+        <div class="aviso">
+          <p class="label">Estimación, no medición</p>
+          <p>La reducción de tiempos proyectada fue una estimación de diseño. No se midió, y no hubo visibilidad posterior al handoff para verificarla.</p>
+        </div>
+
+        <h2>Aprendizajes</h2>
+        <p>Este proyecto me mostró que estandarizar no siempre significa homogeneizar todo: a veces la decisión correcta es identificar qué partes del proceso son lo suficientemente críticas para forzar una misma solución, y dejar el resto con la flexibilidad que la realidad de cada lugar requiere. También aprendí a trabajar con los límites de un proyecto de consultoría: nuestro alcance terminaba en el handoff, sin visibilidad de lo que pasaba después.</p>
+
+        <div class="reservado" style="margin-top:2.5rem">
+          <p class="label">Espacio reservado — galería</p>
+          <p>Diagrama AS-IS frente a la versión estandarizada de un flujo crítico y ejemplo concreto de flujo estandarizado, pendientes de que se compartan los flujos generales.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="case-next">
+      <div class="case-next-grid">
+        <a class="next-link" href="#/belcorp">
+          <span class="label">Volver al primer caso</span>
+          <div class="record-name">Belcorp — Catálogo Virtual</div>
+        </a>
+        <a class="next-link" href="#/"><span class="label">↑ Todos los casos</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================= ABOUT ============================= -->
+<section class="page" id="page-about" hidden>
+  <div class="wrap">
+    <div class="case-head">
+      <span class="label">Sobre mí</span>
+      <h1 style="margin-top:1.25rem">Solange Lavarello</h1>
+    </div>
+
+    <div class="case-body" style="grid-template-columns:1fr">
+      <div class="about-grid">
+        <div>
+          <p class="label" style="margin-bottom:.75rem">Bio</p>
+          <div class="reservado">
+            <p class="label">Contenido pendiente</p>
+            <p>Bio narrativa breve: cómo llegaste al diseño de producto y qué tipo de problemas te atraen. Uno o dos párrafos. Todavía no se ha redactado — no se rellenó con texto genérico.</p>
+          </div>
+        </div>
+
+        <div>
+          <p class="label" style="margin-bottom:1.25rem">Trayectoria</p>
+          <ol class="tl">
+            <li>
+              <div class="tl-when label">Dic 2020 — hoy</div>
+              <div class="tl-what">
+                <h3>Senior UX / Product Designer</h3>
+                <p class="tl-org">Continuum HQ — consultoría de producto y transformación digital · Lima, Perú</p>
+                <p class="tl-note">Clientes: Ministerio de Salud de Chile (SIGO), Isapre Esencial, BID, AFP PlanVital, CMF, Banco Alfin.</p>
+              </div>
+            </li>
+            <li>
+              <div class="tl-when label">Dic 2018 — Dic 2020</div>
+              <div class="tl-what">
+                <h3>Product Designer <span class="tl-arrow">(UX Designer → Product Designer)</span></h3>
+                <p class="tl-org">Belcorp — consumo / belleza · Lima, Perú</p>
+                <p class="tl-note">Única diseñadora del Catálogo Digital, con la visión de diseño del producto de punta a punta.</p>
+              </div>
+            </li>
+          </ol>
+        </div>
+
+        <div>
+          <p class="label" style="margin-bottom:1.25rem">Formación y certificaciones</p>
+          <ul class="cert">
+            <li><strong>UX/UI Designer Bootcamp</strong> — Laboratoria, 2018</li>
+            <li><strong>Advanced Prototyping with Figma</strong> — César Sáenz, 2024</li>
+            <li><strong>Future Thinking: Scenario-Based Planning</strong> — UTEC, 2024</li>
+            <li><strong>Creative Thinking for Complex Problem Solving</strong> — IDEO U, 2024</li>
+            <li><strong>Advanced Figma &amp; Practical Usability</strong> — Platzi, 2023</li>
+            <li><strong>Digital Product Management</strong> — Colectivo23, 2022</li>
+            <li><strong>Data Applied to Business / Thick Data</strong> — Colectivo23 y Platzi, 2021–2022</li>
+            <li><strong>Service Design</strong> — Continuum Academy, 2021</li>
+            <li><strong>Design Thinking</strong> — IDEO U, 2020</li>
+            <li><strong>Design Sprint</strong> — Bardo, 2019</li>
+          </ul>
+        </div>
+
+        <div>
+          <p class="label" style="margin-bottom:1.25rem">Idiomas y comunidad</p>
+          <ul class="cert">
+            <li><strong>Español</strong> nativo · <strong>Inglés</strong> C1 avanzado — user testing y presentaciones bilingües en proyectos internacionales</li>
+            <li><strong>Mentora</strong> — Más Mujeres UX Latam, 2022 y 2023</li>
+          </ul>
+        </div>
+
+        <div>
+          <p class="label" style="margin-bottom:.75rem">Cómo trabajo</p>
+          <div class="reservado">
+            <p class="label">Contenido pendiente</p>
+            <p>Qué aportas y cómo trabajas, anclado en lo que los cuatro casos ya evidencian. Pendiente de redactar.</p>
+          </div>
+        </div>
+
+        <div>
+          <p class="label" style="margin-bottom:.75rem">Testimonios</p>
+          <div class="reservado">
+            <p class="label">Espacio reservado</p>
+            <p>Cita + nombre + rol. No se publica ningún testimonio hasta contar con permiso explícito de cada persona y el texto aprobado.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="case-next">
+      <div class="case-next-grid">
+        <a class="next-link" href="#/"><span class="label">↑ Ver los casos</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site">
+  <div class="wrap foot-in">
+    <span class="label">Solange Lavarello · Diseñadora de producto senior</span>
+    <span class="label">Portafolio en construcción</span>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var pages = ['home', 'belcorp', 'bid', 'isapre', 'sigo', 'about'];
+
+  function currentRoute() {
+    var h = (location.hash || '').replace(/^#\/?/, '');
+    return pages.indexOf(h) !== -1 ? h : 'home';
+  }
+
+  function render(scroll) {
+    var route = currentRoute();
+    pages.forEach(function (p) {
+      var el = document.getElementById('page-' + p);
+      if (el) el.hidden = (p !== route);
+    });
+    document.querySelectorAll('.topnav a').forEach(function (a) {
+      var target = a.getAttribute('data-nav');
+      var active = (target === 'about' && route === 'about') || (target === 'home' && route !== 'about');
+      if (active) { a.setAttribute('aria-current', 'page'); } else { a.removeAttribute('aria-current'); }
+    });
+    if (scroll) window.scrollTo(0, 0);
+  }
+
+  window.addEventListener('hashchange', function () { render(true); });
+  render(false);
+})();
+</script>
