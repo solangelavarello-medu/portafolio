@@ -353,6 +353,11 @@ footer.site{border-top:1px solid var(--rule);padding:1.5rem 0 2.5rem}
 .langswitch button.on{color:var(--ink);border-bottom-color:var(--accent)}
 .langswitch .sep{font-family:var(--f-mono);font-size:.6875rem;color:var(--rule)}
 
+figure svg .acc-bg{fill:var(--accent-soft)}
+figure svg .sig-s{stroke:var(--signal)}
+figure svg .sig-f{fill:var(--signal)}
+figure svg .sig-bg{fill:var(--signal-soft)}
+
 /* Los items de grid traen min-width:auto, así que un bloque ancho (el marco de
    un diagrama) estira la columna en vez de desplazarse dentro de sí mismo. */
 .case-body > *,.prose,.record > div,.about-grid > *,.tl li > *{min-width:0}
@@ -820,19 +825,19 @@ footer.site{border-top:1px solid var(--rule);padding:1.5rem 0 2.5rem}
       <div class="prose">
         <div class="aviso" data-lang="es">
           <p class="label">Aviso de confidencialidad</p>
-          <p>Por razones de confidencialidad, este caso no muestra pantallas, flujos ni información interna de la plataforma. Los diagramas fueron creados únicamente para explicar las decisiones del proyecto.</p>
+          <p>Por razones de confidencialidad, este caso no muestra pantallas ni datos reales de la plataforma. Los diagramas fueron creados únicamente para explicar su estructura y las decisiones del proyecto.</p>
         </div>
 
         <div class="aviso" data-lang="en" hidden>
           <p class="label">Confidentiality notice</p>
-          <p>For confidentiality reasons, this case does not show screens, flows or internal information from the platform. The diagrams were created solely to explain the decisions made during the project.</p>
+          <p>For confidentiality reasons, this case does not show screens or real data from the platform. The diagrams were created solely to explain its structure and the decisions made during the project.</p>
         </div>
 
         <h2 data-lang="es">Una plataforma para procesos que no eran iguales</h2>
         <h2 data-lang="en" hidden>A platform for processes that were not the same</h2>
 
-        <p data-lang="es">La Unidad Fiduciaria del BID participa en distintas etapas de la gestión de préstamos con sus 26 países miembros. El proceso incluye adquisición, revisión de proyectos, aprobación fiduciaria, pagos, facturación y auditorías.</p>
-        <p data-lang="en" hidden>The IDB Fiduciary Unit takes part in different stages of loan management with its 26 member countries. The process covers procurement, project review, fiduciary approval, payments, invoicing and audits.</p>
+        <p data-lang="es">La Unidad Fiduciaria del BID participa en distintas etapas de la gestión de préstamos con sus 26 países miembros. La plataforma se organizó en dos módulos. Contract Management reúne el registro de contratos, los cronogramas de pagos y el registro de enmiendas. Financial Management reúne el reporte de pagos efectivos, los estados de gastos, el estado de ejecución y la conciliación de recursos. El plan financiero pertenece a los dos.</p>
+        <p data-lang="en" hidden>The IDB Fiduciary Unit takes part in different stages of loan management with its 26 member countries. The platform was organized into two modules. Contract Management brings together contract registration, payment schedules and amendment registration. Financial Management brings together the actual payments report, statements of expenditure, execution status and funds reconciliation. The financial plan belongs to both.</p>
 
         <p data-lang="es">Cada etapa involucraba áreas diferentes, con sus propias herramientas, procesos y prioridades. Algunos países también contaban con sistemas internos que cubrían parte de esos flujos.</p>
         <p data-lang="en" hidden>Each stage involved different areas, with their own tools, processes and priorities. Some countries also had internal systems covering part of those flows.</p>
@@ -881,118 +886,122 @@ footer.site{border-top:1px solid var(--rule);padding:1.5rem 0 2.5rem}
 
         <figure data-lang="es">
           <div class="fig-frame">
-            <svg viewBox="0 0 760 268" role="img" aria-label="El ciclo del préstamo atraviesa seis etapas, cada una a cargo de un área interna distinta del BID. La profundidad de diseño de cada etapa se decidió según la madurez del proceso de su área: MVP donde el área aún no había centralizado su proceso, mayor profundidad donde ya existían procesos maduros.">
-              <defs>
-                <marker id="ar-bid" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-                  <path d="M0,0 L10,5 L0,10 z" fill="currentColor"/>
-                </marker>
-              </defs>
-              <g font-family="IBM Plex Mono, monospace" font-size="10" fill="currentColor">
-                <text x="8" y="22" font-size="11" opacity=".6">CICLO DEL PRÉSTAMO: una etapa, un área interna</text>
+            <svg viewBox="0 0 650 452" role="img" aria-label="Las nueve secciones de la plataforma repartidas en dos módulos. Contract Management agrupa registro de contratos, cronogramas de pagos y registro de enmiendas. Financial Management agrupa reporte de pagos efectivos, estados de gastos, estado de ejecución y conciliación de recursos. El plan financiero pertenece a los dos módulos. Debajo, la regla con la que se decidió la profundidad de diseño de cada flujo: MVP donde el área aún no había centralizado su proceso, mayor profundidad donde ya existían procesos maduros.">
+              <g font-family="IBM Plex Mono, monospace" fill="currentColor">
+                <rect x="10" y="8" width="630" height="26" stroke-width="1.2" class="acc-s acc-bg"/>
+                <text x="325" y="25" text-anchor="middle" font-size="11" font-weight="500" class="acc-f">Contract Management</text>
 
-                <!-- 6 stages -->
-                <g>
-                  <rect x="8" y="40" width="108" height="56" fill="none" stroke="currentColor" stroke-width="1.3"/>
-                  <text x="62" y="66" text-anchor="middle">Adquisición</text>
-                  <line x1="120" y1="68" x2="136" y2="68" stroke="currentColor" stroke-width="1.1" marker-end="url(#ar-bid)"/>
+                <rect x="10" y="42" width="150" height="70" fill="none" stroke-width="1.4" class="acc-s"/>
+                <text x="85.0" y="73.5" text-anchor="middle" font-size="10">Registro de</text>
+                <text x="85.0" y="87.5" text-anchor="middle" font-size="10">contratos</text>
+                <rect x="170" y="42" width="150" height="70" fill="none" stroke-width="1.4" class="acc-s"/>
+                <text x="245.0" y="73.5" text-anchor="middle" font-size="10">Cronograma de pagos</text>
+                <text x="245.0" y="87.5" text-anchor="middle" font-size="10">(Ex-ante)</text>
+                <rect x="330" y="42" width="150" height="70" fill="none" stroke-width="1.4" class="acc-s"/>
+                <text x="405.0" y="73.5" text-anchor="middle" font-size="10">Registro de</text>
+                <text x="405.0" y="87.5" text-anchor="middle" font-size="10">enmiendas</text>
+                <rect x="490" y="42" width="150" height="70" fill="none" stroke-width="1.4" class="acc-s"/>
+                <text x="565.0" y="66.5" text-anchor="middle" font-size="10">Cronograma de pagos</text>
+                <text x="565.0" y="80.5" text-anchor="middle" font-size="10">(Ex-post, SSNN,</text>
+                <text x="565.0" y="94.5" text-anchor="middle" font-size="10">No adquisición)</text>
 
-                  <rect x="140" y="40" width="108" height="56" fill="none" stroke="currentColor" stroke-width="1.3"/>
-                  <text x="194" y="62" text-anchor="middle">Revisión de</text>
-                  <text x="194" y="76" text-anchor="middle">proyectos</text>
-                  <line x1="252" y1="68" x2="268" y2="68" stroke="currentColor" stroke-width="1.1" marker-end="url(#ar-bid)"/>
+                <line x1="325" y1="112" x2="325" y2="124" stroke-width="1.2" class="acc-s"/>
+                <rect x="250" y="124" width="150" height="58" fill="none" stroke="currentColor" stroke-width="1.8"/>
+                <text x="325" y="148" text-anchor="middle" font-size="11" font-weight="500">Plan financiero</text>
+                <text x="325" y="165" text-anchor="middle" font-size="9" opacity=".6">en los dos módulos</text>
+                <line x1="325" y1="182" x2="325" y2="194" stroke-width="1.2" class="sig-s"/>
 
-                  <rect x="272" y="40" width="108" height="56" fill="none" stroke="currentColor" stroke-width="1.3"/>
-                  <text x="326" y="62" text-anchor="middle">Aprobación</text>
-                  <text x="326" y="76" text-anchor="middle">fiduciaria</text>
-                  <line x1="384" y1="68" x2="400" y2="68" stroke="currentColor" stroke-width="1.1" marker-end="url(#ar-bid)"/>
+                <rect x="10" y="194" width="630" height="26" stroke-width="1.2" class="sig-s sig-bg"/>
+                <text x="325" y="211" text-anchor="middle" font-size="11" font-weight="500" class="sig-f">Financial Management</text>
 
-                  <rect x="404" y="40" width="108" height="56" fill="none" stroke="currentColor" stroke-width="1.3"/>
-                  <text x="458" y="66" text-anchor="middle">Pagos</text>
-                  <line x1="516" y1="68" x2="532" y2="68" stroke="currentColor" stroke-width="1.1" marker-end="url(#ar-bid)"/>
+                <rect x="10" y="228" width="150" height="70" fill="none" stroke-width="1.4" class="sig-s"/>
+                <text x="85.0" y="259.5" text-anchor="middle" font-size="10">Reporte de pagos</text>
+                <text x="85.0" y="273.5" text-anchor="middle" font-size="10">efectivos</text>
+                <rect x="170" y="228" width="150" height="70" fill="none" stroke-width="1.4" class="sig-s"/>
+                <text x="245.0" y="259.5" text-anchor="middle" font-size="10">Estados de gastos</text>
+                <text x="245.0" y="273.5" text-anchor="middle" font-size="10">o pagos</text>
+                <rect x="330" y="228" width="150" height="70" fill="none" stroke-width="1.4" class="sig-s"/>
+                <text x="405.0" y="266.5" text-anchor="middle" font-size="10">Estado de ejecución</text>
+                <rect x="490" y="228" width="150" height="70" fill="none" stroke-width="1.4" class="sig-s"/>
+                <text x="565.0" y="259.5" text-anchor="middle" font-size="10">Conciliación de</text>
+                <text x="565.0" y="273.5" text-anchor="middle" font-size="10">recursos BID</text>
 
-                  <rect x="536" y="40" width="108" height="56" fill="none" stroke="currentColor" stroke-width="1.3"/>
-                  <text x="590" y="66" text-anchor="middle">Facturación</text>
-                  <line x1="648" y1="68" x2="664" y2="68" stroke="currentColor" stroke-width="1.1" marker-end="url(#ar-bid)"/>
+                <line x1="10" y1="326" x2="640" y2="326" stroke="currentColor" stroke-width="1" opacity=".3"/>
+                <text x="10" y="348" font-size="10" opacity=".6">REGLA DE DECISIÓN: la profundidad la fijó la madurez del área, no la sección</text>
 
-                  <rect x="668" y="40" width="84" height="56" fill="none" stroke="currentColor" stroke-width="1.3"/>
-                  <text x="710" y="66" text-anchor="middle">Auditorías</text>
-                </g>
+                <rect x="10" y="362" width="310" height="76" fill="none" stroke="currentColor" stroke-width="1" opacity=".45" stroke-dasharray="4 3"/>
+                <text x="28" y="386" font-size="10">Área sin proceso centralizado</text>
+                <text x="28" y="404" font-size="10" opacity=".65">primero necesita ordenarse internamente</text>
+                <text x="28" y="422" font-size="10" class="acc-f" font-weight="500">→ el flujo entra como MVP</text>
 
-                <!-- the decision rule -->
-                <line x1="8" y1="126" x2="752" y2="126" stroke="currentColor" stroke-width="1" opacity=".3"/>
-                <text x="8" y="150" font-size="11" opacity=".6">REGLA DE DECISIÓN: la profundidad la fijó la madurez del área, no la etapa</text>
-
-                <rect x="8" y="166" width="360" height="76" fill="none" stroke="currentColor" stroke-width="1" opacity=".45" stroke-dasharray="4 3"/>
-                <text x="26" y="192">Área sin proceso centralizado</text>
-                <text x="26" y="212" opacity=".65">primero necesita ordenarse internamente</text>
-                <text x="26" y="230" class="acc-f" font-weight="500">→ el flujo entra como MVP</text>
-
-                <rect x="392" y="166" width="360" height="76" fill="none" stroke="currentColor" stroke-width="1.4"/>
-                <text x="410" y="192">Área con proceso maduro</text>
-                <text x="410" y="212" opacity=".65">datos claros sobre lo que necesita</text>
-                <text x="410" y="230" class="acc-f" font-weight="500">→ el flujo se diseña con mayor profundidad</text>
+                <rect x="340" y="362" width="300" height="76" fill="none" stroke="currentColor" stroke-width="1.4"/>
+                <text x="358" y="386" font-size="10">Área con proceso maduro</text>
+                <text x="358" y="404" font-size="10" opacity=".65">datos claros sobre lo que necesita</text>
+                <text x="358" y="422" font-size="10" class="acc-f" font-weight="500">→ el flujo se diseña con mayor profundidad</text>
               </g>
             </svg>
           </div>
-          <figcaption>Una sola plataforma para las seis etapas, pero no todas al mismo nivel de detalle. El criterio de priorización no fue la importancia de la etapa sino la madurez del área que la opera: pedirle un flujo profundo a un área que todavía no había centralizado su proceso habría digitalizado el desorden. Diagrama ilustrativo, no reproduce la interfaz del BID.</figcaption>
+          <figcaption>Las nueve secciones del Release 2, repartidas en dos módulos. El plan financiero es la bisagra: pertenece a Contract Management y a Financial Management a la vez. La profundidad con la que se diseñó cada sección no dependió de su importancia sino de cuánto tenía ordenado el área que la operaba. Diagrama ilustrativo, no reproduce la interfaz del BID.</figcaption>
         </figure>
 
         <figure data-lang="en" hidden>
           <div class="fig-frame">
-            <svg viewBox="0 0 760 268" role="img" aria-label="The loan cycle runs through six stages, each owned by a different internal area of the IDB. How deeply each stage was designed depended on the maturity of its area process: an MVP where the area had not yet centralized its process, more depth where mature processes already existed.">
-              <defs>
-                <marker id="ar-bid" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-                  <path d="M0,0 L10,5 L0,10 z" fill="currentColor"/>
-                </marker>
-              </defs>
-              <g font-family="IBM Plex Mono, monospace" font-size="10" fill="currentColor">
-                <text x="8" y="22" font-size="11" opacity=".6">LOAN CYCLE: one stage, one internal area</text>
+            <svg viewBox="0 0 650 452" role="img" aria-label="The nine sections of the platform split across two modules. Contract Management groups contract registration, payment schedules and amendment registration. Financial Management groups the actual payments report, statements of expenditure, execution status and funds reconciliation. The financial plan belongs to both modules. Below, the rule that set how deeply each flow was designed: an MVP where the area had not yet centralized its process, more depth where mature processes already existed.">
+              <g font-family="IBM Plex Mono, monospace" fill="currentColor">
+                <rect x="10" y="8" width="630" height="26" stroke-width="1.2" class="acc-s acc-bg"/>
+                <text x="325" y="25" text-anchor="middle" font-size="11" font-weight="500" class="acc-f">Contract Management</text>
 
-                <!-- 6 stages -->
-                <g>
-                  <rect x="8" y="40" width="108" height="56" fill="none" stroke="currentColor" stroke-width="1.3"/>
-                  <text x="62" y="66" text-anchor="middle">Procurement</text>
-                  <line x1="120" y1="68" x2="136" y2="68" stroke="currentColor" stroke-width="1.1" marker-end="url(#ar-bid)"/>
+                <rect x="10" y="42" width="150" height="70" fill="none" stroke-width="1.4" class="acc-s"/>
+                <text x="85.0" y="73.5" text-anchor="middle" font-size="10">Contract</text>
+                <text x="85.0" y="87.5" text-anchor="middle" font-size="10">registration</text>
+                <rect x="170" y="42" width="150" height="70" fill="none" stroke-width="1.4" class="acc-s"/>
+                <text x="245.0" y="73.5" text-anchor="middle" font-size="10">Payment schedule</text>
+                <text x="245.0" y="87.5" text-anchor="middle" font-size="10">(Ex-ante)</text>
+                <rect x="330" y="42" width="150" height="70" fill="none" stroke-width="1.4" class="acc-s"/>
+                <text x="405.0" y="73.5" text-anchor="middle" font-size="10">Amendment</text>
+                <text x="405.0" y="87.5" text-anchor="middle" font-size="10">registration</text>
+                <rect x="490" y="42" width="150" height="70" fill="none" stroke-width="1.4" class="acc-s"/>
+                <text x="565.0" y="66.5" text-anchor="middle" font-size="10">Payment schedule</text>
+                <text x="565.0" y="80.5" text-anchor="middle" font-size="10">(Ex-post, SSNN,</text>
+                <text x="565.0" y="94.5" text-anchor="middle" font-size="10">non-procurement)</text>
 
-                  <rect x="140" y="40" width="108" height="56" fill="none" stroke="currentColor" stroke-width="1.3"/>
-                  <text x="194" y="62" text-anchor="middle">Project</text>
-                  <text x="194" y="76" text-anchor="middle">review</text>
-                  <line x1="252" y1="68" x2="268" y2="68" stroke="currentColor" stroke-width="1.1" marker-end="url(#ar-bid)"/>
+                <line x1="325" y1="112" x2="325" y2="124" stroke-width="1.2" class="acc-s"/>
+                <rect x="250" y="124" width="150" height="58" fill="none" stroke="currentColor" stroke-width="1.8"/>
+                <text x="325" y="148" text-anchor="middle" font-size="11" font-weight="500">Financial plan</text>
+                <text x="325" y="165" text-anchor="middle" font-size="9" opacity=".6">in both modules</text>
+                <line x1="325" y1="182" x2="325" y2="194" stroke-width="1.2" class="sig-s"/>
 
-                  <rect x="272" y="40" width="108" height="56" fill="none" stroke="currentColor" stroke-width="1.3"/>
-                  <text x="326" y="62" text-anchor="middle">Fiduciary</text>
-                  <text x="326" y="76" text-anchor="middle">approval</text>
-                  <line x1="384" y1="68" x2="400" y2="68" stroke="currentColor" stroke-width="1.1" marker-end="url(#ar-bid)"/>
+                <rect x="10" y="194" width="630" height="26" stroke-width="1.2" class="sig-s sig-bg"/>
+                <text x="325" y="211" text-anchor="middle" font-size="11" font-weight="500" class="sig-f">Financial Management</text>
 
-                  <rect x="404" y="40" width="108" height="56" fill="none" stroke="currentColor" stroke-width="1.3"/>
-                  <text x="458" y="66" text-anchor="middle">Payments</text>
-                  <line x1="516" y1="68" x2="532" y2="68" stroke="currentColor" stroke-width="1.1" marker-end="url(#ar-bid)"/>
+                <rect x="10" y="228" width="150" height="70" fill="none" stroke-width="1.4" class="sig-s"/>
+                <text x="85.0" y="259.5" text-anchor="middle" font-size="10">Actual payments</text>
+                <text x="85.0" y="273.5" text-anchor="middle" font-size="10">report</text>
+                <rect x="170" y="228" width="150" height="70" fill="none" stroke-width="1.4" class="sig-s"/>
+                <text x="245.0" y="259.5" text-anchor="middle" font-size="10">Statements of</text>
+                <text x="245.0" y="273.5" text-anchor="middle" font-size="10">expenditure</text>
+                <rect x="330" y="228" width="150" height="70" fill="none" stroke-width="1.4" class="sig-s"/>
+                <text x="405.0" y="266.5" text-anchor="middle" font-size="10">Execution status</text>
+                <rect x="490" y="228" width="150" height="70" fill="none" stroke-width="1.4" class="sig-s"/>
+                <text x="565.0" y="259.5" text-anchor="middle" font-size="10">IDB funds</text>
+                <text x="565.0" y="273.5" text-anchor="middle" font-size="10">reconciliation</text>
 
-                  <rect x="536" y="40" width="108" height="56" fill="none" stroke="currentColor" stroke-width="1.3"/>
-                  <text x="590" y="66" text-anchor="middle">Invoicing</text>
-                  <line x1="648" y1="68" x2="664" y2="68" stroke="currentColor" stroke-width="1.1" marker-end="url(#ar-bid)"/>
+                <line x1="10" y1="326" x2="640" y2="326" stroke="currentColor" stroke-width="1" opacity=".3"/>
+                <text x="10" y="348" font-size="10" opacity=".6">DECISION RULE: depth was set by the area maturity, not by the section</text>
 
-                  <rect x="668" y="40" width="84" height="56" fill="none" stroke="currentColor" stroke-width="1.3"/>
-                  <text x="710" y="66" text-anchor="middle">Audits</text>
-                </g>
+                <rect x="10" y="362" width="310" height="76" fill="none" stroke="currentColor" stroke-width="1" opacity=".45" stroke-dasharray="4 3"/>
+                <text x="28" y="386" font-size="10">Area without a centralized process</text>
+                <text x="28" y="404" font-size="10" opacity=".65">needs to put its own house in order first</text>
+                <text x="28" y="422" font-size="10" class="acc-f" font-weight="500">→ the flow ships as an MVP</text>
 
-                <!-- the decision rule -->
-                <line x1="8" y1="126" x2="752" y2="126" stroke="currentColor" stroke-width="1" opacity=".3"/>
-                <text x="8" y="150" font-size="11" opacity=".6">DECISION RULE: depth was set by the area maturity, not by the stage</text>
-
-                <rect x="8" y="166" width="360" height="76" fill="none" stroke="currentColor" stroke-width="1" opacity=".45" stroke-dasharray="4 3"/>
-                <text x="26" y="192">Area without a centralized process</text>
-                <text x="26" y="212" opacity=".65">needs to put its own house in order first</text>
-                <text x="26" y="230" class="acc-f" font-weight="500">→ the flow ships as an MVP</text>
-
-                <rect x="392" y="166" width="360" height="76" fill="none" stroke="currentColor" stroke-width="1.4"/>
-                <text x="410" y="192">Area with a mature process</text>
-                <text x="410" y="212" opacity=".65">clear data about what it needs</text>
-                <text x="410" y="230" class="acc-f" font-weight="500">→ the flow is designed in more depth</text>
+                <rect x="340" y="362" width="300" height="76" fill="none" stroke="currentColor" stroke-width="1.4"/>
+                <text x="358" y="386" font-size="10">Area with a mature process</text>
+                <text x="358" y="404" font-size="10" opacity=".65">clear data about what it needs</text>
+                <text x="358" y="422" font-size="10" class="acc-f" font-weight="500">→ the flow is designed in more depth</text>
               </g>
             </svg>
           </div>
-          <figcaption>One platform for all six stages, but not all at the same level of detail. The prioritization criterion was not how important a stage was but how mature the area running it was: asking for a deep flow from an area that had not yet centralized its process would have digitized the mess. Illustrative diagram, it does not reproduce the IDB interface.</figcaption>
+          <figcaption>The nine sections of Release 2, split across two modules. The financial plan is the hinge: it belongs to Contract Management and Financial Management at the same time. How deeply each section was designed did not depend on its importance but on how much order the area running it already had. Illustrative diagram, it does not reproduce the IDB interface.</figcaption>
         </figure>
 
         <h2 data-lang="es">Compartir la base sin forzar la uniformidad</h2>
@@ -1025,8 +1034,8 @@ footer.site{border-top:1px solid var(--rule);padding:1.5rem 0 2.5rem}
         <h2 data-lang="es">Lo que pudimos construir</h2>
         <h2 data-lang="en" hidden>What we were able to build</h2>
 
-        <p data-lang="es">Diseñamos una plataforma que articulaba las distintas etapas del ciclo del préstamo, desde la adquisición y revisión de proyectos hasta los pagos, la facturación y las auditorías.</p>
-        <p data-lang="en" hidden>We designed a platform that connected the different stages of the loan cycle, from procurement and project review through to payments, invoicing and audits.</p>
+        <p data-lang="es">Diseñamos una plataforma que articulaba las nueve secciones de los dos módulos, desde el registro de contratos y las enmiendas hasta el reporte de pagos efectivos, el estado de ejecución y la conciliación de recursos.</p>
+        <p data-lang="en" hidden>We designed a platform that connected the nine sections of the two modules, from contract registration and amendments through to the actual payments report, execution status and funds reconciliation.</p>
 
         <p data-lang="es">La experiencia compartía una estructura central, pero no obligaba a que todas las áreas tuvieran el mismo nivel de detalle. Los procesos más maduros podían avanzar con mayor profundidad, mientras que otros comenzaban con una versión más acotada.</p>
         <p data-lang="en" hidden>The experience shared a central structure, but did not require every area to have the same level of detail. More mature processes could go deeper, while others started with a more limited version.</p>
